@@ -9,7 +9,7 @@ class IndexItem extends Component {
     this.state = { value: "", items: "" };
     this.addItemService = new ItemService();
   }
-  componentDidMount() {
+  componentWillMount() {
     axios
       .get("http://localhost:4200/items")
       .then(response => {
