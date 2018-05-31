@@ -1,4 +1,4 @@
-# Real-time-web-project
+# Minor - van Gogh
 A beautiful development environmount using React and Express.
 
 # Table of Content
