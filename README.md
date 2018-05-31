@@ -29,11 +29,11 @@ An list with stuff that we need to do.
 
 - [x] install React
 - [x] A linter that connects with react.
-- [] install Express
-- [] let react communicate with express
-- [] User input connects with the twitter-stream-api
-- [] Creates elements for the user
-- [] What happens when being offline
+- [x] install Express
+- [x] let react communicate with express
+- [x] create a database
+- [ ] Arduino working on app
+- [ ] Push notification
 
 # Lisence
 Copyright © 2018 Sam Guliker & Fenna de Wilde.  
