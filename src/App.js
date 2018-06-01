@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import logo from "./logo.svg";
-
 import AddItem from "./components/AddItem";
 import IndexItem from "./components/IndexItem";
 import EditItem from "./components/EditItem";

@@ -17,5 +17,14 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     }
+  },
+  rules: {
+    "no-console": 0
+  },
+  parserOptions: {
+    ecmaVersion: 6,
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true
+    }
   }
 };
