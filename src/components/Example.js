@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class Notification extends Component {
+    state = {
+        notification: false
+    }
+
     componentWillMount() {
         document.addEventListener("keydown", this.handleKeyDown);
     }
@@ -11,18 +15,17 @@ class Notification extends Component {
     handleKeyDown = (e) => {
         if(e.keyCode === 32) {
             console.log("key pressed")
+            this.setState({
+                notification: true
+            });
         }
     };
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+            <div className={this.state.notification ? "notification open" : "notification"}>
+               <p>Het is druk bij de aardappel pellers. Bij de zonnebloem is het op dit moment minder druk.</p>
+                <button>Ga naar de Zonnebloem</button>
             </div>
         );
     }
