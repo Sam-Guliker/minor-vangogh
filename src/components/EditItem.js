@@ -3,13 +3,7 @@ import axios from "axios";
 import ItemService from "./ItemService";
 
 class EditItem extends Component {
-  constructor(props) {
-    super(props);
-    this.addItemService = new ItemService();
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { value: "" };
-  }
+  state = { value: "" };
 
   componentDidMount() {
     axios

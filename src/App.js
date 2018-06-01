@@ -1,19 +1,23 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import logo from "./logo.svg";
-import "./App.css";
+
+import AddItem from "./components/AddItem";
+import IndexItem from "./components/IndexItem";
+import EditItem from "./components/EditItem";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" component={App} />
+          <Route path="/add-item" component={AddItem} />
+          <Route path="/index" component={IndexItem} />
+          <Route path="/edit/:id" component={EditItem} />
+        </div>
+      </Router>
     );
   }
 }
