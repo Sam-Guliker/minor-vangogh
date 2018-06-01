@@ -2,14 +2,9 @@ import React, { Component } from "react";
 import ItemService from "./ItemService";
 
 class AddItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "" };
-    this.addItemService = new ItemService();
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  state = {
+    value: ""
+  };
 
   handleChange(event) {
     this.setState({ value: event.target.value });
