@@ -10,9 +10,8 @@ body {
   max-width: 400px;
   margin: 50px auto;
   padding: 10px;
-  box-shadow: 2px 2px 32px 0px rgba(0,0,0,0.11);
-}
-
-.notification.open {
-  display: block;
+  box-shadow: 2px 2px 32px 0px rgba(0, 0, 0, 0.11);
+  &.open {
+    display: block;
+  }
 }
