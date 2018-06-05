@@ -22,12 +22,7 @@ module.exports = {
   },
   rules: {
     semi: 2,
-    "no-console": 0
-  },
-  parserOptions: {
-    ecmaVersion: 6,
-    ecmaFeatures: {
-      experimentalObjectRestSpread: true
-    }
+    "no-console": 0,
+    "arrow-body-style": ["error", "always"]
   }
 };
