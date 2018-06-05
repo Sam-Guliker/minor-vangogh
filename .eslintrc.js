@@ -14,11 +14,14 @@ module.exports = {
     // a function will be skipped.
   },
   parserOptions: {
+    ecmaVersion: 6,
+    sourceType: "module",
     ecmaFeatures: {
       jsx: true
     }
   },
   rules: {
+    semi: 2,
     "no-console": 0
   },
   parserOptions: {
