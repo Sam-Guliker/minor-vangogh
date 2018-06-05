@@ -8,7 +8,9 @@ class App extends Component {
   render() {
     return (
       <Router>
+          <div>
           <Route exact path="/" component={AddThemes} />
+          </div>
       </Router>
     );
   }
