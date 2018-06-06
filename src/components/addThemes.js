@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import Header from './Header';
-import ThemesList from './ThemesList';
+import Header from "./Header";
+import ThemesList from "./ThemesList";
 
 class addThemes extends Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header />
+        <main>
           <h2>Voeg items toe</h2>
-        <ThemesList/>
+          <ThemesList />
+        </main>
       </div>
     );
   }

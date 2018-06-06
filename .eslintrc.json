@@ -1,4 +1,5 @@
 {
+    "extends": ["react-app", "prettier"],
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module",
@@ -7,8 +8,13 @@
         }
     },
     "rules": {
-        "semi": 2
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"],
+        "prettier/prettier": "error"
     },
+    "plugins": [
+        "prettier"
+    ],
     "env": {
         "es6": true
     }

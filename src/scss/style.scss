@@ -42,6 +42,7 @@ q:before, q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -53,18 +54,17 @@ body {
   font-family: sans-serif;
 }
 
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
 * {
   box-sizing: border-box;
 }
 
-header {
-  height: 3rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  h1 {
-    font-size: 1em;
-  }
+img {
+  max-width: 100%;
 }
 
 h1, h2 {
@@ -72,11 +72,35 @@ h1, h2 {
   text-align: center;
 }
 
+header {
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .header-link {
+    position: absolute;
+  
+  }
+  .left {
+    left: 1em;
+  }
+  .right {
+    right: 1em;
+  }
+  h1 {
+    font-size: 1em;
+  }
+}
+
 .themes-list {
   display: flex;
   overflow-x: scroll;
   height: 80vh;
   justify-content: flex-start;
+  .filling {
+    width: 12vw;
+    flex: 0 0 auto;
+  }
 }
 
 .theme-item {
@@ -84,7 +108,7 @@ h1, h2 {
   flex: 0 0 auto;
   height: 90%;
   box-shadow: 0 0 18px 0 rgba(0,0,0,0.18);
-  margin: 1rem 1rem;
+  margin: 3vw;
   border-radius: 0.5rem;
   background-repeat: no-repeat;
   background-size: cover;
@@ -93,9 +117,44 @@ h1, h2 {
   justify-content: flex-start;
   align-items: flex-end;
   padding: 2rem;
+  &:first-of-type {
+    margin-left: 15vw;
+  }
+
   h3 {
     font-size: 2em;
     color: #FFF;
+  }
+  .details {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  span {
+    color: #FFF;
+    font-size: 1.5em;
+    display: block;
+    margin-top: 0.7rem;
+  }
+  .round-button {
+    display: block;
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border: none;
+    background: #FFF;
+    border-radius: 50%;
+    margin-bottom: 0.7rem;
+
+  }
+}
+
+.detail-page {
+  margin: 1rem;
+  img {
+    margin: auto;
+    display: block;
   }
 }
 
