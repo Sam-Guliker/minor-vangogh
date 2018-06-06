@@ -15,7 +15,9 @@ class Stap2 extends Component {
         <Link to={`/Stap3`}>
           <button>Volgende </button>
         </Link>
-        <progress />
+        <progress value="64" max="100">
+          64%
+        </progress>
       </div>
     );
   }

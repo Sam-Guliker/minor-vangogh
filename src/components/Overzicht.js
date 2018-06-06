@@ -10,68 +10,73 @@ class Stap5 extends Component {
         <Header name="Overzicht" />
         <ul>
           <li>
-            Het Begin
+            <img src={require("../images/paintingpallet.jpeg")} />
+            <p>Het begin</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
                 name="begin"
-                value="begin"
+                defaultValue="begin"
                 id="begin"
               />
             </form>
           </li>
           <li>
-            Het Brein{" "}
+            <img src={require("../images/brain.jpg")} />
+            <p>Het Brein</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
-                name="begin"
-                value="begin"
-                id="begin"
+                name="brein"
+                defaultValue="brein"
+                id="brein"
               />
             </form>
           </li>
           <li>
-            Persoonlijk leven{" "}
+            <img src={require("../images/ear.jpg")} />
+            <p>Persoonlijk leven</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
-                name="begin"
-                value="begin"
-                id="begin"
+                name="oor"
+                defaultValue="oor"
+                id="oor"
               />
             </form>
           </li>
           <li>
-            Kunstenaars{" "}
+            <img src={require("../images/geinspireerd.png")} />
+            <p>Kunstenaars</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
-                name="begin"
-                value="begin"
-                id="begin"
+                name="kunstenaars"
+                defaultValue="kunstenaars"
+                id="kunstenaars"
               />
             </form>
           </li>
           <li>
-            Tijd{" "}
+            <img src={require("../images/time.svg")} />
+            <p>Tijd</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
-                name="begin"
-                value="begin"
-                id="begin"
+                name="tijd"
+                defaultValue="tijd"
+                id="tijd"
               />
             </form>
           </li>
         </ul>
         <Link to={`/fin`}>
-          <button>Start de tour </button>
+          <button className="btn-full">Start de tour </button>
         </Link>
       </div>
     );

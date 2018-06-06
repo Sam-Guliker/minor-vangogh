@@ -9,17 +9,18 @@ class Stap5 extends Component {
       <div className="container">
         <Header name="Stap 5" />
         <p>Hoeveel Tijd heeft u?</p>
+        <img src={require("../images/time.svg")} />
         <select>
-          <option value="vijfenveertig" selected>
+          <option defaultValue="vijfenveertig" selected>
             00:45
           </option>
-          <option value="uur">01:00</option>
+          <option defaultValue="uur">01:00</option>
           <option value="meertijd">Meer tijd</option>
         </select>
 
         <svg src="images/kunstenaars.png" />
         <Link to={`/overzicht`}>
-          <button>Volgende </button>
+          <button className="btn">Volgende </button>
         </Link>
         <progress />
       </div>

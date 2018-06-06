@@ -14,9 +14,11 @@ class Home extends Component {
         <img src={require("../images/vangogh.jpg")} />
         <h2>Van Gogh</h2>
         <Link to={`/Stap1`}>
-          <button>Start </button>
+          <button className="btn-full">Start </button>
         </Link>
-        <progress />
+        <progress value="16.66" max="100">
+          16%
+        </progress>
       </div>
     );
   }

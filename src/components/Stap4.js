@@ -9,13 +9,15 @@ class Stap4 extends Component {
       <div className="container">
         <Header name="Stap 4" />
         <p>Laatste jaren en kunstenaars die geinspireerd zijn door van gogh</p>
-        <img src={require("../images/geinspireerd.jpg")} />
+        <img src={require("../images/geinspireerd.png")} />
         <button>Toevoegen</button>
         <button>Niet toeveogen</button>
         <Link to={`/Stap5`}>
           <button>Volgende </button>
         </Link>
-        <progress />
+        <progress value="100" max="100">
+          100%
+        </progress>
       </div>
     );
   }
