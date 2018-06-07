@@ -12,7 +12,7 @@ class DetailTheme extends Component {
     return (
       <div>
         <Header>
-          <Link className="header-link left" to="/">
+          <Link className="header-link round-button back" to="/">
             Back
           </Link>
         </Header>

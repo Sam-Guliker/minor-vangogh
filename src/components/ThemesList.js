@@ -18,8 +18,8 @@ const ThemesList = () => {
                 <span>0:30</span>
               </div>
               <div>
-                <button className="round-button">Add</button>
-                <Link className="round-button" to={`/details${obj.link}`}>
+                <button className="round-button plus">Add</button>
+                <Link className="round-button info" to={`/details${obj.link}`}>
                   Info
                 </Link>
               </div>

@@ -81,9 +81,6 @@ header {
     position: absolute;
   
   }
-  .left {
-    left: 1em;
-  }
   .right {
     right: 1em;
   }
@@ -136,19 +133,43 @@ header {
     display: block;
     margin-top: 0.7rem;
   }
-  .round-button {
-    display: block;
-    height: 3rem;
-    width: 3rem;
-    line-height: 3rem;
-    text-align: center;
-    border: none;
-    background: #FFF;
-    border-radius: 50%;
-    margin-bottom: 0.7rem;
+}
 
+.round-button {
+  display: block;
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  border: none;
+  background: #FFF;
+  border-radius: 50%;
+  margin-bottom: 0.7rem;
+  color: transparent;
+  &.info {
+    background: #FFF url(../images/info.svg) no-repeat center;
+    background-size: 0.3em;
+  }
+  &.plus {
+    background: #FFF url(../images/add.svg) no-repeat center;
+    background-size: 1.2em;
+  }
+  &.minus {
+    background: #FFF url(../images/minus.svg) no-repeat center;
+    background-size: 1.2em;
+  }
+  &.back {
+    background: #FFF url(../images/back.svg) no-repeat center;
+    background-size: 1em;
+    left: 1em;
+  }
+  &.list {
+    background: #FFF url(../images/collection.svg) no-repeat center;
+    background-size: 1em;
   }
 }
+
+
 
 .detail-page {
   margin: 1rem;
@@ -156,6 +177,18 @@ header {
     margin: auto;
     display: block;
   }
+}
+
+.themes-list-selected {
+    display: flex;
+    flex-wrap: wrap;
+    .theme-item {
+      width: 44vw;
+      height: 44vw;
+      &:first-of-type {
+        margin-left: 3vw;
+      }
+    }
 }
 
 
