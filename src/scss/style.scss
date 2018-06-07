@@ -73,7 +73,7 @@ h1, h2 {
 }
 
 header {
-  height: 3rem;
+  height: 4rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -146,6 +146,12 @@ header {
   border-radius: 50%;
   margin-bottom: 0.7rem;
   color: transparent;
+  overflow: hidden;
+  text-indent: -10em;
+  box-shadow: 0 0 18px 0 rgba(0,0,0,0.18);
+  &:hover {
+    color: transparent;
+  }
   &.info {
     background: #FFF url(../images/info.svg) no-repeat center;
     background-size: 0.3em;

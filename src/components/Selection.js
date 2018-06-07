@@ -28,6 +28,12 @@ class Selection extends Component {
                     </div>
                     <div>
                       <button className="round-button minus">Remove</button>
+                      <Link
+                        to={`/details${obj.link}`}
+                        className="round-button info"
+                      >
+                        Info
+                      </Link>
                     </div>
                   </div>
                 </li>
