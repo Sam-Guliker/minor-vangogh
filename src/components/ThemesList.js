@@ -15,7 +15,10 @@ const ThemesList = () => {
             <div className="details">
               <div>
                 <h3>{obj.name}</h3>
-                <span>0:30</span>
+                <span>
+                  <img src={require("../images/clock.svg")} />
+                  {obj.time}
+                </span>
               </div>
               <div>
                 <button className="round-button plus">Add</button>
