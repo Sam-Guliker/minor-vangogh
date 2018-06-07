@@ -5,7 +5,7 @@ import Header from "./Header";
 
 class LifeStart extends Component {
   state = {
-    selectedOption: "begin_van"
+    selectedOption: "Beginning"
   };
 
   handleOptionChange = changeEvent => {
@@ -16,6 +16,8 @@ class LifeStart extends Component {
   };
 
   render() {
+    console.log(this.props);
+
     return (
       <div className="container">
         <Header name="Step 1" />

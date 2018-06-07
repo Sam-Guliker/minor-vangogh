@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import Introduction from "./Introduction";
+import Navigation from "./Navigation";
+
 class Header extends Component {
   render() {
+    const firstUser = this.props.name;
+    console.log(this.props.name);
     return (
       <header>
-        <h1>{this.props.name}</h1>
+        {firstUser === "Start" ? (
+          <Introduction name={this.props.name} />
+        ) : (
+          <Navigation name={this.props.name} />
+        )}
       </header>
     );
   }

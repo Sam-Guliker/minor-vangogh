@@ -19,7 +19,7 @@ class Time extends Component {
         </select>
 
         <svg src="images/kunstenaars.png" />
-        <Link to={`/overzicht`}>
+        <Link to={`/Overview`}>
           <button className="btn">Next step </button>
         </Link>
         <progress />

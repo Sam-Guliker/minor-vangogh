@@ -12,7 +12,7 @@ class Home extends Component {
         <p>Every question is connected to a thema in the museum.</p>
         <img src={require("../images/vangogh.jpg")} />
         <h2>Van Gogh</h2>
-        <Link to={`/LifeStart`}>
+        <Link to={`/lifestart`}>
           <button className="btn-full">Start </button>
         </Link>
         <progress value="16.66" max="100">

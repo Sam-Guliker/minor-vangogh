@@ -82,3 +82,29 @@ progress {
 .container section {
   margin: auto;
 }
+
+.header-pos {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back {
+  width: 80%;
+  transform: rotate(180deg);
+}
+.icons {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+.icons:last-of-type {
+  padding-top: 5px;
+}
+
+.headline {
+  vertical-align: middle;
+  margin: 0;
+}
