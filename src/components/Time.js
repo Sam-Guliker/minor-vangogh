@@ -3,24 +3,24 @@ import { Link } from "react-router-dom";
 
 import Header from "./Header";
 
-class Stap5 extends Component {
+class Time extends Component {
   render() {
     return (
       <div className="container">
         <Header name="Stap 5" />
-        <p>Hoeveel Tijd heeft u?</p>
+        <p>How much time do you have?</p>
         <img src={require("../images/time.svg")} />
         <select>
           <option defaultValue="vijfenveertig" selected>
-            00:45
+            00:45 min
           </option>
-          <option defaultValue="uur">01:00</option>
-          <option value="meertijd">Meer tijd</option>
+          <option defaultValue="uur">01:00 Hour</option>
+          <option value="meertijd">More then enough!</option>
         </select>
 
         <svg src="images/kunstenaars.png" />
         <Link to={`/overzicht`}>
-          <button className="btn">Volgende </button>
+          <button className="btn">Next step </button>
         </Link>
         <progress />
       </div>
@@ -28,4 +28,4 @@ class Stap5 extends Component {
   }
 }
 
-export default Stap5;
+export default Time;

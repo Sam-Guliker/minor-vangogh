@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Header from "./Header";
 
-class Stap1 extends Component {
+class LifeStart extends Component {
   state = {
     selectedOption: "begin_van"
   };
@@ -18,43 +18,41 @@ class Stap1 extends Component {
   render() {
     return (
       <div className="container">
-        <Header name="Stap 1" />
-        <p>Bent u benieuwd in het begin van het leven van Gogh.</p>
+        <Header name="Step 1" />
+        <p>Are you interested in van Gogh's starting point in painiting?</p>
         <img src={require("../images/paintingpallet.jpeg")} />
         <section>
           <label
             className={
-              this.state.selectedOption === "begin_van" ? "active-btn" : ""
+              this.state.selectedOption === "beginning" ? "active-btn" : ""
             }
           >
             <input
-              name="optie-1"
+              name="option-1"
               type="radio"
-              value="begin_van"
+              value="beginning"
               className="section-btn"
-              checked={this.state.selectedOption === "begin_van"}
+              checked={this.state.selectedOption === "beginning"}
               onChange={this.handleOptionChange}
             />
-            Toevoegen
+            Add Theme
           </label>
           <label
-            className={
-              this.state.selectedOption === "eind_van" ? "active-btn" : ""
-            }
+            className={this.state.selectedOption === "end" ? "active-btn" : ""}
           >
             <input
-              name="optie-1"
+              name="option-1"
               type="radio"
-              value="eind_van"
+              value="end"
               className="section-btn"
-              checked={this.state.selectedOption === "eind_van"}
+              checked={this.state.selectedOption === "end"}
               onChange={this.handleOptionChange}
             />
-            Niet toevoegen
+            Do not add theme
           </label>
         </section>
-        <Link to={`/Stap2`}>
-          <button className="btn">Volgende stap </button>
+        <Link to={`/Brain`}>
+          <button className="btn">Next step </button>
         </Link>
         <progress value="32" max="100">
           32%
@@ -64,4 +62,4 @@ class Stap1 extends Component {
   }
 }
 
-export default Stap1;
+export default LifeStart;

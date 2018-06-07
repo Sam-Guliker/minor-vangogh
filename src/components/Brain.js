@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 import Header from "./Header";
 
-class Stap2 extends Component {
+class Brain extends Component {
   render() {
     return (
       <div className="container">
-        <Header name="Stap 2" />
-        <p>Het Brein van, van Gogh</p>
+        <Header name="Step 2" />
+        <p>The brain of van Gogh</p>
         <img src={require("../images/brain.jpg")} />
-        <button>Toevoegen</button>
-        <button>Niet toeveogen</button>
-        <Link to={`/Stap3`}>
-          <button>Volgende </button>
+        <button>Add</button>
+        <button>Do not add</button>
+        <Link to={`/Personal`}>
+          <button>Next theme </button>
         </Link>
         <progress value="64" max="100">
           64%
@@ -23,4 +23,4 @@ class Stap2 extends Component {
   }
 }
 
-export default Stap2;
+export default Brain;

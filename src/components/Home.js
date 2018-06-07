@@ -8,12 +8,11 @@ class Home extends Component {
     return (
       <div className="container">
         <Header name="Start" />
-        <p>
-          De aankomende vragen helpen u om een gepersonaliseerde tour te maken.
-        </p>
+        <p>The next questions will help you personalize your tour.</p>
+        <p>Every question is connected to a thema in the museum.</p>
         <img src={require("../images/vangogh.jpg")} />
         <h2>Van Gogh</h2>
-        <Link to={`/Stap1`}>
+        <Link to={`/LifeStart`}>
           <button className="btn-full">Start </button>
         </Link>
         <progress value="16.66" max="100">

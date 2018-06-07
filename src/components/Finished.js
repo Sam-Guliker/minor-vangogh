@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 import Header from "./Header";
 
-class Fin extends Component {
+class Finished extends Component {
   render() {
     return (
       <div className="container">
-        <Header name="Fin" />
-        <h2>De test is afgelopen, bedankt voor uw tijd!</h2>
+        <Header name="Finshed" />
+        <h2>You've completed the task, thank you for your time</h2>
       </div>
     );
   }
 }
 
-export default Fin;
+export default Finished;

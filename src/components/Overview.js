@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 import Header from "./Header";
 
-class Stap5 extends Component {
+class Overview extends Component {
   render() {
     return (
       <div className="container">
-        <Header name="Overzicht" />
+        <Header name="Overview" />
         <ul>
           <li>
             <img src={require("../images/paintingpallet.jpeg")} />
@@ -24,63 +24,63 @@ class Stap5 extends Component {
           </li>
           <li>
             <img src={require("../images/brain.jpg")} />
-            <p>Het Brein</p>
+            <p>The Brain</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
-                name="brein"
-                defaultValue="brein"
-                id="brein"
+                name="brain"
+                defaultValue="brain"
+                id="brain"
               />
             </form>
           </li>
           <li>
             <img src={require("../images/ear.jpg")} />
-            <p>Persoonlijk leven</p>
+            <p>Personal Life</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
-                name="oor"
-                defaultValue="oor"
-                id="oor"
+                name="ear"
+                defaultValue="ear"
+                id="ear"
               />
             </form>
           </li>
           <li>
             <img src={require("../images/geinspireerd.png")} />
-            <p>Kunstenaars</p>
+            <p>Artists</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
-                name="kunstenaars"
-                defaultValue="kunstenaars"
-                id="kunstenaars"
+                name="artists"
+                defaultValue="artists"
+                id="artists"
               />
             </form>
           </li>
           <li>
             <img src={require("../images/time.svg")} />
-            <p>Tijd</p>
+            <p>Time</p>
             <form>
               <input
                 defaultChecked
                 type="checkbox"
-                name="tijd"
-                defaultValue="tijd"
-                id="tijd"
+                name="time"
+                defaultValue="time"
+                id="timetijd"
               />
             </form>
           </li>
         </ul>
-        <Link to={`/fin`}>
-          <button className="btn-full">Start de tour </button>
+        <Link to={`/finished`}>
+          <button className="btn-full">Start the tour </button>
         </Link>
       </div>
     );
   }
 }
 
-export default Stap5;
+export default Overview;
