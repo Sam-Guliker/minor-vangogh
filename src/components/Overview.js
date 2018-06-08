@@ -2,8 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Header from "./Header";
+import data from "../data/data";
 
 class Overview extends Component {
+  beginning = React.createRef();
+  brain = React.createRef();
+  personal = React.createRef();
+  artists = React.createRef();
+  time = React.createRef();
+
   render() {
     return (
       <div className="container">
@@ -14,11 +21,11 @@ class Overview extends Component {
             <p>Het begin</p>
             <form>
               <input
-                defaultChecked
+                ref={this.beginning}
                 type="checkbox"
-                name="begin"
-                defaultValue="begin"
-                id="begin"
+                name="beginning"
+                defaultValue={true}
+                id="beginning"
               />
             </form>
           </li>
@@ -27,10 +34,10 @@ class Overview extends Component {
             <p>The Brain</p>
             <form>
               <input
-                defaultChecked
+                ref={this.brain}
                 type="checkbox"
                 name="brain"
-                defaultValue="brain"
+                defaultValue={true}
                 id="brain"
               />
             </form>
@@ -40,10 +47,11 @@ class Overview extends Component {
             <p>Personal Life</p>
             <form>
               <input
+                ref={this.personal}
                 defaultChecked
                 type="checkbox"
                 name="ear"
-                defaultValue="ear"
+                defaultValue={true}
                 id="ear"
               />
             </form>
@@ -53,10 +61,11 @@ class Overview extends Component {
             <p>Artists</p>
             <form>
               <input
+                ref={this.artists}
                 defaultChecked
                 type="checkbox"
                 name="artists"
-                defaultValue="artists"
+                defaultValue={true}
                 id="artists"
               />
             </form>
@@ -66,10 +75,11 @@ class Overview extends Component {
             <p>Time</p>
             <form>
               <input
+                ref={this.time}
                 defaultChecked
                 type="checkbox"
                 name="time"
-                defaultValue="time"
+                defaultValue={true}
                 id="timetijd"
               />
             </form>

@@ -39,6 +39,11 @@ ul {
 ul input {
   transform: scale(2);
 }
+section label {
+  font-size: 1.4em;
+  margin: 1em 0;
+  margin-right: 20px;
+}
 label input {
   opacity: 0;
   position: absolute;
@@ -75,10 +80,17 @@ label input {
 }
 
 progress {
+  margin-top: 1em;
+  height: 20px;
   width: 100%;
-  padding: 1em;
+  background: black;
 }
-
+progress[value]::-webkit-progress-value {
+  color: blue;
+}
+.container {
+  padding: 0 30px;
+}
 .container section {
   margin: auto;
 }
@@ -89,22 +101,31 @@ progress {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  button {
+    background: none;
+    border: none;
+    width: 40px;
+  }
+  a {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .back {
-  width: 80%;
+  width: 100%;
   transform: rotate(180deg);
 }
 .icons {
   vertical-align: middle;
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
 }
-.icons:last-of-type {
-  padding-top: 5px;
-}
-
 .headline {
   vertical-align: middle;
   margin: 0;
+}
+
+p {
+  font-size: 2em;
 }

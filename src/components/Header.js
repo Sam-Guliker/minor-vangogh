@@ -7,7 +7,6 @@ import Navigation from "./Navigation";
 class Header extends Component {
   render() {
     const firstUser = this.props.name;
-    console.log(this.props.name);
     return (
       <header>
         {firstUser === "Start" ? (

@@ -6,8 +6,6 @@ class Navigation extends Component {
     this.props.history.goBack();
   };
   render() {
-    console.log("nav", this.props);
-
     return (
       <div className="header-pos">
         <button className="icons" onClick={this.handleChange}>

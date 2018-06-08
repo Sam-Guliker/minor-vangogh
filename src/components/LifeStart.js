@@ -2,52 +2,51 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Header from "./Header";
+import data from "../data/data.js";
 
 class LifeStart extends Component {
   state = {
-    selectedOption: "Beginning"
+    selectedOption: true
   };
 
   handleOptionChange = changeEvent => {
-    console.log(changeEvent.target.value);
+    const targetValue = JSON.parse(changeEvent.target.value);
     this.setState({
-      selectedOption: changeEvent.target.value
+      selectedOption: targetValue
     });
+    data[0].answer = targetValue;
+    console.log(data[0].answer);
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="container">
         <Header name="Step 1" />
-        <p>Are you interested in van Gogh's starting point in painiting?</p>
+        <p>Are you interested in van Gogh's starting career in painiting?</p>
         <img src={require("../images/paintingpallet.jpeg")} />
         <section>
           <label
-            className={
-              this.state.selectedOption === "beginning" ? "active-btn" : ""
-            }
+            className={this.state.selectedOption === true ? "active-btn" : ""}
           >
             <input
               name="option-1"
               type="radio"
-              value="beginning"
+              value={true}
               className="section-btn"
-              checked={this.state.selectedOption === "beginning"}
+              checked={this.state.selectedOption === true}
               onChange={this.handleOptionChange}
             />
             Add Theme
           </label>
           <label
-            className={this.state.selectedOption === "end" ? "active-btn" : ""}
+            className={this.state.selectedOption === false ? "active-btn" : ""}
           >
             <input
               name="option-1"
               type="radio"
-              value="end"
+              value={false}
               className="section-btn"
-              checked={this.state.selectedOption === "end"}
+              checked={this.state.selectedOption === false}
               onChange={this.handleOptionChange}
             />
             Do not add theme
