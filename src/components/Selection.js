@@ -4,6 +4,19 @@ import { Link } from "react-router-dom";
 import Header from "./Header";
 
 class Selection extends Component {
+  state = {
+    selectedThemes: themes.filter(obj => {
+      return obj.selected === true;
+    })
+  };
+  totalTime() {
+    let time = 0;
+    for (let i = 0; i < this.state.selectedThemes.length; i++) {
+      time += parseInt(this.state.selectedThemes[i].time);
+      console.log(time);
+    }
+    return time + "m";
+  }
   render() {
     return (
       <div>
@@ -13,8 +26,9 @@ class Selection extends Component {
           </Link>
         </Header>
         <main>
+          <h1>Total time {this.totalTime()}</h1>
           <ul className="themes-list-selected">
-            {themes.map((obj, i) => {
+            {this.state.selectedThemes.map((obj, i) => {
               return (
                 <li
                   key={i}
@@ -24,7 +38,10 @@ class Selection extends Component {
                   <div className="details">
                     <div>
                       <h3>{obj.name}</h3>
-                      <span>0:30</span>
+                      <span>
+                        <img src={require("../images/clock.svg")} alt="clock" />
+                        {obj.time}
+                      </span>
                     </div>
                     <div>
                       <button className="round-button minus">Remove</button>

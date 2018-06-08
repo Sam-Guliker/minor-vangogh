@@ -20,7 +20,7 @@ class DetailTheme extends Component {
           <div>
             <img src={project.src} />
           </div>
-          <article>
+          <article className="detail-description">
             <h1>{project.name}</h1>
             <p>
               Vincent van Gogh is nooit in Japan geweest. Hij leerde het land
