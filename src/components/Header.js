@@ -20,7 +20,6 @@ class Header extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    console.log(props, state);
     if (props.selected === state.selected) {
       return null;
     } else if (props.selected === undefined) {
@@ -38,7 +37,7 @@ class Header extends Component {
     return (
       <header>
         {this.props.children}
-        <h1>Persoonlijke tour</h1>
+        <h1>Personal tour</h1>
         <Link className="header-link right round-button list" to="/selection">
           Selection
           <span>{this.state.selected}</span>

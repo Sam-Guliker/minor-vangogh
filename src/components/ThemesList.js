@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import themes from "../data/themes";
 import { Link } from "react-router-dom";
 
 class ThemesList extends Component {
   render() {
     return (
       <ul className="themes-list">
-        {themes.map((obj, i) => {
+        {this.props.list.map((obj, i) => {
           return (
             <li
               key={i}
@@ -23,7 +22,7 @@ class ThemesList extends Component {
                 </div>
                 <div>
                   <button
-                    onClick={() => this.props.handleSelection(i)}
+                    onClick={() => this.props.handleSelection(obj.name)}
                     className="round-button plus"
                   >
                     Add

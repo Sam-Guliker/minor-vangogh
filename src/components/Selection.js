@@ -9,19 +9,36 @@ class Selection extends Component {
       return obj.selected === true;
     })
   };
+
   totalTime() {
     let time = 0;
     for (let i = 0; i < this.state.selectedThemes.length; i++) {
       time += parseInt(this.state.selectedThemes[i].time);
-      console.log(time);
     }
     return time + "m";
   }
+
+  handleSelection = name => {
+    for (let i = 0; themes.length > i; i++) {
+      if (themes[i].name === name) {
+        themes[i].selected = false;
+      }
+    }
+
+    const newThemes = themes.filter((obj, i) => {
+      return obj.selected === true;
+    });
+
+    this.setState({
+      selectedThemes: newThemes
+    });
+  };
+
   render() {
     return (
       <div>
         <Header>
-          <Link className="header-link round-button back" to="/">
+          <Link className="header-link round-button back" to="/add">
             Back
           </Link>
         </Header>
@@ -44,7 +61,12 @@ class Selection extends Component {
                       </span>
                     </div>
                     <div>
-                      <button className="round-button minus">Remove</button>
+                      <button
+                        onClick={() => this.handleSelection(obj.name)}
+                        className="round-button minus"
+                      >
+                        Remove
+                      </button>
                       <Link
                         to={`/details${obj.link}`}
                         className="round-button info"
@@ -58,6 +80,9 @@ class Selection extends Component {
             })}
             <div className="filling" />
           </ul>
+          <Link className="button" to="/start">
+            Start tour
+          </Link>
         </main>
       </div>
     );

@@ -221,7 +221,27 @@ header {
 }
 
 .detail-description {
-  padding-top: 2em;
+  padding-top: 2em; 
+  p {
+    padding: 10px;
+  }
+}
+
+.start {
+  text-align: center;
+}
+
+.button {
+  text-align: center;
+  display: block;
+  border-radius: 2rem;
+  border: 2px solid black;
+  margin: auto;
+  width: 15rem;
+  height: 3rem;
+  line-height: 2.8rem;
+  color: black;
+
 }
 
 

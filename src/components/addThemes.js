@@ -15,15 +15,25 @@ function handleSelection() {
   return result;
 }
 
+function checkNotSelected() {
+  const newThemes = themes.filter((obj, i) => {
+    return obj.selected === false;
+  });
+
+  return newThemes;
+}
+
 class addThemes extends Component {
   state = {
-    selected: handleSelection()
+    selected: handleSelection(),
+    notSelected: checkNotSelected()
   };
-  handleSelection = index => {
-    if (themes[index].selected) {
-      themes[index].selected = false;
-    } else {
-      themes[index].selected = true;
+
+  handleSelection = name => {
+    for (let i = 0; themes.length > i; i++) {
+      if (themes[i].name === name) {
+        themes[i].selected = true;
+      }
     }
 
     let result = 0;
@@ -33,17 +43,27 @@ class addThemes extends Component {
         result += 1;
       }
     }
+
+    const newThemes = themes.filter((obj, i) => {
+      return obj.selected === false;
+    });
+
     this.setState({
-      selected: result
+      selected: result,
+      notSelected: newThemes
     });
   };
+
   render() {
     return (
       <div>
         <Header selected={this.state.selected} />
         <main>
-          <h2>Voeg items toe</h2>
-          <ThemesList handleSelection={this.handleSelection} />
+          <h2>Add items</h2>
+          <ThemesList
+            list={this.state.notSelected}
+            handleSelection={this.handleSelection}
+          />
         </main>
       </div>
     );
