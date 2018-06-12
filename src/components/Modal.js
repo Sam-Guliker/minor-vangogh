@@ -6,11 +6,13 @@ class Modal extends Component {
       <div className={this.props.active ? "hidden" : "overlay"}>
         <article>
           <p className="introduction">
-            <img src={require("../images/list.svg")} alt="" />
+            <img src={require("../images/list_black.svg")} alt="" />
             This is your overview icon, you can simple add or remove items here
             if you want to make a change in your tour
           </p>
-          <button onClick={this.props.onClosedModal}>I understand</button>
+          <button className="btn-full" onClick={this.props.onClosedModal}>
+            I understand
+          </button>
         </article>
       </div>
     );

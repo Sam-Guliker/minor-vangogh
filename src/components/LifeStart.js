@@ -36,11 +36,6 @@ class LifeStart extends Component {
         />
         <div className="container">
           <Header name="Step 1" />
-          <p>
-            This is your overview, you can simply add or delete categories along
-            the way.
-          </p>
-
           <h2>
             The ground floor. This is where van Gogh started with making his own
             identity.
@@ -75,7 +70,7 @@ class LifeStart extends Component {
             </label>
           </section>
           <Link to={`/Brain`}>
-            <button className="btn">Next step </button>
+            <button className="btn-full">Next step </button>
           </Link>
           <progress value="32" max="100">
             32%

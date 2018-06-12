@@ -53,7 +53,7 @@ class Personal extends Component {
           </label>
         </section>
         <Link to={`/LastYears`}>
-          <button className="btn">Next theme </button>
+          <button className="btn-full">Next theme </button>
         </Link>
         <progress value="64" max="100">
           64%

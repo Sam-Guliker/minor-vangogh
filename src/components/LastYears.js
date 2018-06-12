@@ -55,7 +55,7 @@ class LastYears extends Component {
           </label>
         </section>
         <Link to={`/time`}>
-          <button className="btn">Next step </button>
+          <button className="btn-full">Next step </button>
         </Link>
         <progress value="78" max="100">
           78%

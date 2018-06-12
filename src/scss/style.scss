@@ -1,3 +1,87 @@
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham-Bold.eot");
+  src: url("../fonts/Gotham-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-Bold.woff2") format("woff2"),
+    url("../fonts/Gotham-Bold.woff") format("woff"),
+    url("../fonts/Gotham-Bold.ttf") format("truetype"),
+    url("../fonts/Gotham-Bold.svg#Gotham-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham-Medium.eot");
+  src: url("../fonts/Gotham-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-Medium.woff2") format("woff2"),
+    url("../fonts/Gotham-Medium.woff") format("woff"),
+    url("../fonts/Gotham-Medium.ttf") format("truetype"),
+    url("../fonts/Gotham-Medium.svg#Gotham-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham-Light.eot");
+  src: url("../fonts/Gotham-Light.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-Light.woff2") format("woff2"),
+    url("../fonts/Gotham-Light.woff") format("woff"),
+    url("../fonts/Gotham-Light.ttf") format("truetype"),
+    url("../fonts/Gotham-Light.svg#Gotham-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham-Book.eot");
+  src: url("../fonts/Gotham-Book.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-Book.woff2") format("woff2"),
+    url("../fonts/Gotham-Book.woff") format("woff"),
+    url("../fonts/Gotham-Book.ttf") format("truetype"),
+    url("../fonts/Gotham-Book.svg#Gotham-Book") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham-Thin.eot");
+  src: url("../fonts/Gotham-Thin.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-Thin.woff2") format("woff2"),
+    url("../fonts/Gotham-Thin.woff") format("woff"),
+    url("../fonts/Gotham-Thin.ttf") format("truetype"),
+    url("../fonts/Gotham-Thin.svg#Gotham-Thin") format("svg");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham-Black.eot");
+  src: url("../fonts/Gotham-Black.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-Black.woff2") format("woff2"),
+    url("../fonts/Gotham-Black.woff") format("woff"),
+    url("../fonts/Gotham-Black.ttf") format("truetype"),
+    url("../fonts/Gotham-Black.svg#Gotham-Black") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham-XLight.eot");
+  src: url("../fonts/Gotham-XLight.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Gotham-XLight.woff2") format("woff2"),
+    url("../fonts/Gotham-XLight.woff") format("woff"),
+    url("../fonts/Gotham-XLight.ttf") format("truetype"),
+    url("../fonts/Gotham-XLight.svg#Gotham-XLight") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +95,8 @@ body {
 }
 .app {
   margin: auto;
+  background-color: black;
+  min-height: 100vh;
 }
 img {
   width: 100%;
@@ -39,10 +125,33 @@ ul {
 ul input {
   transform: scale(2);
 }
+p,
+h1,
+h2,
+h3 {
+  padding-top: 20px;
+  font-family: "Gotham";
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+  margin-bottom: 0;
+}
+h1 {
+  margin-top: 0;
+  padding-top: 30px;
+}
+h2 {
+  font-size: 1.6em;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 0.4em;
+}
 section label {
   font-size: 1.4em;
   margin: 1em 0;
+  font-weight: 400;
   margin-right: 20px;
+  color: rgba(255, 255, 255, 0.7);
 }
 label input {
   opacity: 0;
@@ -51,7 +160,8 @@ label input {
 }
 
 .active-btn {
-  border: 1px solid #0e5d9e;
+  font-weight: 700;
+  color: #fff;
   border-radius: 10px;
   padding: 10px;
 }
@@ -62,33 +172,64 @@ label input {
 }
 
 .btn {
-  margin-top: 1em;
-  width: 100%;
-  color: white;
-  background: #2e2e2e;
-  padding: 1em;
-  border: none;
+  font-family: "Gotham";
+  cursor: pointer;
+  width: auto;
+  border: 1px solid transparent;
+  box-shadow: none !important;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .btn-full {
+  font-family: "Gotham";
+  cursor: pointer;
+  width: auto;
+  border: 1px solid transparent;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  font-weight: 600;
+  font-size: 0.8em;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+  padding: 0.3em 2em;
+  border-radius: 3em;
+  text-decoration: none !important;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: black;
+  padding-top: 1em;
   width: 100%;
-  outline: none;
-  color: white;
-  background: #2e2e2e;
-  padding: 1em;
-  border: none;
+  background: #fff;
 }
 
 progress {
   margin-top: 1em;
-  height: 20px;
+  height: 3px;
   width: 100%;
   background: black;
   margin-bottom: 1em;
 }
-progress[value]::-webkit-progress-value {
-  color: blue;
+progress::-webkit-progress-bar {
+  background: #fff;
+  border-radius: 1em;
 }
+progress::-webkit-progress-value {
+  background: #27bcc2;
+  border-radius: 1em;
+}
+.introduction {
+  color: #2e2e2e;
+}
+
 .container {
   padding: 0 30px;
 }
@@ -97,25 +238,35 @@ progress[value]::-webkit-progress-value {
 }
 
 .header-pos {
-  margin: 2em 0;
+  margin: 1em 0;
+  margin-bottom: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   button {
-    background: none;
-    border: none;
-    width: 40px;
+    cursor: pointer;
+    width: auto;
+    border: 1px solid transparent;
+    box-shadow: none !important;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: transparent;
   }
   a {
     width: 40px;
-    height: 40px;
   }
 }
 
 .back {
-  width: 100%;
-  transform: rotate(180deg);
+  width: 30px;
+  height: 30px;
 }
 .icons {
   vertical-align: middle;
@@ -130,7 +281,7 @@ progress[value]::-webkit-progress-value {
 .overlay {
   margin: 0;
   position: absolute;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.8);
   width: 100vw;
   height: 100vh;
   z-index: 2;
@@ -141,17 +292,15 @@ progress[value]::-webkit-progress-value {
     background: #fff;
     p {
       margin: 2em;
+      margin-bottom: 0;
     }
-    button {
+    .btn-full {
       display: block;
-      text-align: center;
-      padding: 1em 2em;
-      margin-bottom: 1em;
-      background: transparent;
-      border: none;
+      color: #fff;
+      background: black;
+      width: 50%;
       margin: auto;
-      margin-bottom: 1em;
-      font-weight: bold;
+      margin-bottom: 2em;
     }
   }
   img {
@@ -164,4 +313,19 @@ progress[value]::-webkit-progress-value {
 }
 .hidden {
   opacity: 0;
+}
+p {
+  padding: 10px 0;
+}
+
+header a {
+  width: 40px;
+  height: 40px;
+}
+
+select {
+  margin: 2em 0;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 0;
 }

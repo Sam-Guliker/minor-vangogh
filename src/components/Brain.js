@@ -53,7 +53,7 @@ class Brain extends Component {
           </label>
         </section>
         <Link to={`/Personal`}>
-          <button className="btn">Next theme </button>
+          <button className="btn-full">Next theme </button>
         </Link>
         <progress value="48" max="100">
           48%

@@ -8,12 +8,15 @@ class Home extends Component {
     return (
       <div className="container">
         <Header name="Start" />
-        <p>The next questions will help you personalize your tour.</p>
-        <p>Every question is connected towards a category.</p>
+        <p>
+          The next questions will help you personalize your tour. Every question
+          is connected towards a category.
+        </p>
+
         <img src={require("../images/vangogh.jpg")} />
         <h2>Van Gogh</h2>
         <Link to={`/lifestart`}>
-          <button className="btn-full">Start </button>
+          <button className="btn-full">Start the tour </button>
         </Link>
         <progress value="16.66" max="100">
           16%
