@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import AddButton from "./AddButton";
 
 class ThemesList extends Component {
   render() {
@@ -14,21 +15,22 @@ class ThemesList extends Component {
             >
               <div className="details">
                 <div>
-                  <h3>{obj.name}</h3>
+                  <h2>{obj.name}</h2>
                   <span>
                     <img src={require("../images/clock.svg")} alt="clock" />
                     {obj.time}
                   </span>
                 </div>
                 <div>
-                  <button
-                    onClick={() => this.props.handleSelection(obj.name)}
-                    className="round-button plus"
+                  <AddButton
+                    handleSelection={this.props.handleSelection}
+                    name={obj.name}
+                    popButton={this.props.popButton}
                   >
                     Add
-                  </button>
+                  </AddButton>
                   <Link
-                    className="round-button info"
+                    className="button-small info"
                     to={`/details${obj.link}`}
                   >
                     Info

@@ -10,7 +10,9 @@ class Home extends Component {
         <main className="start">
           <h1>Start your personal tour</h1>
           <p>Choose from different themes and compose your tour yourself!</p>
-          <Link to="/add">Start</Link>
+          <Link className="button" to="/add">
+            Start
+          </Link>
         </main>
       </div>
     );

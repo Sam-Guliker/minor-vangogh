@@ -26,7 +26,19 @@ function checkNotSelected() {
 class addThemes extends Component {
   state = {
     selected: handleSelection(),
-    notSelected: checkNotSelected()
+    notSelected: checkNotSelected(),
+    pop: false
+  };
+
+  onClickButton = name => {
+    this.setState({
+      pop: true
+    });
+    setTimeout(() => {
+      this.setState({
+        pop: false
+      });
+    }, 300);
   };
 
   handleSelection = name => {
@@ -57,12 +69,15 @@ class addThemes extends Component {
   render() {
     return (
       <div>
-        <Header selected={this.state.selected} />
+        <Header selected={this.state.selected} pop={this.state.pop} />
         <main>
-          <h2>Add items</h2>
+          <p className="intro-text">
+            Add all the themes you like and view them in your list
+          </p>
           <ThemesList
             list={this.state.notSelected}
             handleSelection={this.handleSelection}
+            popButton={this.onClickButton}
           />
         </main>
       </div>

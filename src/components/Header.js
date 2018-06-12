@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import themes from "../data/themes";
+import { TweenMax, TimelineLite } from "gsap/TweenMax";
 
 function handleSelection() {
   let result = 0;
@@ -19,6 +20,8 @@ class Header extends Component {
     selected: handleSelection()
   };
 
+  listButton = React.createRef();
+
   static getDerivedStateFromProps(props, state) {
     if (props.selected === state.selected) {
       return null;
@@ -33,15 +36,29 @@ class Header extends Component {
     }
   }
 
+  handleClick = () => {
+    const tl = new TimelineLite();
+    tl.to(this.listButton.current, 0.2, { scaleX: 1.5, scaleY: 1.5 }).to(
+      this.listButton.current,
+      0.2,
+      {
+        scaleX: 1,
+        scaleY: 1
+      }
+    );
+  };
+
   render() {
     return (
       <header>
         {this.props.children}
-        <h1>Personal tour</h1>
-        <Link className="header-link right round-button list" to="/selection">
-          Selection
-          <span>{this.state.selected}</span>
-        </Link>
+        <h1 onClick={this.handleClick}>Personal tour</h1>
+        <div className="header-link right">
+          <Link className={"button-small list"} to="/selection">
+            Selection
+            <span ref={this.listButton}>{this.state.selected}</span>
+          </Link>
+        </div>
       </header>
     );
   }

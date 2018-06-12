@@ -38,11 +38,15 @@ class Selection extends Component {
     return (
       <div>
         <Header>
-          <Link className="header-link round-button back" to="/add">
+          <Link className="header-link button-small back" to="/add">
             Back
           </Link>
         </Header>
         <main>
+          <p className="intro-text">
+            These are the selected themes for your personal tour. Try not to
+            make the tour longer than 45 minutes for the best experience
+          </p>
           <h1>Total time {this.totalTime()}</h1>
           <ul className="themes-list-selected">
             {this.state.selectedThemes.map((obj, i) => {
@@ -63,13 +67,13 @@ class Selection extends Component {
                     <div>
                       <button
                         onClick={() => this.handleSelection(obj.name)}
-                        className="round-button minus"
+                        className="button-small minus"
                       >
                         Remove
                       </button>
                       <Link
                         to={`/details${obj.link}`}
-                        className="round-button info"
+                        className="button-small info"
                       >
                         Info
                       </Link>
