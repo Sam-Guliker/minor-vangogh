@@ -22,9 +22,9 @@ class LastYears extends Component {
     return (
       <div className="container">
         <Header name="Stap 4" />
-        <p>
+        <h2>
           Last years of van Gogh, and artists that get inspiration from van gogh
-        </p>
+        </h2>
         <img src={require("../images/geinspireerd.png")} />
         <section>
           <label

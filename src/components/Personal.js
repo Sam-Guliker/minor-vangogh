@@ -22,7 +22,7 @@ class Personal extends Component {
     return (
       <div className="container">
         <Header name="Step 3" />
-        <p>Personal life of van Gogh</p>
+        <h2>Personal life of van Gogh</h2>
         <img src={require("../images/ear.jpg")} />
         <section>
           <label

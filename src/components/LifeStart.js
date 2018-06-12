@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 
 import Header from "./Header";
 import data from "../data/data.js";
+import Modal from "./Modal";
 
 class LifeStart extends Component {
   state = {
-    selectedOption: true
+    selectedOption: true,
+    activeModal: false
   };
 
   handleOptionChange = changeEvent => {
@@ -18,46 +20,67 @@ class LifeStart extends Component {
     console.log(data[0].answer);
   };
 
+  modal = () => {
+    this.setState({
+      activeModal: true
+    });
+  };
+
   render() {
     return (
-      <div className="container">
-        <Header name="Step 1" />
-        <p>Are you interested in van Gogh's starting career in painiting?</p>
-        <img src={require("../images/paintingpallet.jpeg")} />
-        <section>
-          <label
-            className={this.state.selectedOption === true ? "active-btn" : ""}
-          >
-            <input
-              name="option-1"
-              type="radio"
-              value={true}
-              className="section-btn"
-              checked={this.state.selectedOption === true}
-              onChange={this.handleOptionChange}
-            />
-            Add Theme
-          </label>
-          <label
-            className={this.state.selectedOption === false ? "active-btn" : ""}
-          >
-            <input
-              name="option-1"
-              type="radio"
-              value={false}
-              className="section-btn"
-              checked={this.state.selectedOption === false}
-              onChange={this.handleOptionChange}
-            />
-            Do not add theme
-          </label>
-        </section>
-        <Link to={`/Brain`}>
-          <button className="btn">Next step </button>
-        </Link>
-        <progress value="32" max="100">
-          32%
-        </progress>
+      <div>
+        <Modal
+          name="icon"
+          onClosedModal={this.modal}
+          active={this.state.activeModal}
+        />
+        <div className="container">
+          <Header name="Step 1" />
+          <p>
+            This is your overview, you can simply add or delete categories along
+            the way.
+          </p>
+
+          <h2>
+            The ground floor. This is where van Gogh started with making his own
+            identity.
+          </h2>
+          <img src={require("../images/paintingpallet.jpeg")} />
+          <section>
+            <label className={this.state.selectedOption ? "active-btn" : ""}>
+              <input
+                name="option-1"
+                type="radio"
+                value={true}
+                className="section-btn"
+                checked={this.state.selectedOption === true}
+                onChange={this.handleOptionChange}
+              />
+              Add Theme
+            </label>
+            <label
+              className={
+                this.state.selectedOption === false ? "active-btn" : ""
+              }
+            >
+              <input
+                name="option-1"
+                type="radio"
+                value={false}
+                className="section-btn"
+                checked={this.state.selectedOption === false}
+                onChange={this.handleOptionChange}
+              />
+              Do not add theme
+            </label>
+          </section>
+          <Link to={`/Brain`}>
+            <button className="btn">Next step </button>
+          </Link>
+          <progress value="32" max="100">
+            32%
+          </progress>
+        </div>
       </div>
     );
   }

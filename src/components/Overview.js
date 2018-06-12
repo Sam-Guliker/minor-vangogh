@@ -11,6 +11,10 @@ class Overview extends Component {
   artists = React.createRef();
   time = React.createRef();
 
+  clickTest = () => {
+    console.log(this.brain);
+  };
+
   render() {
     return (
       <div className="container">

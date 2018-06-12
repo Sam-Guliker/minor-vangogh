@@ -84,6 +84,7 @@ progress {
   height: 20px;
   width: 100%;
   background: black;
+  margin-bottom: 1em;
 }
 progress[value]::-webkit-progress-value {
   color: blue;
@@ -126,6 +127,41 @@ progress[value]::-webkit-progress-value {
   margin: 0;
 }
 
-p {
-  font-size: 2em;
+.overlay {
+  margin: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  article {
+    width: 80vw;
+    margin: auto;
+    background: #fff;
+    p {
+      margin: 2em;
+    }
+    button {
+      display: block;
+      text-align: center;
+      padding: 1em 2em;
+      margin-bottom: 1em;
+      background: transparent;
+      border: none;
+      margin: auto;
+      margin-bottom: 1em;
+      font-weight: bold;
+    }
+  }
+  img {
+    width: 2em;
+    height: 2em;
+    margin: auto;
+    display: block;
+    margin-bottom: 1em;
+  }
+}
+.hidden {
+  opacity: 0;
 }

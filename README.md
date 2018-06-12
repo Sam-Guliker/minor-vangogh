@@ -18,22 +18,16 @@ How to get started with this project:
 3.  Run `npm start` to start the server
 4.  Go to [http://localhost:3000/](http://localhost:3000/)
 
-# Features
+# Persona
 
-# Data life cycle 
+# Testing 
 
-# External data source
 
 # Checklist
 An list with stuff that we need to do.
-
-- [x] install React
-- [x] A linter that connects with react.
-- [x] install Express
-- [x] let react communicate with express
-- [x] create a database
-- [ ] Arduino working on app
-- [ ] Push notification
+- [ ] Testinglist
+- [ ] Testing
+- [ ] Persona's 
 
 # Lisence
 Copyright © 2018 Sam Guliker & Fenna de Wilde.  

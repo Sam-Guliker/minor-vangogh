@@ -9,7 +9,7 @@ class Home extends Component {
       <div className="container">
         <Header name="Start" />
         <p>The next questions will help you personalize your tour.</p>
-        <p>Every question is connected to a thema in the museum.</p>
+        <p>Every question is connected towards a category.</p>
         <img src={require("../images/vangogh.jpg")} />
         <h2>Van Gogh</h2>
         <Link to={`/lifestart`}>

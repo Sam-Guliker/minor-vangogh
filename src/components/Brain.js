@@ -22,7 +22,7 @@ class Brain extends Component {
     return (
       <div className="container">
         <Header name="Step 2" />
-        <p>The brain of van Gogh</p>
+        <h2>The brain of van Gogh</h2>
         <img src={require("../images/brain.jpg")} />
         <section>
           <label
