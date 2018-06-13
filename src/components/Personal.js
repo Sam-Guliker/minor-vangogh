@@ -23,7 +23,7 @@ class Personal extends Component {
       <div className="container">
         <Header name="Step 3" />
         <h2>Personal life of van Gogh</h2>
-        <img src={require("../images/ear.jpg")} />
+        <img src={require("../images/kabinet.jpg")} />
         <section>
           <label
             className={this.state.selectedOption === true ? "active-btn" : ""}
@@ -36,7 +36,7 @@ class Personal extends Component {
               checked={this.state.selectedOption === true}
               onChange={this.handleOptionChange}
             />
-            Add Theme
+            Add category
           </label>
           <label
             className={this.state.selectedOption === false ? "active-btn" : ""}
@@ -49,11 +49,11 @@ class Personal extends Component {
               checked={this.state.selectedOption === false}
               onChange={this.handleOptionChange}
             />
-            Do not add theme
+            Do not add category
           </label>
         </section>
         <Link to={`/LastYears`}>
-          <button className="btn-full">Next theme </button>
+          <button className="btn-full">Next step </button>
         </Link>
         <progress value="64" max="100">
           64%

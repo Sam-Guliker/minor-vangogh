@@ -40,7 +40,11 @@ class LifeStart extends Component {
             The ground floor. This is where van Gogh started with making his own
             identity.
           </h2>
-          <img src={require("../images/paintingpallet.jpeg")} />
+          <div className="gallery">
+            <img src={require("../images/zelfportrait-1.jpg")} />
+            <img src={require("../images/portrait-2.jpg")} />
+            <img src={require("../images/zelfportrait-3.jpg")} />
+          </div>
           <section>
             <label className={this.state.selectedOption ? "active-btn" : ""}>
               <input
@@ -51,7 +55,7 @@ class LifeStart extends Component {
                 checked={this.state.selectedOption === true}
                 onChange={this.handleOptionChange}
               />
-              Add Theme
+              Add category
             </label>
             <label
               className={
@@ -66,7 +70,7 @@ class LifeStart extends Component {
                 checked={this.state.selectedOption === false}
                 onChange={this.handleOptionChange}
               />
-              Do not add theme
+              Do not add category
             </label>
           </section>
           <Link to={`/Brain`}>

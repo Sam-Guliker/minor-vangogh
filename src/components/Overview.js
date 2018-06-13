@@ -19,10 +19,9 @@ class Overview extends Component {
     return (
       <div className="container">
         <Header name="Overview" />
-        <ul>
+        <ul class="overview-list">
           <li>
-            <img src={require("../images/paintingpallet.jpeg")} />
-            <p>Het begin</p>
+            <h2>Het begin</h2>
             <form>
               <input
                 ref={this.beginning}
@@ -34,8 +33,7 @@ class Overview extends Component {
             </form>
           </li>
           <li>
-            <img src={require("../images/brain.jpg")} />
-            <p>The Brain</p>
+            <h2>The Brain</h2>
             <form>
               <input
                 ref={this.brain}
@@ -47,8 +45,7 @@ class Overview extends Component {
             </form>
           </li>
           <li>
-            <img src={require("../images/ear.jpg")} />
-            <p>Personal Life</p>
+            <h2>Personal Life</h2>
             <form>
               <input
                 ref={this.personal}
@@ -61,8 +58,7 @@ class Overview extends Component {
             </form>
           </li>
           <li>
-            <img src={require("../images/geinspireerd.png")} />
-            <p>Artists</p>
+            <h2>Artists</h2>
             <form>
               <input
                 ref={this.artists}
@@ -75,8 +71,7 @@ class Overview extends Component {
             </form>
           </li>
           <li>
-            <img src={require("../images/time.svg")} />
-            <p>Time</p>
+            <h2>Time</h2>
             <form>
               <input
                 ref={this.time}

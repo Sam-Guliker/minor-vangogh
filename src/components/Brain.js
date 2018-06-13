@@ -23,7 +23,10 @@ class Brain extends Component {
       <div className="container">
         <Header name="Step 2" />
         <h2>The brain of van Gogh</h2>
-        <img src={require("../images/brain.jpg")} />
+        <div className="gallery">
+          <img src={require("../images/aardappeleters.jpg")} />
+          <img src={require("../images/zonnebloem.jpg")} />
+        </div>
         <section>
           <label
             className={this.state.selectedOption === true ? "active-btn" : ""}
@@ -36,7 +39,7 @@ class Brain extends Component {
               checked={this.state.selectedOption === true}
               onChange={this.handleOptionChange}
             />
-            Add Theme
+            Add category
           </label>
           <label
             className={this.state.selectedOption === false ? "active-btn" : ""}
@@ -49,11 +52,11 @@ class Brain extends Component {
               checked={this.state.selectedOption === false}
               onChange={this.handleOptionChange}
             />
-            Do not add theme
+            Do not add category
           </label>
         </section>
         <Link to={`/Personal`}>
-          <button className="btn-full">Next theme </button>
+          <button className="btn-full">Next step </button>
         </Link>
         <progress value="48" max="100">
           48%

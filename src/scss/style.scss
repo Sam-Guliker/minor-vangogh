@@ -146,11 +146,14 @@ h2 {
   margin-top: 0;
   margin-bottom: 0.4em;
 }
+section {
+  padding: 0.4em 0;
+  margin: auto;
+}
 section label {
+  margin: 0;
   font-size: 1.4em;
-  margin: 1em 0;
   font-weight: 400;
-  margin-right: 20px;
   color: rgba(255, 255, 255, 0.7);
 }
 label input {
@@ -328,4 +331,50 @@ select {
   padding: 1em;
   background-color: #fff;
   border-radius: 0;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  overflow-x: scroll;
+  max-height: 500px;
+}
+.gallery img {
+  width: 300px;
+  margin-right: 20px;
+  height: 400px;
+  flex: 0 0 auto;
+}
+.overview-list li {
+  height: 150px;
+  margin: 1em 0;
+  h2 {
+    margin-left: 2em;
+    font-weight: bold;
+  }
+  input {
+    margin-right: 2em;
+  }
+}
+
+.overview-list li:nth-child(1) {
+  background: url("../images/zelfportrait-1.jpg");
+  background-position: -75px -75px;
+}
+.overview-list li:nth-child(2) {
+  background: url("../images/aardappeleters.jpg");
+  background-position: -75px -75px;
+}
+.overview-list li:nth-child(3) {
+  background: url("../images/kabinet.jpg");
+  background-position: -75px -75px;
+}
+.overview-list li:nth-child(4) {
+  background: url("../images/korenveld.jpg");
+  background-position: -75px -75px;
+}
+.overview-list li:nth-child(5) {
+  background: url("../images/zonnebloem.jpg");
+  background-position: -75px -75px;
 }

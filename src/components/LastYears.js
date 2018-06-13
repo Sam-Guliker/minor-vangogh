@@ -25,7 +25,11 @@ class LastYears extends Component {
         <h2>
           Last years of van Gogh, and artists that get inspiration from van gogh
         </h2>
-        <img src={require("../images/geinspireerd.png")} />
+        <div className="gallery">
+          <img src={require("../images/korenveld.jpg")} />
+          <img src={require("../images/korenveld-2.jpg")} />
+          <img src={require("../images/korenveld-3.jpg")} />
+        </div>
         <section>
           <label
             className={this.state.selectedOption === true ? "active-btn" : ""}
@@ -38,7 +42,7 @@ class LastYears extends Component {
               checked={this.state.selectedOption === true}
               onChange={this.handleOptionChange}
             />
-            Add Theme
+            Add category
           </label>
           <label
             className={this.state.selectedOption === false ? "active-btn" : ""}
@@ -51,7 +55,7 @@ class LastYears extends Component {
               checked={this.state.selectedOption === false}
               onChange={this.handleOptionChange}
             />
-            Do not add theme
+            Do not add category
           </label>
         </section>
         <Link to={`/time`}>
