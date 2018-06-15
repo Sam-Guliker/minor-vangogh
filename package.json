@@ -10,10 +10,12 @@
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "react-transition-group": "^2.3.1"
+    "react-transition-group": "^2.3.1",
+    "serve": "^8.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve --single ./build",
     "linter": "eslint --init",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
