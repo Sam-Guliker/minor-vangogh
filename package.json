@@ -9,10 +9,12 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "serve": "^8.2.0"
   },
   "scripts": {
-    "start": "react-scripts start & gulp",
+    "start": "serve --single ./build",
+    "dev": "react-scripts start & gulp",
     "linter": "eslint --init",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
