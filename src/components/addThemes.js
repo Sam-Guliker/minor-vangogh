@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import ThemesList from "./ThemesList";
-import LikeFooter from "./LikeFooter";
 import themes from "../data/themes";
 import { Link } from "react-router-dom";
 
@@ -77,12 +76,11 @@ class addThemes extends Component {
             handleSelection={this.handleSelection}
             popButton={this.onClickButton}
           />
-          <LikeFooter/>
         </main>
         <Link className={"action-button"} to="/selection">
-            Preview tour
-            <span>{this.state.selected}</span>
-          </Link>
+          Preview tour
+          <span>{this.state.selected}</span>
+        </Link>
       </div>
     );
   }

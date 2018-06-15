@@ -1,16 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class LikeFooter extends Component {
-    state = {}
-    render() { 
-        return ( 
-            <div className="like-footer">
-                <button className="round-button dislike"></button>
-                <button className="round-button small undo"></button>
-                <button className="round-button like"></button>
-            </div>
-         )
-    }
+  onClickButton = (name, selected) => {
+    this.props.handleSelection(name, selected);
+    this.props.popButton();
+  };
+
+  render() {
+    return (
+      <div className="like-footer">
+        <button
+          onClick={() => this.onClickButton(this.props.name, false)}
+          className="round-button dislike"
+        />
+        <button className="round-button small undo" />
+        <button
+          onClick={() => this.onClickButton(this.props.name, true)}
+          className="round-button like"
+        />
+      </div>
+    );
+  }
 }
- 
+
 export default LikeFooter;
