@@ -1,12 +1,20 @@
-@import 'variables';
-@import 'reset';
-@import 'fonts';
+@import "variables";
+@import "reset";
+@import "fonts";
 
-
+#root {
+  height: 100%;
+  div {
+    height: 100%;
+    div {
+      height: 100%;
+    }
+  }
+}
 body {
   margin: 0;
   padding: 0;
-  font-family: 'nexa', sans-serif;
+  font-family: "nexa", sans-serif;
   color: $base-color;
   font-size: $font-size-base;
   position: fixed;
@@ -15,7 +23,8 @@ body {
   right: 0;
 }
 
-body, html {
+body,
+html {
   width: 100%;
 }
 
@@ -37,7 +46,8 @@ img {
   max-width: 100%;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 1.4em;
 }
 
@@ -48,7 +58,6 @@ header {
   align-items: center;
   .header-link {
     position: absolute;
-  
   }
   .right {
     right: 0;
@@ -70,14 +79,15 @@ header {
   border-radius: $border-radius;
   padding: $padding;
   position: relative;
-  h2, h3 {
+  h2,
+  h3 {
     font-size: $font-size-h1;
     font-weight: bold;
-    color: #FFF;
+    color: #fff;
     margin-right: 1rem;
   }
   span {
-    color: #FFF;
+    color: #fff;
     font-size: 1em;
     display: block;
   }
@@ -101,8 +111,8 @@ header {
 
 @keyframes pop {
   0% {
-      transform: scale(1);
-  } 
+    transform: scale(1);
+  }
   50% {
     transform: scale(1.5);
   }
@@ -120,13 +130,13 @@ header {
   border: none;
   background: $gold-color;
   font-weight: bold;
-  color: #FFF;
+  color: #fff;
   font-size: $font-size-button;
   text-transform: uppercase;
   margin: $margin;
   border-radius: $border-radius;
-   &.pop span {
-    animation: pop 300ms ease; 
+  &.pop span {
+    animation: pop 300ms ease;
   }
   span {
     position: absolute;
@@ -149,22 +159,20 @@ header {
     color: transparent;
   }
   &.plus {
-    background: #FFF url(../images/add.svg) no-repeat center;
+    background: #fff url(../images/add.svg) no-repeat center;
     background-size: 2em;
   }
   &.minus {
-    background: #FFF url(../images/minus.svg) no-repeat center;
+    background: #fff url(../images/minus.svg) no-repeat center;
     background-size: 1.2em;
   }
   &.back {
-    background: #FFF url(../images/back.svg) no-repeat center;
+    background: #fff url(../images/back.svg) no-repeat center;
     background-size: 1em;
     left: 0;
     top: 0;
   }
 }
-
-
 
 .detail-page {
   margin: 1rem;
@@ -175,20 +183,20 @@ header {
 }
 
 .themes-list-selected {
-    display: flex;
-    flex-wrap: wrap;
-    .theme-item {
-      width: 100%;
-      margin: 0;
-      height: 44vw;
-      &:first-of-type {
-        margin-left: 0;
-      }
+  display: flex;
+  flex-wrap: wrap;
+  .theme-item {
+    width: 100%;
+    margin: 0;
+    height: 44vw;
+    &:first-of-type {
+      margin-left: 0;
     }
+  }
 }
 
 .detail-description {
-  padding-top: 2em; 
+  padding-top: 2em;
   p {
     padding: 10px;
   }
@@ -218,14 +226,14 @@ header {
     width: $button-circle-small;
   }
   &.like {
-    background: #FFF url(../images/yes.svg) no-repeat center;
+    background: #fff url(../images/yes.svg) no-repeat center;
     background-size: 2.5em;
   }
   &.undo {
-    background: #FFF url(../images/rewind.svg) no-repeat center;
+    background: #fff url(../images/rewind.svg) no-repeat center;
   }
   &.dislike {
-    background: #FFF url(../images/no.svg) no-repeat center;
+    background: #fff url(../images/no.svg) no-repeat center;
     background-size: 2.5em;
   }
 }
@@ -234,4 +242,40 @@ header {
   width: 70vw;
   margin: 1rem auto;
   text-align: center;
+}
+
+.tours {
+  height: calc(100% - 4.375rem);
+  border-radius: $border-radius;
+  margin: 0 $margin;
+  position: relative;
+  background: url(../images/vincent.jpg);
+  background-size: cover;
+  ul {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    li {
+      padding: $padding;
+      background: #fff;
+      margin: $margin;
+      border-radius: $border-radius;
+      position: relative;
+    }
+  }
+  a {
+    text-transform: uppercase;
+    color: $base-color;
+    font-weight: bold;
+  }
+  span {
+    width: 20px;
+    background: url(../images/up.svg) no-repeat;
+    height: 10px;
+    display: inline-block;
+    transform: rotate(90deg);
+    position: absolute;
+    right: $padding;
+    bottom: 1.4375rem;
+  }
 }
