@@ -20,13 +20,10 @@ class ThemesList extends Component {
                     {this.props.list[this.state.themeIndex].time}
                   </span>
                 <div className="info">
-                  <Link
-                    className=""
-                    to={`/details${this.props.list[this.state.themeIndex].link}`}
+                  <p
                   >
-                    The most momentous change in Van Gogh’s life was triggered by his younger brother Theo, who advised Vincent to become an artist.
-
-                  </Link>
+                  {this.props.list[this.state.themeIndex].discription}
+                  </p>
                 </div>
             </article>
       </section>
