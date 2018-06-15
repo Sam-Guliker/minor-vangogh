@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import themes from "../data/themes";
 import { TweenMax, TimelineLite } from "gsap/TweenMax";
 
 class Header extends Component {
@@ -21,8 +20,9 @@ class Header extends Component {
   render() {
     return (
       <header>
-        {this.props.children}
+        {this.props.children[0]}
         <h1 onClick={this.handleClick}>Personal tour</h1>
+        {this.props.children[1]}
       </header>
     );
   }

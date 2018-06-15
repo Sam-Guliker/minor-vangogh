@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import ThemesList from "./ThemesList";
 import themes from "../data/themes";
-import { Link } from "react-router-dom";
+import FooterButton from "./FooterButton";
 
 function handleSelection() {
   let result = 0;
@@ -16,71 +16,51 @@ function handleSelection() {
   return result;
 }
 
-function checkNotSelected() {
-  const newThemes = themes.filter((obj, i) => {
-    return obj.selected === false;
-  });
+function handleTime() {
+  let min = 0;
 
-  return newThemes;
+  for (let i = 0; themes.length > i; i++) {
+    if (themes[i].selected === true) {
+      min += parseInt(themes[i].time);
+    }
+  }
+
+  let h = Math.floor(min / 60);
+  let m = min % 60;
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  return `${h}:${m}`;
 }
 
 class addThemes extends Component {
   state = {
     selected: handleSelection(),
-    notSelected: checkNotSelected(),
     pop: false
   };
 
-  header = React.createRef();
-
-  onClickButton = () => {
-    this.header.current.handleClick();
-  };
-
-  handleSelection = name => {
-    for (let i = 0; themes.length > i; i++) {
-      if (themes[i].name === name) {
-        themes[i].selected = true;
-      }
-    }
-
-    let result = 0;
-
-    for (let i = 0; themes.length > i; i++) {
-      if (themes[i].selected === true) {
-        result += 1;
-      }
-    }
-
-    const newThemes = themes.filter((obj, i) => {
-      return obj.selected === false;
-    });
-
+  handleSelection = (selected, time) => {
     this.setState({
-      selected: result,
-      notSelected: newThemes
+      selected,
+      time
     });
   };
 
   render() {
     return (
       <div>
-        <Header
-          ref={this.header}
-          selected={this.state.selected}
-          pop={this.state.pop}
-        />
+        <Header selected={this.state.selected} pop={this.state.pop}>
+          <div />
+          <span>{this.state.time}</span>
+        </Header>
         <main>
           <ThemesList
-            list={this.state.notSelected}
             handleSelection={this.handleSelection}
             popButton={this.onClickButton}
           />
         </main>
-        <Link className={"action-button"} to="/selection">
-          Preview tour
+        <FooterButton name="Preview tour" link="/selection">
           <span>{this.state.selected}</span>
-        </Link>
+        </FooterButton>
       </div>
     );
   }
