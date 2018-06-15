@@ -3,45 +3,33 @@ import { Link } from "react-router-dom";
 import AddButton from "./AddButton";
 
 class ThemesList extends Component {
+  state = {
+      themeIndex: 0
+  };
+
   render() {
     return (
-      <ul className="themes-list">
-        {this.props.list.map((obj, i) => {
-          return (
-            <li
-              key={i}
-              style={{ backgroundImage: `url(${obj.src}` }}
+      <section>
+            <article
+              style={{ backgroundImage: `url(${this.props.list[this.state.themeIndex].src}` }}
               className="theme-item"
             >
-              <div className="details">
-                <div>
-                  <h2>{obj.name}</h2>
+                  <h2>{this.props.list[this.state.themeIndex].name}</h2>
                   <span>
                     <img src={require("../images/clock.svg")} alt="clock" />
-                    {obj.time}
+                    {this.props.list[this.state.themeIndex].time}
                   </span>
-                </div>
-                <div>
-                  <AddButton
-                    handleSelection={this.props.handleSelection}
-                    name={obj.name}
-                    popButton={this.props.popButton}
-                  >
-                    Add
-                  </AddButton>
+                <div className="info">
                   <Link
-                    className="button-small info"
-                    to={`/details${obj.link}`}
+                    className=""
+                    to={`/details${this.props.list[this.state.themeIndex].link}`}
                   >
-                    Info
+                    The most momentous change in Van Gogh’s life was triggered by his younger brother Theo, who advised Vincent to become an artist.
+
                   </Link>
                 </div>
-              </div>
-            </li>
-          );
-        })}
-        <div className="filling" />
-      </ul>
+            </article>
+      </section>
     );
   }
 }

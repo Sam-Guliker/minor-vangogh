@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import ThemesList from "./ThemesList";
 import themes from "../data/themes";
+import { Link } from "react-router-dom";
 
 function handleSelection() {
   let result = 0;
@@ -70,15 +71,16 @@ class addThemes extends Component {
           pop={this.state.pop}
         />
         <main>
-          <p className="intro-text">
-            Add all the themes you like and view them in your list
-          </p>
           <ThemesList
             list={this.state.notSelected}
             handleSelection={this.handleSelection}
             popButton={this.onClickButton}
           />
         </main>
+        <Link className={"action-button"} to="/selection">
+            Preview tour
+            <span>{this.state.selected}</span>
+          </Link>
       </div>
     );
   }

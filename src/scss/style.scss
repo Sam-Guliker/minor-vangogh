@@ -1,144 +1,19 @@
+@import 'variables';
+@import 'reset';
+@import 'fonts';
 
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('../fonts/Gotham-Bold.eot');
-  src: url('../fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/Gotham-Bold.woff2') format('woff2'),
-      url('../fonts/Gotham-Bold.woff') format('woff'),
-      url('../fonts/Gotham-Bold.ttf') format('truetype'),
-      url('../fonts/Gotham-Bold.svg#Gotham-Bold') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('../fonts/Gotham-Medium.eot');
-  src: url('../fonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/Gotham-Medium.woff2') format('woff2'),
-      url('../fonts/Gotham-Medium.woff') format('woff'),
-      url('../fonts/Gotham-Medium.ttf') format('truetype'),
-      url('../fonts/Gotham-Medium.svg#Gotham-Medium') format('svg');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('../fonts/Gotham-Light.eot');
-  src: url('../fonts/Gotham-Light.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/Gotham-Light.woff2') format('woff2'),
-      url('../fonts/Gotham-Light.woff') format('woff'),
-      url('../fonts/Gotham-Light.ttf') format('truetype'),
-      url('../fonts/Gotham-Light.svg#Gotham-Light') format('svg');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('../fonts/Gotham-Book.eot');
-  src: url('../fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/Gotham-Book.woff2') format('woff2'),
-      url('../fonts/Gotham-Book.woff') format('woff'),
-      url('../fonts/Gotham-Book.ttf') format('truetype'),
-      url('../fonts/Gotham-Book.svg#Gotham-Book') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('../fonts/Gotham-Thin.eot');
-  src: url('../fonts/Gotham-Thin.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/Gotham-Thin.woff2') format('woff2'),
-      url('../fonts/Gotham-Thin.woff') format('woff'),
-      url('../fonts/Gotham-Thin.ttf') format('truetype'),
-      url('../fonts/Gotham-Thin.svg#Gotham-Thin') format('svg');
-  font-weight: 100;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('../fonts/Gotham-XLight.eot');
-  src: url('../fonts/Gotham-XLight.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/Gotham-XLight.woff2') format('woff2'),
-      url('../fonts/Gotham-XLight.woff') format('woff'),
-      url('../fonts/Gotham-XLight.ttf') format('truetype'),
-      url('../fonts/Gotham-XLight.svg#Gotham-XLight') format('svg');
-  font-weight: 200;
-  font-style: normal;
-}
-
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Gotham', sans-serif;
-  color: #FFF;
-  font-size: 1.2em;
-  background-color: #293442;
+  font-family: 'nexa', sans-serif;
+  color: $base-color;
+  font-size: $font-size-base;
 }
 
 body, html {
   width: 100%;
   height: 100%;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 p {
@@ -149,11 +24,6 @@ p {
 
 h1 {
   text-align: center;
-  padding-top: 1rem;
-}
-
-h1, h2, h3, p {
-  margin-top: 0.7rem;
 }
 
 button {
@@ -169,7 +39,7 @@ h1, h2 {
 }
 
 header {
-  height: 4rem;
+  height: 3.125rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -182,60 +52,49 @@ header {
     top: 0;
   }
   h1 {
-    font-size: 1em;
-  }
-}
-
-.themes-list {
-  display: flex;
-  overflow-x: scroll;
-  height: 80vh;
-  justify-content: flex-start;
-  .filling {
-    width: 12vw;
-    flex: 0 0 auto;
+    font-size: $font-size-header;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
 .theme-item {
-  width: 70vw;
-  flex: 0 0 auto;
-  height: 90%;
-  margin: 3vw;
+  height: 80vh;
+  margin: 0 $margin;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  padding: 1rem;
-  &:first-of-type {
-    margin-left: 15vw;
-  }
-
+  border-radius: $border-radius;
+  padding: $padding;
+  position: relative;
   h2, h3 {
-    font-size: 1.5em;
+    font-size: $font-size-h1;
+    font-weight: bold;
     color: #FFF;
     margin-right: 1rem;
-  }
-  .details {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-    justify-content: space-between;
-    position: relative;
   }
   span {
     color: #FFF;
     font-size: 1em;
     display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
   }
   img {
     width: 1.2rem;
     margin-right: 0.5rem;
+    transform: translateY(0.2rem);
+  }
+  .info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: $margin;
+    background-color: $white-color;
+    padding: $padding;
+    border-radius: $border-radius;
+    a {
+      color: $base-color;
+    }
   }
 }
 
@@ -251,37 +110,39 @@ header {
   }
 }
 
-.button-small {
+.action-button {
   position: relative;
   display: block;
-  height: 3.75rem;
-  width: 3.75rem;
-  line-height: 3.75rem;
+  height: $button-height;
+  line-height: $button-height;
   text-align: center;
   border: none;
-  background: #FFF;
-  margin-bottom: 0.7rem;
-  color: transparent;
-  overflow: hidden;
-  text-indent: -10em;
-  box-shadow: 0 0 18px 0 rgba(0,0,0,0.18);
-  &.pop span {
+  background: $gold-color;
+  font-weight: bold;
+  color: #FFF;
+  font-size: $font-size-button;
+  text-transform: uppercase;
+  margin: $margin;
+  border-radius: $border-radius;
+   &.pop span {
     animation: pop 300ms ease; 
   }
   span {
     position: absolute;
     display: block;
-    top: 0.2rem;
+    top: 0;
     bottom: 0;
-    right: 0.5rem;
-    height: 1rem;
-    width: 1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateX(6rem);
+    height: 1.375rem;
+    width: 1.375rem;
     font-size: 0.7em;
-    color: #FFF;
-    background: #9c0e1c;
+    color: $white-color;
+    background: $base-color;
     border-radius: 50%;
-    line-height: 2em;
-    text-indent: 0;
+    line-height: 1.375rem;
   }
   &:hover {
     color: transparent;
@@ -304,10 +165,6 @@ header {
     background-size: 1em;
     left: 0;
     top: 0;
-  }
-  &.list {
-    background: #FFF url(../images/collection.svg) no-repeat center;
-    background-size: 1em;
   }
 }
 
