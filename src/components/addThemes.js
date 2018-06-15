@@ -49,8 +49,8 @@ class addThemes extends Component {
     return (
       <div>
         <Header selected={this.state.selected} pop={this.state.pop}>
-          <div />
-          <span>{this.state.time}</span>
+          <div className="left" />
+          <span className="right">{this.state.time}</span>
         </Header>
         <main>
           <ThemesList

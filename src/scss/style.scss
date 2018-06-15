@@ -46,13 +46,17 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  .header-link {
+  .left, .right {
     position: absolute;
-  
+    line-height: 3.125rem;
+  }
+  .left {
+    left: $padding;
   }
   .right {
-    right: 0;
-    top: 0;
+    right: $padding;
+    font-weight: bold;
+    font-size: $font-size-header;
   }
   h1 {
     font-size: $font-size-header;
