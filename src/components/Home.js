@@ -12,19 +12,19 @@ class Home extends Component {
         <main className="tours">
           <ul>
             <li>
-              <Link className="button" to="/add">
+              <Link className="button" to="/introduction">
                 Personal Tour
               </Link>
               <span />
             </li>
             <li>
-              <Link className="button" to="/add">
+              <Link className="button" to="#">
                 Highlight Tour
               </Link>
               <span />
             </li>
             <li>
-              <Link className="button" to="/add">
+              <Link className="button" to="#">
                 Free Tour
               </Link>
               <span />
