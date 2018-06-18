@@ -35,7 +35,7 @@ class ThemesList extends Component {
 
     this.setState({
       selected: result,
-      themeIndex: themeIndex
+      themeIndex
     });
   };
 
@@ -67,7 +67,9 @@ class ThemesList extends Component {
     let position;
     if (this.state.device === "mobile") {
       if (typeof e === "object") {
-        position = e.touches[0].pageX;
+        if (e.touches) {
+          position = e.touches[0].pageX;
+        }
       } else {
         position = undefined;
       }
@@ -95,6 +97,30 @@ class ThemesList extends Component {
   handleDragEnd = () => {
     this.setState({
       mouseDown: false
+    });
+  };
+
+  onRedo = () => {
+    let themeIndex = this.state.themeIndex - 1;
+    themes[themeIndex].selected = false;
+
+    let result = 0;
+    let min = 0;
+
+    for (let i = 0; themes.length > i; i++) {
+      if (themes[i].selected === true) {
+        result += 1;
+        min += parseInt(themes[i].time, 10);
+      }
+    }
+
+    let time = this.convertMinsToHrsMins(min);
+
+    this.props.handleSelection(result, time);
+
+    this.setState({
+      selected: result,
+      themeIndex
     });
   };
 
@@ -128,6 +154,7 @@ class ThemesList extends Component {
         <LikeFooter
           handleSelection={this.handleSelection}
           themesLength={themes.length}
+          onRedo={this.onRedo}
           themeIndex={this.state.themeIndex}
         />
       </section>
