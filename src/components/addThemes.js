@@ -21,7 +21,7 @@ function handleTime() {
 
   for (let i = 0; themes.length > i; i++) {
     if (themes[i].selected === true) {
-      min += parseInt(themes[i].time);
+      min += parseInt(themes[i].time, 10);
     }
   }
 
@@ -49,7 +49,6 @@ class addThemes extends Component {
     return (
       <div>
         <Header selected={this.state.selected} pop={this.state.pop}>
-          <div className="left" />
           <span className="right">{this.state.time}</span>
         </Header>
         <main>

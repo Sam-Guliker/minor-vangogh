@@ -17,7 +17,7 @@ class ThemesList extends Component {
     for (let i = 0; themes.length > i; i++) {
       if (themes[i].selected === true) {
         result += 1;
-        min += parseInt(themes[i].time);
+        min += parseInt(themes[i].time, 10);
       }
     }
 
