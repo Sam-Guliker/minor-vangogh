@@ -5,7 +5,6 @@ import Home from "./components/Home";
 import Introduction from "./components/Introduction";
 import AddThemes from "./components/addThemes";
 import Selection from "./components/Selection";
-import detailTheme from "./components/detailTheme";
 
 class App extends Component {
   render() {
@@ -16,7 +15,6 @@ class App extends Component {
           <Route exact path="/introduction" component={Introduction} />
           <Route exact path="/add" component={AddThemes} />
           <Route exact path="/selection" component={Selection} />
-          <Route exact path="/details/:name" component={detailTheme} />
         </div>
       </Router>
     );

@@ -13,7 +13,7 @@ class Selection extends Component {
   totalTime() {
     let time = 0;
     for (let i = 0; i < this.state.selectedThemes.length; i++) {
-      time += parseInt(this.state.selectedThemes[i].time);
+      time += parseInt(this.state.selectedThemes[i].time, 10);
     }
     return time + "m";
   }
