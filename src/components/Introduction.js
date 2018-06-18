@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import FooterButton from "./FooterButton";
 
 class Home extends Component {
   render() {
@@ -13,9 +13,7 @@ class Home extends Component {
             <p>Select theme’s that you like to make your own tour!</p>
           </article>
         </main>
-        <Link className="buttonStart" to="/start">
-          create tour
-        </Link>
+        <FooterButton name="create tour" link="/start" />
       </div>
     );
   }
