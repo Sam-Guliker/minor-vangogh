@@ -323,3 +323,39 @@ header {
     bottom: 1.4375rem;
   }
 }
+.introduction {
+  display: flex;
+  height: calc(100% - 9rem);
+  border-radius: $border-radius;
+  margin: 0 $margin;
+  position: relative;
+  background: url(../images/introduction-bg.jpg);
+  background-size: cover;
+  article {
+    text-align: center;
+    padding: $padding;
+    margin: auto $margin;
+    background: $white-color;
+    border-radius: $border-radius;
+    p {
+      padding: 0 $padding;
+      line-height: 1.4em;
+    }
+  }
+  h1 {
+    padding-bottom: 10px;
+    font-weight: bold;
+  }
+}
+.buttonStart {
+  text-align: center;
+  display: block;
+  text-align: center;
+  background: $gold-color;
+  margin: $margin;
+  padding: $padding;
+  border-radius: $border-radius;
+  color: $white-color;
+  text-transform: uppercase;
+  font-weight: bold;
+}

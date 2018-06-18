@@ -7,13 +7,15 @@ class Home extends Component {
     return (
       <div>
         <Header />
-        <main className="start">
-          <h1>Start your personal tour</h1>
-          <p>Choose from different themes and compose your tour yourself!</p>
-          <Link className="button" to="/add">
-            Start
-          </Link>
+        <main className="introduction">
+          <article>
+            <h1>Introduction</h1>
+            <p>Select theme’s that you like to make your own tour!</p>
+          </article>
         </main>
+        <Link className="buttonStart" to="/start">
+          create tour
+        </Link>
       </div>
     );
   }
