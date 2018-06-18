@@ -6,7 +6,7 @@
   height: 100%;
   > div {
     height: 100%;
-   > div {
+    > div {
       height: 100%;
     }
   }
@@ -56,7 +56,8 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  .left, .right {
+  .left,
+  .right {
     position: absolute;
     line-height: 3.125rem;
   }
@@ -88,7 +89,7 @@ header {
     right: 0;
     border-radius: $border-radius;
     overflow: hidden;
-    &.hidden { 
+    &.hidden {
       display: none;
     }
   }
@@ -118,20 +119,25 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
   }
-  h2, h3 {
+  h2,
+  h3 {
     z-index: 10;
     font-size: $font-size-h1;
     font-weight: bold;
-    color: #FFF;
+    color: #fff;
     position: relative;
     margin-right: 1rem;
   }
   span {
     z-index: 10;
     position: relative;
-    color: #FFF;
+    color: #fff;
     font-size: 1em;
     display: block;
   }
@@ -358,4 +364,37 @@ header {
   color: $white-color;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.overview {
+  margin: $margin;
+  li {
+    color: $white-color;
+    background: black;
+    display: flex;
+    margin: $margin 0;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: $border-radius;
+    padding: 1rem;
+    p {
+      padding-left: 0;
+    }
+    img {
+      padding-top: 5px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  button {
+    background: white;
+    background-image: url("../images/yes.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 2rem;
+    height: 2rem;
+    padding: 2rem;
+    outline: none;
+    border-radius: 2rem;
+  }
 }

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Introduction from "./components/Introduction";
 import AddThemes from "./components/addThemes";
-import Selection from "./components/Selection";
+import Overview from "./components/Overview";
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/introduction" component={Introduction} />
           <Route exact path="/start" component={AddThemes} />
-          <Route exact path="/selection" component={Selection} />
+          <Route exact path="/overview" component={Overview} />
         </div>
       </Router>
     );
