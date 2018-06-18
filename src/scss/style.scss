@@ -285,7 +285,7 @@ header {
   border-radius: $border-radius;
   margin: 0 $margin;
   position: relative;
-  background: url(../images/wheatfield.jpg);
+  background: url(../images/introduction-bg.jpg);
   background-size: cover;
   article {
     text-align: center;
@@ -294,9 +294,8 @@ header {
     background: $white-color;
     border-radius: $border-radius;
     p {
-      padding: $padding;
+      padding: 0 $padding;
       line-height: 1.4em;
-      padding-top: 0;
     }
   }
   h1 {
