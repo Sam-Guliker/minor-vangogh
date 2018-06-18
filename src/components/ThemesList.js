@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import LikeFooter from "./LikeFooter";
 import themes from "../data/themes";
+import ThemeItem from "./ThemeItem";
+
+const themesReversed = themes.reverse();
 
 class ThemesList extends Component {
   state = {
     themeIndex: 0,
-    selected: 0
+    selected: 0,
+    mouseDown: false,
+    startPosition: 0
   };
 
   handleSelection = selected => {
@@ -26,10 +31,11 @@ class ThemesList extends Component {
     this.props.handleSelection(result, time);
 
     let themeIndex = this.state.themeIndex;
+    themeIndex += 1;
 
     this.setState({
       selected: result,
-      themeIndex: themeIndex + 1
+      themeIndex: themeIndex
     });
   };
 
@@ -41,31 +47,89 @@ class ThemesList extends Component {
     return `${h}:${m}`;
   }
 
+  handleDragStart = e => {
+    this.setState({
+      mouseDown: true,
+      startPosition: e.pageX,
+      device: "laptop"
+    });
+  };
+
+  handleTouchStart = e => {
+    this.setState({
+      mouseDown: true,
+      startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
+      device: "mobile"
+    });
+  };
+
+  handleDragMove = e => {
+    let position;
+    if (this.state.device === "mobile") {
+      if (typeof e === "object") {
+        position = e.touches[0].pageX;
+      } else {
+        position = undefined;
+      }
+    } else {
+      position = e.pageX;
+    }
+
+    if (position) {
+      const difFromStart = position - this.state.startPosition;
+
+      console.log(difFromStart);
+
+      let transformTotal =
+        parseInt(this.state.startTransform, 10) + difFromStart;
+      if (transformTotal < 0) {
+        transformTotal = 0;
+      }
+
+      this.setState({
+        transform: transformTotal
+      });
+    }
+  };
+
+  handleDragEnd = () => {
+    this.setState({
+      mouseDown: false
+    });
+  };
+
   render() {
     return (
       <section>
-        {this.state.themeIndex < themes.length ? (
-          <div>
-            <article
-              style={{
-                backgroundImage: `url(${themes[this.state.themeIndex].src}`
-              }}
-              className="theme-item"
-            >
-              <h2>{themes[this.state.themeIndex].name}</h2>
-              <span>
-                <img src={require("../images/clock.svg")} alt="clock" />
-                {themes[this.state.themeIndex].time}
-              </span>
-              <div className="info">
-                <p>{themes[this.state.themeIndex].discription}</p>
-              </div>
-            </article>
-            <LikeFooter handleSelection={this.handleSelection} />
-          </div>
-        ) : (
-          <div />
-        )}
+        <ul className="theme-list">
+          {themesReversed.map((obj, i) => {
+            const reversedIndex = themes.length - i;
+            return (
+              <li
+                key={i}
+                className={
+                  reversedIndex <= this.state.themeIndex ? "hidden" : undefined
+                }
+                onMouseDown={this.handleDragStart}
+                onTouchStart={this.handleTouchStart}
+                onMouseMove={e =>
+                  this.state.mouseDown && this.handleDragMove(e)
+                }
+                onTouchMove={e =>
+                  this.state.mouseDown && this.handleDragMove(e)
+                }
+                onMouseLeave={this.handleDragEnd}
+              >
+                <ThemeItem theme={obj} />
+              </li>
+            );
+          })}
+        </ul>
+        <LikeFooter
+          handleSelection={this.handleSelection}
+          themesLength={themes.length}
+          themeIndex={this.state.themeIndex}
+        />
       </section>
     );
   }
