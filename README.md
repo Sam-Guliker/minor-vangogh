@@ -20,12 +20,14 @@ How to get started with this project:
 4.  Go to [http://localhost:3000/](http://localhost:3000/)
 
 # Concept
-__assignment description__: Develop an interface that allows visitors to the museum to visit  (with multimedia tour) by choosing different themes and presenting the Results
+__Assignment description__: Develop an interface that allows visitors to the museum to visit  (with multimedia tour) by choosing different themes and presenting the Results
 
-__concept__: By swiping on the on the interface the user can make decisions to
+__Concept__: By swiping on the on the interface the user can make decisions to
 create his/her own tour. The decisions are based on the theme's within the museum.
 
 # Features
+- User can make his/her own decisions.
+- Offline availabiliy
 
 # Stakeholders
 
