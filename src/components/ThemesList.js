@@ -8,11 +8,13 @@ let timeOut;
 class ThemesList extends Component {
   state = {
     themeIndex: 0,
+    nextThemeIndex: 1,
     selected: 0,
     mouseDown: false,
     startPosition: 0,
     rotate: 0,
-    transform: 0
+    transform: 0,
+    transition: false
   };
 
   swipeCard = React.createRef();
@@ -55,7 +57,8 @@ class ThemesList extends Component {
     this.setState({
       mouseDown: true,
       startPosition: e.pageX,
-      device: "laptop"
+      device: "laptop",
+      transition: false
     });
   };
 
@@ -63,7 +66,8 @@ class ThemesList extends Component {
     this.setState({
       mouseDown: true,
       startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
-      device: "mobile"
+      device: "mobile",
+      transition: false
     });
   };
 
@@ -97,33 +101,55 @@ class ThemesList extends Component {
   };
 
   handleDragEnd = () => {
+    console.log("click");
     clearTimeout(timeOut);
     timeOut = setTimeout(() => {
+      console.log("work");
       let rotate = 0;
       let transform = 0;
 
       if (this.state.transform < 0) {
         if (this.state.transform < -70) {
           rotate = -20;
-          transform = -200;
+          transform = -300;
           this.handleSelection(false);
+          setTimeout(() => {
+            this.after();
+          }, 300);
         }
       } else {
         if (this.state.transform > 70) {
           rotate = 20;
-          transform = 200;
+          transform = 300;
+          setTimeout(() => {
+            this.after();
+          }, 300);
           this.handleSelection(true);
         }
       }
 
       this.setState({
         mouseDown: false,
+        transition: true,
         snap: false,
         rotate,
         transform
       });
-    }, 50);
+    }, 200);
   };
+
+  after() {
+    console.log("joe");
+    let rotate = 0;
+    let transform = 0;
+    let newNextIndex = this.state.nextThemeIndex + 1;
+    this.setState({
+      rotate,
+      transform,
+      transition: false,
+      nextThemeIndex: newNextIndex
+    });
+  }
 
   onUndo = () => {
     let themeIndex = this.state.themeIndex - 1;
@@ -145,7 +171,8 @@ class ThemesList extends Component {
 
     this.setState({
       selected: result,
-      themeIndex
+      themeIndex,
+      nextThemeIndex: themeIndex + 1
     });
   };
 
@@ -155,7 +182,7 @@ class ThemesList extends Component {
         <ul className="theme-list">
           {this.state.themeIndex < themes.length - 1 ? (
             <li>
-              <ThemeItem theme={themes[this.state.themeIndex + 1]} />
+              <ThemeItem theme={themes[this.state.nextThemeIndex]} />
             </li>
           ) : (
             undefined
@@ -168,7 +195,7 @@ class ThemesList extends Component {
                   this.state.transform
                 }px)`
               }}
-              className={this.mouseDown ? undefined : "reject"}
+              className={this.state.transition ? "reject" : undefined}
               onMouseDown={this.handleDragStart}
               onTouchStart={this.handleTouchStart}
               onMouseMove={e => this.state.mouseDown && this.handleDragMove(e)}
