@@ -3,15 +3,19 @@ import LikeFooter from "./LikeFooter";
 import themes from "../data/themes";
 import ThemeItem from "./ThemeItem";
 
-const themesReversed = themes.reverse();
+let timeOut;
 
 class ThemesList extends Component {
   state = {
     themeIndex: 0,
     selected: 0,
     mouseDown: false,
-    startPosition: 0
+    startPosition: 0,
+    rotate: 0,
+    transform: 0
   };
+
+  swipeCard = React.createRef();
 
   handleSelection = selected => {
     themes[this.state.themeIndex].selected = selected;
@@ -77,30 +81,51 @@ class ThemesList extends Component {
       position = e.pageX;
     }
 
+    // deg = pullDeltaX / 10;
+    // $card.css("transform", "translateX("+ pullDeltaX +"px) rotate("+ deg +"deg)");
+
     if (position) {
       const difFromStart = position - this.state.startPosition;
 
-      console.log(difFromStart);
-
-      let transformTotal =
-        parseInt(this.state.startTransform, 10) + difFromStart;
-      if (transformTotal < 0) {
-        transformTotal = 0;
-      }
+      let deg = difFromStart / 10;
 
       this.setState({
-        transform: transformTotal
+        transform: difFromStart,
+        rotate: deg
       });
     }
   };
 
   handleDragEnd = () => {
-    this.setState({
-      mouseDown: false
-    });
+    clearTimeout(timeOut);
+    timeOut = setTimeout(() => {
+      let rotate = 0;
+      let transform = 0;
+
+      if (this.state.transform < 0) {
+        if (this.state.transform < -70) {
+          rotate = -20;
+          transform = -200;
+          this.handleSelection(false);
+        }
+      } else {
+        if (this.state.transform > 70) {
+          rotate = 20;
+          transform = 200;
+          this.handleSelection(true);
+        }
+      }
+
+      this.setState({
+        mouseDown: false,
+        snap: false,
+        rotate,
+        transform
+      });
+    }, 50);
   };
 
-  onRedo = () => {
+  onUndo = () => {
     let themeIndex = this.state.themeIndex - 1;
     themes[themeIndex].selected = false;
 
@@ -128,33 +153,40 @@ class ThemesList extends Component {
     return (
       <section>
         <ul className="theme-list">
-          {themesReversed.map((obj, i) => {
-            const reversedIndex = themes.length - i;
-            return (
-              <li
-                key={i}
-                className={
-                  reversedIndex <= this.state.themeIndex ? "hidden" : undefined
-                }
-                onMouseDown={this.handleDragStart}
-                onTouchStart={this.handleTouchStart}
-                onMouseMove={e =>
-                  this.state.mouseDown && this.handleDragMove(e)
-                }
-                onTouchMove={e =>
-                  this.state.mouseDown && this.handleDragMove(e)
-                }
-                onMouseLeave={this.handleDragEnd}
-              >
-                <ThemeItem theme={obj} />
-              </li>
-            );
-          })}
+          {this.state.themeIndex < themes.length - 1 ? (
+            <li>
+              <ThemeItem theme={themes[this.state.themeIndex + 1]} />
+            </li>
+          ) : (
+            undefined
+          )}
+          {this.state.themeIndex < themes.length ? (
+            <li
+              ref={this.swipeCard}
+              style={{
+                transform: `rotate(${this.state.rotate}deg) translateX(${
+                  this.state.transform
+                }px)`
+              }}
+              className={this.mouseDown ? undefined : "reject"}
+              onMouseDown={this.handleDragStart}
+              onTouchStart={this.handleTouchStart}
+              onMouseMove={e => this.state.mouseDown && this.handleDragMove(e)}
+              onTouchMove={e => this.state.mouseDown && this.handleDragMove(e)}
+              onMouseLeave={this.handleDragEnd}
+              onTouchEnd={this.handleDragEnd}
+              onMouseUp={this.handleDragEnd}
+            >
+              <ThemeItem theme={themes[this.state.themeIndex]} />
+            </li>
+          ) : (
+            undefined
+          )}
         </ul>
         <LikeFooter
           handleSelection={this.handleSelection}
           themesLength={themes.length}
-          onRedo={this.onRedo}
+          onUndo={this.onUndo}
           themeIndex={this.state.themeIndex}
         />
       </section>

@@ -1,7 +1,7 @@
 const themes = [
   {
     name: "The lagacy of Van Gogh",
-    src: require("../images/japon.png"),
+    src: require("../images/japon.jpg"),
     link: "/legacy-of-van-gogh",
     discription:
       "Many are influenced by Van Gogh’s work: whether it be by his choice of subject, brushwork or sense of color.",

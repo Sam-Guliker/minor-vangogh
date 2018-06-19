@@ -25,7 +25,7 @@ class LikeFooter extends Component {
         />
         {this.props.themeIndex > 0 ? (
           <button
-            onClick={this.props.onRedo}
+            onClick={this.props.onUndo}
             className="round-button small undo"
           />
         ) : (

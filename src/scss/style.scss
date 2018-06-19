@@ -51,6 +51,13 @@ h2 {
   font-size: 1.4em;
 }
 
+main {
+  height: calc(100% - 9rem);
+  > section {
+    height: 100%;
+  }
+}
+
 header {
   height: 3.125rem;
   display: flex;
@@ -79,6 +86,7 @@ header {
   height: 70vh;
   margin: 0 $margin;
   position: relative;
+  height: calc(100% - 2.063em);
   li {
     z-index: 10;
     position: absolute;
@@ -88,6 +96,10 @@ header {
     right: 0;
     border-radius: $border-radius;
     overflow: hidden;
+    transform-origin: 50% 200%;
+    &.reject {
+      transition: transform 300ms ease;
+    }
     &.hidden { 
       display: none;
     }
@@ -300,16 +312,18 @@ header {
     bottom: 0;
     width: 100%;
     li {
-      padding: $padding;
-      background: #fff;
-      margin: $margin;
-      border-radius: $border-radius;
       position: relative;
+      margin: $margin;
     }
   }
   a {
+    display: block;
+    padding: $padding;
+    background: #fff;
     text-transform: uppercase;
     color: $base-color;
+    border-radius: $border-radius;
+    position: relative;
     font-weight: bold;
   }
   span {
@@ -323,6 +337,7 @@ header {
     bottom: 1.4375rem;
   }
 }
+
 .introduction {
   display: flex;
   height: calc(100% - 9rem);
@@ -337,6 +352,7 @@ header {
     margin: auto $margin;
     background: $white-color;
     border-radius: $border-radius;
+    width: 100%;
     p {
       padding: 0 $padding;
       line-height: 1.4em;
@@ -347,15 +363,4 @@ header {
     font-weight: bold;
   }
 }
-.buttonStart {
-  text-align: center;
-  display: block;
-  text-align: center;
-  background: $gold-color;
-  margin: $margin;
-  padding: $padding;
-  border-radius: $border-radius;
-  color: $white-color;
-  text-transform: uppercase;
-  font-weight: bold;
-}
+
