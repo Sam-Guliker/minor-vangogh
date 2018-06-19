@@ -367,8 +367,12 @@ header {
 }
 
 .overview {
-  margin: $margin;
+  margin: 0 $margin;
+  ul {
+    margin-top: 30px;
+  }
   li {
+    position: relative;
     color: $white-color;
     background: black;
     display: flex;
@@ -376,9 +380,12 @@ header {
     flex-direction: row;
     justify-content: space-between;
     border-radius: $border-radius;
-    padding: 1rem;
+    padding: 1.25rem;
+    margin-right: 1.25rem;
+
     p {
       padding-left: 0;
+      padding-top: 1.25rem;
     }
     img {
       padding-top: 5px;
@@ -396,5 +403,35 @@ header {
     padding: 2rem;
     outline: none;
     border-radius: 2rem;
+    position: absolute;
+    right: -30px;
+    top: 19px;
+    outline: none;
+    border: none;
+    box-shadow: $box-shadow;
+  }
+  h1 {
+    margin: $margin 0;
+    text-align: left;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  input {
+    position: absolute;
+    left: -99999px;
+  }
+  form {
+    margin: $margin 0;
+  }
+  label {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-right: $margin;
+    margin-bottom: $margin;
+    &.selected {
+      padding-bottom: 5px;
+      border-bottom: 7px solid $gold-color;
+    }
   }
 }
