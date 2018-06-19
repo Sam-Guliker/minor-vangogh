@@ -37,6 +37,10 @@ class ThemesList extends Component {
     let themeIndex = this.state.themeIndex;
     themeIndex += 1;
 
+    setTimeout(() => {
+      this.after();
+    }, 300);
+
     this.setState({
       selected: result,
       themeIndex
@@ -118,18 +122,12 @@ class ThemesList extends Component {
           transform = -200;
           opacity = 0;
           this.handleSelection(false);
-          setTimeout(() => {
-            this.after();
-          }, 300);
         }
       } else {
         if (this.state.transform > 70) {
           rotate = 20;
           transform = 200;
           opacity = 0;
-          setTimeout(() => {
-            this.after();
-          }, 300);
           this.handleSelection(true);
         }
       }
