@@ -1,9 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./css/style.min.css";
-import registerServiceWorker from "./registerServiceWorker";
+
+import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
-registerServiceWorker();
+ReactDOM.render(
+  <Router basename="van-gogh">
+    <App />
+  </Router>,
+  document.getElementById("root")
+);

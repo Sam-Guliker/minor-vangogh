@@ -74,14 +74,13 @@ class Overview extends Component {
                       }}
                       key={i}
                     >
-                      {obj.name}
                       <div>
                         <h2 className="item-title">{obj.name}</h2>
                         <p>
                           <img src={require("../images/clock.svg")} /> 0:15
                         </p>
                       </div>
-                      <button />
+                      <button className="no-img" />
                     </li>
                   );
                 })
@@ -100,7 +99,7 @@ class Overview extends Component {
                           <img src={require("../images/clock.svg")} /> 0:15
                         </p>
                       </div>
-                      <button />
+                      <button className="yes-img" />
                     </li>
                   );
                 })}

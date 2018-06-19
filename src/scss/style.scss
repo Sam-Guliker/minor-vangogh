@@ -395,7 +395,6 @@ header {
   }
   button {
     background: white;
-    background-image: url("../images/yes.svg");
     background-repeat: no-repeat;
     background-position: center center;
     width: 2rem;
@@ -409,6 +408,12 @@ header {
     outline: none;
     border: none;
     box-shadow: $box-shadow;
+  }
+  .yes-img {
+    background-image: url("../images/yes.svg");
+  }
+  .no-img {
+    background-image: url("../images/no.svg");
   }
   h1 {
     margin: $margin 0;
