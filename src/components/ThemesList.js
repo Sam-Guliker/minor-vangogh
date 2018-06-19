@@ -12,12 +12,12 @@ class ThemesList extends Component {
     selected: 0,
     mouseDown: false,
     startPosition: 0,
+    pullDeltaX: 0,
     rotate: 0,
     transform: 0,
-    transition: false
+    transition: false,
+    opacity: 1
   };
-
-  swipeCard = React.createRef();
 
   handleSelection = selected => {
     themes[this.state.themeIndex].selected = selected;
@@ -85,33 +85,36 @@ class ThemesList extends Component {
       position = e.pageX;
     }
 
-    // deg = pullDeltaX / 10;
-    // $card.css("transform", "translateX("+ pullDeltaX +"px) rotate("+ deg +"deg)");
-
+    let difFromStart;
     if (position) {
-      const difFromStart = position - this.state.startPosition;
-
-      let deg = difFromStart / 10;
-
-      this.setState({
-        transform: difFromStart,
-        rotate: deg
-      });
+      difFromStart = position - this.state.startPosition;
+    } else {
+      difFromStart = 0;
     }
+
+    let deg = difFromStart / 10;
+
+    let opacity = 1 - Math.abs(difFromStart / 50);
+
+    this.setState({
+      transform: difFromStart,
+      pullDeltaX: difFromStart,
+      rotate: deg,
+      opacity
+    });
   };
 
   handleDragEnd = () => {
-    console.log("click");
-    clearTimeout(timeOut);
-    timeOut = setTimeout(() => {
-      console.log("work");
+    if (this.state.pullDeltaX) {
       let rotate = 0;
       let transform = 0;
+      let opacity = 1;
 
       if (this.state.transform < 0) {
         if (this.state.transform < -70) {
           rotate = -20;
-          transform = -300;
+          transform = -200;
+          opacity = 0;
           this.handleSelection(false);
           setTimeout(() => {
             this.after();
@@ -120,7 +123,8 @@ class ThemesList extends Component {
       } else {
         if (this.state.transform > 70) {
           rotate = 20;
-          transform = 300;
+          transform = 200;
+          opacity = 0;
           setTimeout(() => {
             this.after();
           }, 300);
@@ -133,19 +137,18 @@ class ThemesList extends Component {
         transition: true,
         snap: false,
         rotate,
+        opacity,
         transform
       });
-    }, 200);
+    }
   };
 
   after() {
-    console.log("joe");
-    let rotate = 0;
-    let transform = 0;
     let newNextIndex = this.state.nextThemeIndex + 1;
     this.setState({
-      rotate,
-      transform,
+      opacity: 1,
+      rotate: 0,
+      transform: 0,
       transition: false,
       nextThemeIndex: newNextIndex
     });
@@ -177,6 +180,14 @@ class ThemesList extends Component {
   };
 
   render() {
+    let direction;
+    if (this.state.transform > 0) {
+      direction = "right";
+    } else if (this.state.transform < 0) {
+      direction = "left";
+    } else {
+      direction = "";
+    }
     return (
       <section>
         <ul className="theme-list">
@@ -189,13 +200,14 @@ class ThemesList extends Component {
           )}
           {this.state.themeIndex < themes.length ? (
             <li
-              ref={this.swipeCard}
               style={{
                 transform: `rotate(${this.state.rotate}deg) translateX(${
                   this.state.transform
                 }px)`
               }}
-              className={this.state.transition ? "reject" : undefined}
+              className={
+                this.state.transition ? "reject " + direction : direction
+              }
               onMouseDown={this.handleDragStart}
               onTouchStart={this.handleTouchStart}
               onMouseMove={e => this.state.mouseDown && this.handleDragMove(e)}
@@ -204,7 +216,10 @@ class ThemesList extends Component {
               onTouchEnd={this.handleDragEnd}
               onMouseUp={this.handleDragEnd}
             >
-              <ThemeItem theme={themes[this.state.themeIndex]} />
+              <ThemeItem
+                opacity={this.state.opacity}
+                theme={themes[this.state.themeIndex]}
+              />
             </li>
           ) : (
             undefined

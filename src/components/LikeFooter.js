@@ -1,26 +1,17 @@
 import React, { Component } from "react";
 
 class LikeFooter extends Component {
-  state = {
-    disabled: false
-  };
   onClickButton = selected => {
-    this.props.handleSelection(selected);
-    let disabled = false;
-    if (this.props.themeIndex === this.props.themesLength - 1) {
-      disabled = true;
+    if (this.props.themeIndex !== this.props.themesLength) {
+      this.props.handleSelection(selected);
     }
-
-    this.setState({
-      disabled
-    });
   };
 
   render() {
     return (
       <div className="like-footer">
         <button
-          onClick={() => !this.state.disabled && this.onClickButton(false)}
+          onClick={() => this.onClickButton(false)}
           className="round-button dislike"
         />
         {this.props.themeIndex > 0 ? (
@@ -32,7 +23,7 @@ class LikeFooter extends Component {
           undefined
         )}
         <button
-          onClick={() => !this.state.disabled && this.onClickButton(true)}
+          onClick={() => this.onClickButton(true)}
           className="round-button like"
         />
       </div>

@@ -4,7 +4,8 @@ const ThemeItem = props => {
   return (
     <article
       style={{
-        backgroundImage: `url(${props.theme.src}`
+        backgroundImage: `url(${props.theme.src}`,
+        opacity: props.opacity
       }}
       className={"theme-item"}
     >

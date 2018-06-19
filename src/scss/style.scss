@@ -97,8 +97,21 @@ header {
     border-radius: $border-radius;
     overflow: hidden;
     transform-origin: 50% 200%;
+    background-color: #FFF;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    &.left {
+      background-image: url('../images/no.svg');
+      border: 4px solid $red-color;
+    }
+    &.right {
+      background-image: url('../images/yes.svg');
+      border: 4px solid $green-color;
+
+    }
     &.reject {
-      transition: transform 300ms ease;
+      transition: all 300ms ease;
     }
     &.hidden { 
       display: none;
