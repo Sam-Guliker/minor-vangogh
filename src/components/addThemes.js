@@ -16,22 +16,6 @@ function handleSelection() {
   return result;
 }
 
-function handleTime() {
-  let min = 0;
-
-  for (let i = 0; themes.length > i; i++) {
-    if (themes[i].selected === true) {
-      min += parseInt(themes[i].time, 10);
-    }
-  }
-
-  let h = Math.floor(min / 60);
-  let m = min % 60;
-  h = h < 10 ? "0" + h : h;
-  m = m < 10 ? "0" + m : m;
-  return `${h}:${m}`;
-}
-
 class addThemes extends Component {
   state = {
     selected: handleSelection(),

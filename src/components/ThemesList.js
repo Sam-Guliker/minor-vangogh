@@ -3,8 +3,6 @@ import LikeFooter from "./LikeFooter";
 import themes from "../data/themes";
 import ThemeItem from "./ThemeItem";
 
-let timeOut;
-
 class ThemesList extends Component {
   state = {
     themeIndex: 0,
@@ -54,21 +52,25 @@ class ThemesList extends Component {
   }
 
   handleDragStart = e => {
-    this.setState({
-      mouseDown: true,
-      startPosition: e.pageX,
-      device: "laptop",
-      transition: false
-    });
+    if (e.target.className === "theme-item") {
+      this.setState({
+        mouseDown: true,
+        startPosition: e.pageX,
+        device: "laptop",
+        transition: false
+      });
+    }
   };
 
   handleTouchStart = e => {
-    this.setState({
-      mouseDown: true,
-      startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
-      device: "mobile",
-      transition: false
-    });
+    if (e.target.className === "theme-item") {
+      this.setState({
+        mouseDown: true,
+        startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
+        device: "mobile",
+        transition: false
+      });
+    }
   };
 
   handleDragMove = e => {

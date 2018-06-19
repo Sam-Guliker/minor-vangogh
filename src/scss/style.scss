@@ -112,6 +112,9 @@ header {
     }
     &.reject {
       transition: all 300ms ease;
+      .theme-item  {
+        transition: opacity 300ms ease;
+      }
     }
     &.hidden { 
       display: none;
@@ -171,10 +174,32 @@ header {
     right: 0;
     bottom: 0;
     margin: 3.125rem $margin;
-    background-color: $white-color;
-    padding: $padding;
+    padding: $double-padding $padding $padding;
     border-radius: $border-radius;
     text-align: center;
+    max-height: 12em;
+    overflow: hidden;
+    background: $white-color url("../images/down.svg") no-repeat center 1em;
+    transition: max-height 300ms ease;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%); 
+      transition: opacity 300ms ease;
+    }
+    &.collapsed {
+      max-height: 5em;
+      background: $white-color url("../images/up.svg") no-repeat center 1em;
+      &:after {
+        opacity: 1;
+      }
+    }
   }
 }
 
