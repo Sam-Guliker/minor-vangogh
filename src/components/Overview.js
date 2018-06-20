@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import FooterButton from "./FooterButton";
 import { Link } from "react-router-dom";
-
+import OverviewListItem from "./OverviewListItem";
 import themes from "../data/themes";
 
 function checkSelected(selected) {
@@ -12,11 +12,34 @@ function checkSelected(selected) {
   return checkSelectedObj;
 }
 
+function showTime() {
+  let min = 0;
+
+  for (let i = 0; themes.length > i; i++) {
+    if (themes[i].selected === true) {
+      min += parseInt(themes[i].time, 10);
+    }
+  }
+
+  let time = convertMinsToHrsMins(min);
+
+  return time;
+}
+
+function convertMinsToHrsMins(mins) {
+  let h = Math.floor(mins / 60);
+  let m = mins % 60;
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  return `${h}:${m}`;
+}
+
 class Overview extends Component {
   state = {
     selected: checkSelected(true),
     notSelected: checkSelected(false),
-    radio: "radio-1"
+    radio: "radio-1",
+    time: showTime()
   };
 
   componentWillMount() {
@@ -26,6 +49,20 @@ class Overview extends Component {
   componentWillUnmount() {
     document.querySelector("body").classList.remove("scroll");
   }
+
+  onClickButton = (selected, name) => {
+    for (let i = 0; themes.length > i; i++) {
+      if (themes[i].name === name) {
+        themes[i].selected = selected;
+      }
+    }
+
+    this.setState({
+      selected: checkSelected(true),
+      notSelected: checkSelected(false),
+      time: showTime()
+    });
+  };
 
   render() {
     return (
@@ -70,7 +107,6 @@ class Overview extends Component {
                 }
                 htmlFor="notSelected"
               >
-                {" "}
                 not selected
               </label>
             </form>
@@ -79,43 +115,28 @@ class Overview extends Component {
             {this.state.radio === "radio-1"
               ? this.state.selected.map((obj, i) => {
                   return (
-                    <li
-                      style={{
-                        backgroundImage: `url(${obj.src}`
-                      }}
+                    <OverviewListItem
                       key={i}
-                    >
-                      <div>
-                        <h2 className="item-title">{obj.name}</h2>
-                        <p>
-                          <img src={require("../images/clock.svg")} /> 0:15
-                        </p>
-                      </div>
-                      <button className="no-img" />
-                    </li>
+                      obj={obj}
+                      onClickButton={this.onClickButton}
+                      selected={false}
+                      type={"no-img"}
+                    />
                   );
                 })
               : this.state.notSelected.map((obj, i) => {
                   return (
-                    <li
-                      style={{
-                        backgroundImage: `url(${obj.src}`,
-                        backgroundPosition: "center center"
-                      }}
+                    <OverviewListItem
+                      onClickButton={this.onClickButton}
                       key={i}
-                    >
-                      <div>
-                        <h2 className="item-title">{obj.name}</h2>
-                        <p>
-                          <img src={require("../images/clock.svg")} /> 0:15
-                        </p>
-                      </div>
-                      <button className="yes-img" />
-                    </li>
+                      obj={obj}
+                      selected={true}
+                      type={"yes-img"}
+                    />
                   );
                 })}
           </ul>
-          <h3>Total time: 45:00</h3>
+          <h3>Total time: {this.state.time}</h3>
         </main>
         <FooterButton name="start tour" link="/start" />
       </div>
