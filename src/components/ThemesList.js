@@ -3,14 +3,18 @@ import LikeFooter from "./LikeFooter";
 import themes from "../data/themes";
 import ThemeItem from "./ThemeItem";
 
-const themesReversed = themes.reverse();
-
 class ThemesList extends Component {
   state = {
     themeIndex: 0,
+    nextThemeIndex: 1,
     selected: 0,
     mouseDown: false,
-    startPosition: 0
+    startPosition: 0,
+    pullDeltaX: 0,
+    rotate: 0,
+    transform: 0,
+    transition: false,
+    opacity: 1
   };
 
   handleSelection = selected => {
@@ -33,6 +37,10 @@ class ThemesList extends Component {
     let themeIndex = this.state.themeIndex;
     themeIndex += 1;
 
+    setTimeout(() => {
+      this.after();
+    }, 300);
+
     this.setState({
       selected: result,
       themeIndex
@@ -48,19 +56,25 @@ class ThemesList extends Component {
   }
 
   handleDragStart = e => {
-    this.setState({
-      mouseDown: true,
-      startPosition: e.pageX,
-      device: "laptop"
-    });
+    if (e.target.className === "theme-item") {
+      this.setState({
+        mouseDown: true,
+        startPosition: e.pageX,
+        device: "laptop",
+        transition: false
+      });
+    }
   };
 
   handleTouchStart = e => {
-    this.setState({
-      mouseDown: true,
-      startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
-      device: "mobile"
-    });
+    if (e.target.className === "theme-item") {
+      this.setState({
+        mouseDown: true,
+        startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
+        device: "mobile",
+        transition: false
+      });
+    }
   };
 
   handleDragMove = e => {
@@ -77,30 +91,70 @@ class ThemesList extends Component {
       position = e.pageX;
     }
 
+    let difFromStart;
     if (position) {
-      const difFromStart = position - this.state.startPosition;
+      difFromStart = position - this.state.startPosition;
+    } else {
+      difFromStart = 0;
+    }
 
-      console.log(difFromStart);
+    let deg = difFromStart / 10;
 
-      let transformTotal =
-        parseInt(this.state.startTransform, 10) + difFromStart;
-      if (transformTotal < 0) {
-        transformTotal = 0;
+    let opacity = 1 - Math.abs(difFromStart / 50);
+
+    this.setState({
+      transform: difFromStart,
+      pullDeltaX: difFromStart,
+      rotate: deg,
+      opacity
+    });
+  };
+
+  handleDragEnd = () => {
+    if (this.state.pullDeltaX) {
+      let rotate = 0;
+      let transform = 0;
+      let opacity = 1;
+
+      if (this.state.transform < 0) {
+        if (this.state.transform < -70) {
+          rotate = -20;
+          transform = -200;
+          opacity = 0;
+          this.handleSelection(false);
+        }
+      } else {
+        if (this.state.transform > 70) {
+          rotate = 20;
+          transform = 200;
+          opacity = 0;
+          this.handleSelection(true);
+        }
       }
 
       this.setState({
-        transform: transformTotal
+        mouseDown: false,
+        transition: true,
+        snap: false,
+        rotate,
+        opacity,
+        transform
       });
     }
   };
 
-  handleDragEnd = () => {
+  after() {
+    let newNextIndex = this.state.nextThemeIndex + 1;
     this.setState({
-      mouseDown: false
+      opacity: 1,
+      rotate: 0,
+      transform: 0,
+      transition: false,
+      nextThemeIndex: newNextIndex
     });
-  };
+  }
 
-  onRedo = () => {
+  onUndo = () => {
     let themeIndex = this.state.themeIndex - 1;
     themes[themeIndex].selected = false;
 
@@ -120,41 +174,61 @@ class ThemesList extends Component {
 
     this.setState({
       selected: result,
-      themeIndex
+      themeIndex,
+      nextThemeIndex: themeIndex + 1
     });
   };
 
   render() {
+    let direction;
+    if (this.state.transform > 0) {
+      direction = "right";
+    } else if (this.state.transform < 0) {
+      direction = "left";
+    } else {
+      direction = "";
+    }
     return (
       <section>
         <ul className="theme-list">
-          {themesReversed.map((obj, i) => {
-            const reversedIndex = themes.length - i;
-            return (
-              <li
-                key={i}
-                className={
-                  reversedIndex <= this.state.themeIndex ? "hidden" : undefined
-                }
-                onMouseDown={this.handleDragStart}
-                onTouchStart={this.handleTouchStart}
-                onMouseMove={e =>
-                  this.state.mouseDown && this.handleDragMove(e)
-                }
-                onTouchMove={e =>
-                  this.state.mouseDown && this.handleDragMove(e)
-                }
-                onMouseLeave={this.handleDragEnd}
-              >
-                <ThemeItem theme={obj} />
-              </li>
-            );
-          })}
+          {this.state.themeIndex < themes.length - 1 ? (
+            <li>
+              <ThemeItem theme={themes[this.state.nextThemeIndex]} />
+            </li>
+          ) : (
+            undefined
+          )}
+          {this.state.themeIndex < themes.length ? (
+            <li
+              style={{
+                transform: `rotate(${this.state.rotate}deg) translateX(${
+                  this.state.transform
+                }px)`
+              }}
+              className={
+                this.state.transition ? "reject " + direction : direction
+              }
+              onMouseDown={this.handleDragStart}
+              onTouchStart={this.handleTouchStart}
+              onMouseMove={e => this.state.mouseDown && this.handleDragMove(e)}
+              onTouchMove={e => this.state.mouseDown && this.handleDragMove(e)}
+              onMouseLeave={this.handleDragEnd}
+              onTouchEnd={this.handleDragEnd}
+              onMouseUp={this.handleDragEnd}
+            >
+              <ThemeItem
+                opacity={this.state.opacity}
+                theme={themes[this.state.themeIndex]}
+              />
+            </li>
+          ) : (
+            undefined
+          )}
         </ul>
         <LikeFooter
           handleSelection={this.handleSelection}
           themesLength={themes.length}
-          onRedo={this.onRedo}
+          onUndo={this.onUndo}
           themeIndex={this.state.themeIndex}
         />
       </section>

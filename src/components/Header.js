@@ -1,21 +1,6 @@
 import React, { Component } from "react";
-import { TweenMax, TimelineLite } from "gsap/TweenMax";
 
 class Header extends Component {
-  listButton = React.createRef();
-
-  handleClick = () => {
-    const tl = new TimelineLite();
-    tl.to(this.listButton.current, 0.2, { scaleX: 1.5, scaleY: 1.5 }).to(
-      this.listButton.current,
-      0.2,
-      {
-        scaleX: 1,
-        scaleY: 1
-      }
-    );
-  };
-
   render() {
     let left = undefined;
     let right = undefined;

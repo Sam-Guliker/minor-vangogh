@@ -51,6 +51,13 @@ h2 {
   font-size: 1.4em;
 }
 
+main {
+  height: calc(100% - 9rem);
+  > section {
+    height: 100%;
+  }
+}
+
 header {
   height: 3.125rem;
   display: flex;
@@ -79,6 +86,7 @@ header {
   height: 70vh;
   margin: 0 $margin;
   position: relative;
+  height: calc(100% - 2.063em);
   li {
     z-index: 10;
     position: absolute;
@@ -88,6 +96,26 @@ header {
     right: 0;
     border-radius: $border-radius;
     overflow: hidden;
+    transform-origin: 50% 200%;
+    background-color: #FFF;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    &.left {
+      background-image: url('../images/no.svg');
+      border: 4px solid $red-color;
+    }
+    &.right {
+      background-image: url('../images/yes.svg');
+      border: 4px solid $green-color;
+
+    }
+    &.reject {
+      transition: all 300ms ease;
+      .theme-item  {
+        transition: opacity 300ms ease;
+      }
+    }
     &.hidden { 
       display: none;
     }
@@ -146,10 +174,32 @@ header {
     right: 0;
     bottom: 0;
     margin: 3.125rem $margin;
-    background-color: $white-color;
-    padding: $padding;
+    padding: $double-padding $padding $padding;
     border-radius: $border-radius;
     text-align: center;
+    max-height: 12em;
+    overflow: hidden;
+    background: $white-color url("../images/down.svg") no-repeat center 1em;
+    transition: max-height 300ms ease;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%); 
+      transition: opacity 300ms ease;
+    }
+    &.collapsed {
+      max-height: 5em;
+      background: $white-color url("../images/up.svg") no-repeat center 1em;
+      &:after {
+        opacity: 1;
+      }
+    }
   }
 }
 
@@ -275,6 +325,7 @@ header {
   }
   &.undo {
     background: #fff url(../images/rewind.svg) no-repeat center;
+    transform: matrix(0, 0, 0, 0, 0, 0);
   }
   &.dislike {
     background: #fff url(../images/no.svg) no-repeat center;
@@ -300,16 +351,18 @@ header {
     bottom: 0;
     width: 100%;
     li {
-      padding: $padding;
-      background: #fff;
-      margin: $margin;
-      border-radius: $border-radius;
       position: relative;
+      margin: $margin;
     }
   }
   a {
+    display: block;
+    padding: $padding;
+    background: #fff;
     text-transform: uppercase;
     color: $base-color;
+    border-radius: $border-radius;
+    position: relative;
     font-weight: bold;
   }
   span {
@@ -323,6 +376,7 @@ header {
     bottom: 1.4375rem;
   }
 }
+
 .introduction {
   display: flex;
   height: calc(100% - 9rem);
@@ -337,6 +391,7 @@ header {
     margin: auto $margin;
     background: $white-color;
     border-radius: $border-radius;
+    width: 100%;
     p {
       padding: 0 $padding;
       line-height: 1.4em;
@@ -347,15 +402,4 @@ header {
     font-weight: bold;
   }
 }
-.buttonStart {
-  text-align: center;
-  display: block;
-  text-align: center;
-  background: $gold-color;
-  margin: $margin;
-  padding: $padding;
-  border-radius: $border-radius;
-  color: $white-color;
-  text-transform: uppercase;
-  font-weight: bold;
-}
+
