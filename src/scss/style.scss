@@ -325,6 +325,7 @@ header {
   }
   &.undo {
     background: #fff url(../images/rewind.svg) no-repeat center;
+    transform: matrix(0, 0, 0, 0, 0, 0);
   }
   &.dislike {
     background: #fff url(../images/no.svg) no-repeat center;
