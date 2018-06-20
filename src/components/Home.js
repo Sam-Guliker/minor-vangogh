@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 
-import ThemesList from "./ThemesList";
-
 class Home extends Component {
   render() {
     return (
