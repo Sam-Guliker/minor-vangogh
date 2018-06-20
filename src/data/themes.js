@@ -118,7 +118,7 @@ const themes = [
   },
   {
     name: "Changing techniques",
-    src: require("../images/wol.png"),
+    src: require("../images/wol.jpg"),
     link: "/changing-techniques",
     discription:
       "Vincent produced one colour study after another. Which colour combinations create the most powerful effect?",

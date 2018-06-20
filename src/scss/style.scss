@@ -129,6 +129,10 @@ header {
     &.hidden {
       display: none;
     }
+    &.hidden-delay {
+      opacity: 0;
+      transition: opacity 300ms ease 300ms;
+    }
   }
 }
 

@@ -150,7 +150,13 @@ class ThemesList extends Component {
 
   after() {
     let newNextIndex = this.state.nextThemeIndex + 1;
+
+    if (this.state.themeIndex === themes.length - 1) {
+      newNextIndex = this.state.nextThemeIndex;
+    }
+
     nextThemeIndexStatic = newNextIndex;
+
     this.setState({
       opacity: 1,
       rotate: 0,
@@ -197,11 +203,19 @@ class ThemesList extends Component {
     } else {
       direction = "";
     }
+
     return (
       <section>
         <ul className="theme-list">
-          {this.state.themeIndex < themes.length - 1 ? (
-            <li>
+          {this.state.themeIndex < themes.length ? (
+            <li
+              className={
+                this.state.themeIndex === themes.length - 1 &&
+                this.state.nextThemeIndex === themes.length - 1
+                  ? " hidden-delay"
+                  : undefined
+              }
+            >
               <ThemeItem theme={themes[this.state.nextThemeIndex]} />
             </li>
           ) : (
