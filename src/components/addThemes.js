@@ -3,6 +3,7 @@ import Header from "./Header";
 import ThemesList from "./ThemesList";
 import themes from "../data/themes";
 import FooterButton from "./FooterButton";
+import { Link } from "react-router-dom";
 
 function handleSelection() {
   let result = 0;
@@ -33,6 +34,9 @@ class addThemes extends Component {
     return (
       <div>
         <Header selected={this.state.selected} pop={this.state.pop}>
+          <Link className="left back" to="/introduction">
+            Back
+          </Link>
           <span className="right">{this.state.time}</span>
         </Header>
         <main>

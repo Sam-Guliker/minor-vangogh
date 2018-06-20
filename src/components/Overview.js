@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import FooterButton from "./FooterButton";
+import { Link } from "react-router-dom";
 
 import themes from "../data/themes";
 
@@ -8,7 +9,6 @@ function checkSelected(selected) {
   const checkSelectedObj = themes.filter(obj => {
     return obj.selected === selected;
   });
-  console.log(checkSelectedObj);
   return checkSelectedObj;
 }
 
@@ -19,11 +19,22 @@ class Overview extends Component {
     radio: "radio-1"
   };
 
+  componentWillMount() {
+    document.querySelector("body").classList.add("scroll");
+  }
+
+  componentWillUnmount() {
+    document.querySelector("body").classList.remove("scroll");
+  }
+
   render() {
-    console.log(this.state.selected);
     return (
       <div>
-        <Header />
+        <Header>
+          <Link className="left back" to="/start">
+            Back
+          </Link>
+        </Header>
         <main className="overview">
           <h1>Theme's</h1>
           <nav>

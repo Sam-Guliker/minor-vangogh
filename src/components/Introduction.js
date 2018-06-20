@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import FooterButton from "./FooterButton";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header>
+          <Link className="back left" to="/">
+            Back
+          </Link>
+        </Header>
         <main className="introduction">
           <article>
             <h1>Introduction</h1>

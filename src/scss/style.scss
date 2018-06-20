@@ -21,6 +21,9 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
+  &.scroll {
+    position: relative;
+  }
 }
 
 body,
@@ -75,6 +78,13 @@ header {
     right: $padding;
     font-weight: bold;
     font-size: $font-size-header;
+  }
+  .back {
+    background: #fff url(../images/back.svg) no-repeat left;
+    background-size: 1em;
+    width: 1em;
+    overflow: hidden;
+    text-indent: -5em;
   }
   h1 {
     font-size: $font-size-header;
@@ -260,20 +270,6 @@ header {
   }
   &:hover {
     color: transparent;
-  }
-  &.plus {
-    background: #fff url(../images/add.svg) no-repeat center;
-    background-size: 2em;
-  }
-  &.minus {
-    background: #fff url(../images/minus.svg) no-repeat center;
-    background-size: 1.2em;
-  }
-  &.back {
-    background: #fff url(../images/back.svg) no-repeat center;
-    background-size: 1em;
-    left: 0;
-    top: 0;
   }
 }
 
