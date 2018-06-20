@@ -3,10 +3,13 @@ import LikeFooter from "./LikeFooter";
 import themes from "../data/themes";
 import ThemeItem from "./ThemeItem";
 
+let themeIndexStatic = 0;
+let nextThemeIndexStatic = 1;
+
 class ThemesList extends Component {
   state = {
-    themeIndex: 0,
-    nextThemeIndex: 1,
+    themeIndex: themeIndexStatic,
+    nextThemeIndex: nextThemeIndexStatic,
     selected: 0,
     mouseDown: false,
     startPosition: 0,
@@ -36,6 +39,8 @@ class ThemesList extends Component {
 
     let themeIndex = this.state.themeIndex;
     themeIndex += 1;
+
+    themeIndexStatic = themeIndex;
 
     setTimeout(() => {
       this.after();
@@ -145,6 +150,7 @@ class ThemesList extends Component {
 
   after() {
     let newNextIndex = this.state.nextThemeIndex + 1;
+    nextThemeIndexStatic = newNextIndex;
     this.setState({
       opacity: 1,
       rotate: 0,
@@ -156,6 +162,7 @@ class ThemesList extends Component {
 
   onUndo = () => {
     let themeIndex = this.state.themeIndex - 1;
+    themeIndexStatic = themeIndex;
     themes[themeIndex].selected = false;
 
     let result = 0;
@@ -171,6 +178,8 @@ class ThemesList extends Component {
     let time = this.convertMinsToHrsMins(min);
 
     this.props.handleSelection(result, time);
+
+    nextThemeIndexStatic = themeIndex + 1;
 
     this.setState({
       selected: result,
