@@ -103,12 +103,13 @@ class ThemesList extends Component {
       difFromStart = 0;
     }
 
-    let deg = difFromStart / 10;
+    let deg = difFromStart / 20;
+    let reducedSwipe = difFromStart / 5;
 
     let opacity = 1 - Math.abs(difFromStart / 50);
 
     this.setState({
-      transform: difFromStart,
+      transform: reducedSwipe,
       pullDeltaX: difFromStart,
       rotate: deg,
       opacity

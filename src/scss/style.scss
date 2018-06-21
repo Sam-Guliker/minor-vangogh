@@ -35,6 +35,7 @@ p {
   font-weight: 200;
   padding-right: 1rem;
   padding-left: 1rem;
+  line-height: 1.4;
 }
 
 h1 {
@@ -199,7 +200,7 @@ header {
     max-height: 12em;
     overflow: hidden;
     background: $white-color url("../images/down.svg") no-repeat center 1em;
-    transition: max-height 300ms ease;
+    transition: max-height 0.4s ease-in-out;
     &:after {
       content: "";
       position: absolute;
@@ -321,7 +322,7 @@ header {
 .round-button {
   height: $button-circle;
   width: $button-circle;
-  box-shadow: $box-shadow;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
   border-radius: $border-radius-circle;
   border: none;
   &.small {
