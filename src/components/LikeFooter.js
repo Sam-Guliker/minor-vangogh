@@ -16,21 +16,20 @@ class LikeFooter extends Component {
 
   popButton(button) {
     const tl = new TimelineLite();
-    tl.to(button, 0.1, { ease: Power3.easeInOut, scaleX: 1, scaleY: 1 })
-      .to(button, 0.1, { ease: Power3.easeInOut, scaleX: 1.2, scaleY: 1.2 })
-      .to(button, 0.1, { ease: Power3.easeInOut, scaleX: 1, scaleY: 1 });
+    tl.to(button, 0.2, {
+      ease: Power3.easeInOut,
+      scale: 1.4,
+      repeat: 1,
+      yoyo: true
+    });
   }
 
   onUndo = e => {
     let undoButton = e.target;
     const tl = new TimelineLite();
-    tl.to(undoButton, 0, {
+    tl.to(undoButton, 0.6, {
       ease: Power3.easeInOut,
-      rotation: 0,
-      transformOrigin: "50% 50%"
-    }).to(undoButton, 1.5, {
-      ease: Power3.easeInOut,
-      rotation: 360,
+      rotation: "+=360",
       transformOrigin: "50% 50%"
     });
 
@@ -43,16 +42,16 @@ class LikeFooter extends Component {
 
   onAppearButton = () => {
     const tl = new TimelineLite();
-    tl.to(this.listButton.current, 0.2, { scaleX: 0, scaleY: 0 })
-      .to(this.listButton.current, 0.2, { scaleX: 1.5, scaleY: 1.5 })
-      .to(this.listButton.current, 0.2, { scaleX: 1, scaleY: 1 });
+    tl.to(this.listButton.current, 0.4, { scale: 0 })
+      .to(this.listButton.current, 0.2, { scale: 1.5 })
+      .to(this.listButton.current, 0.2, { scale: 1 });
   };
 
   onDissapearButton = () => {
     const tl = new TimelineLite();
-    tl.to(this.listButton.current, 0.2, { scaleX: 1, scaleY: 1 })
-      .to(this.listButton.current, 0.2, { scaleX: 1.5, scaleY: 1.5 })
-      .to(this.listButton.current, 0.2, { scaleX: 0, scaleY: 0 });
+    tl.to(this.listButton.current, 0.2, { scale: 1 })
+      .to(this.listButton.current, 0.2, { scale: 1.5 })
+      .to(this.listButton.current, 0.2, { scale: 0 });
   };
 
   render() {
