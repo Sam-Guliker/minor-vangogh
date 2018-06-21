@@ -195,6 +195,16 @@ class ThemesList extends Component {
     });
   };
 
+  componentDidMount() {
+    this.zeroState();
+  }
+
+  zeroState = () => {
+    this.setState({
+      load: true
+    });
+  };
+
   render() {
     let direction;
     if (this.state.transform > 0) {
@@ -203,6 +213,13 @@ class ThemesList extends Component {
       direction = "left";
     } else {
       direction = "";
+    }
+
+    let stateSteps;
+    if (this.zeroState.load === true) {
+      stateSteps = "rightStep";
+    } else {
+      stateSteps = "";
     }
 
     return (

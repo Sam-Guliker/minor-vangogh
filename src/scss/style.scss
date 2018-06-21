@@ -145,7 +145,7 @@ header {
   background-position: center;
   padding: $padding;
   position: relative;
-  h2,
+
   h3 {
     font-size: $font-size-h1;
     font-weight: bold;
@@ -272,9 +272,6 @@ header {
     background: $base-color;
     border-radius: 50%;
     line-height: 1.375rem;
-  }
-  &:hover {
-    color: transparent;
   }
 }
 
@@ -497,5 +494,31 @@ header {
       padding-bottom: 5px;
       border-bottom: 7px solid $gold-color;
     }
+  }
+}
+
+/* Animations */
+.rightDeg {
+  animation: right-deg 1.4s forwards ease-in-out;
+  transform-origin: bottom;
+}
+.leftDeg {
+  animation: left-deg 1.4s forwards ease-in-out;
+  transform-origin: bottom;
+}
+@-webkit-keyframes right-deg {
+  50% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@-webkit-keyframes left-deg {
+  50% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
