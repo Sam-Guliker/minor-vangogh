@@ -1,6 +1,6 @@
 const themes = [
   {
-    name: "The lagacy of Van Gogh",
+    name: "The legacy of Van Gogh",
     src: require("../images/japon.jpg"),
     link: "/legacy-of-van-gogh",
     discription:
