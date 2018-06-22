@@ -8,7 +8,13 @@ class Home extends Component {
     return (
       <div>
         <Header>
-          <Link className="back left" to="/">
+          <Link
+            className="back left"
+            to={{
+              pathname: "/",
+              state: { message: "back" }
+            }}
+          >
             Back
           </Link>
         </Header>

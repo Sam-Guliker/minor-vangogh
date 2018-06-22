@@ -34,7 +34,13 @@ class addThemes extends Component {
     return (
       <div>
         <Header selected={this.state.selected} pop={this.state.pop}>
-          <Link className="left back" to="/introduction">
+          <Link
+            className="back left"
+            to={{
+              pathname: "/introduction",
+              state: { message: "back" }
+            }}
+          >
             Back
           </Link>
           <span className="right">{this.state.time}</span>

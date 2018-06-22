@@ -2,6 +2,10 @@
 @import "reset";
 @import "fonts";
 
+html, body {
+  height: 100%;
+}
+
 #root {
   height: 100%;
   > div {
@@ -57,6 +61,10 @@ h2 {
 
 main {
   height: calc(100% - 9rem);
+  &.overview {
+    height: auto;
+    position: relative;
+  }
   > section {
     height: 100%;
   }
@@ -333,7 +341,17 @@ header {
   }
   &.undo {
     background: #fff url(../images/rewind.svg) no-repeat center;
+    transform: scale(0);
   }
+  &.popDown {
+    animation: popDown 500ms ease;
+  }
+  &.visible {
+    animation: popUp 500ms ease;
+    opacity: 1;
+    transform: scale(1);
+  }
+
   &.dislike {
     background: #fff url(../images/no.svg) no-repeat center;
     background-size: 2.5em;
@@ -674,20 +692,136 @@ header {
   }
 }
 
-
-.slide-up-appear,
-.slide-up-enter {
-  transform: scale(0);
+@keyframes popDown {
+  0% {
+    transform: scale(1);
+  } 
+  40% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
 
-.slide-up-appear-active,
-.slide-up-enter-active {
-  animation: popUp 500ms ease;
-  transform: scale(1);
+
+.page-appear,
+.page-enter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(100%);
+  opacity: 0;
 }
 
-// .slide-up-exit {
-// }
+.page-appear-active,
+.page-enter-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 500ms ease;
+  transform: translateX(0);
+  opacity: 1;
+}
 
-// .slide-up-exit-active {
-// }
+.page-exit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 500ms ease;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.page-exit-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+
+
+.page-back-appear,
+.page-back-enter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.page-back-appear-active,
+.page-back-enter-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 500ms ease;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.page-back-exit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 500ms ease;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.page-back-exit-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+
+
+.slide-appear,
+.slide-enter {
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.slide-appear-active,
+.slide-enter-active {
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 500ms ease;
+  opacity: 1;
+}
+
+.slide-exit {
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 500ms ease;
+  opacity: 1;
+}
+
+.slide-exit-active {
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+

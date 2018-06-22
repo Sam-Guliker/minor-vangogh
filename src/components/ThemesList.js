@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import LikeFooter from "./LikeFooter";
 import themes from "../data/themes";
 import ThemeItem from "./ThemeItem";
+import { Redirect } from "react-router-dom";
 
 let themeIndexStatic = 0;
 let nextThemeIndexStatic = 1;
@@ -22,7 +23,8 @@ class ThemesList extends Component {
     transform: 0,
     transition: false,
     opacity: 1,
-    load: load
+    load: load,
+    redirect: false
   };
 
   componentDidMount() {
@@ -33,12 +35,14 @@ class ThemesList extends Component {
     clearTimeout(timeOut);
   }
 
+  redirect() {}
+
   zeroState = () => {
     timeOut = setTimeout(() => {
       this.setState({
         load: false
       });
-    }, 4000);
+    }, 4200);
 
     load = false;
   };
@@ -174,9 +178,14 @@ class ThemesList extends Component {
 
   after() {
     let newNextIndex = this.state.nextThemeIndex + 1;
+    let redirect = false;
 
     if (this.state.themeIndex === themes.length - 1) {
       newNextIndex = this.state.nextThemeIndex;
+    }
+
+    if (this.state.themeIndex === themes.length) {
+      redirect = true;
     }
 
     nextThemeIndexStatic = newNextIndex;
@@ -186,7 +195,8 @@ class ThemesList extends Component {
       rotate: 0,
       transform: 0,
       transition: false,
-      nextThemeIndex: newNextIndex
+      nextThemeIndex: newNextIndex,
+      redirect
     });
   }
 
@@ -209,12 +219,18 @@ class ThemesList extends Component {
 
     this.props.handleSelection(result, time);
 
-    nextThemeIndexStatic = themeIndex + 1;
+    let newNextIndex = themeIndex + 1;
+
+    if (themeIndex === themes.length - 1) {
+      newNextIndex = themeIndex;
+    }
+
+    nextThemeIndexStatic = newNextIndex;
 
     this.setState({
       selected: result,
       themeIndex,
-      nextThemeIndex: themeIndex + 1
+      nextThemeIndex: newNextIndex
     });
   };
 
@@ -233,6 +249,10 @@ class ThemesList extends Component {
       stateSteps = " zeroState";
     } else {
       stateSteps = "";
+    }
+
+    if (this.state.redirect) {
+      return <Redirect to="/overview" />;
     }
 
     return (
