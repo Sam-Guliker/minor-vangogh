@@ -29,12 +29,16 @@ class ThemeItem extends Component {
           <img src={require("../images/clock.svg")} alt="clock" />
           {this.props.theme.time}
         </span>
-        <div
-          onClick={this.toggleInfo}
-          className={this.state.collapsed ? "info collapsed" : "info"}
-        >
-          <p>{this.props.theme.discription}</p>
-        </div>
+        {this.props.load ? (
+          undefined
+        ) : (
+          <div
+            onClick={this.toggleInfo}
+            className={this.state.collapsed ? "info collapsed" : "info"}
+          >
+            <p>{this.props.theme.discription}</p>
+          </div>
+        )}
       </article>
     );
   }

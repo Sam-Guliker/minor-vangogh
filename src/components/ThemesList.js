@@ -6,6 +6,10 @@ import ThemeItem from "./ThemeItem";
 let themeIndexStatic = 0;
 let nextThemeIndexStatic = 1;
 
+let load = true;
+
+let timeOut;
+
 class ThemesList extends Component {
   state = {
     themeIndex: themeIndexStatic,
@@ -17,7 +21,26 @@ class ThemesList extends Component {
     rotate: 0,
     transform: 0,
     transition: false,
-    opacity: 1
+    opacity: 1,
+    load: load
+  };
+
+  componentDidMount() {
+    this.zeroState();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(timeOut);
+  }
+
+  zeroState = () => {
+    timeOut = setTimeout(() => {
+      this.setState({
+        load: false
+      });
+    }, 4000);
+
+    load = false;
   };
 
   handleSelection = selected => {
@@ -122,15 +145,15 @@ class ThemesList extends Component {
       let transform = 0;
       let opacity = 1;
 
-      if (this.state.transform < 0) {
-        if (this.state.transform < -70) {
+      if (this.state.rotate < 0) {
+        if (this.state.rotate < -8) {
           rotate = -20;
           transform = -200;
           opacity = 0;
           this.handleSelection(false);
         }
       } else {
-        if (this.state.transform > 70) {
+        if (this.state.rotate > 8) {
           rotate = 20;
           transform = 200;
           opacity = 0;
@@ -195,16 +218,6 @@ class ThemesList extends Component {
     });
   };
 
-  componentDidMount() {
-    this.zeroState();
-  }
-
-  zeroState = () => {
-    this.setState({
-      load: true
-    });
-  };
-
   render() {
     let direction;
     if (this.state.transform > 0) {
@@ -216,8 +229,8 @@ class ThemesList extends Component {
     }
 
     let stateSteps;
-    if (this.zeroState.load === true) {
-      stateSteps = "rightStep";
+    if (this.state.load) {
+      stateSteps = " zeroState";
     } else {
       stateSteps = "";
     }
@@ -247,7 +260,9 @@ class ThemesList extends Component {
                 }px)`
               }}
               className={
-                this.state.transition ? "reject " + direction : direction
+                this.state.transition
+                  ? "reject " + direction + stateSteps
+                  : direction + stateSteps
               }
               onMouseDown={this.handleDragStart}
               onTouchStart={this.handleTouchStart}
@@ -260,12 +275,30 @@ class ThemesList extends Component {
               <ThemeItem
                 opacity={this.state.opacity}
                 theme={themes[this.state.themeIndex]}
+                load={this.state.load}
               />
             </li>
           ) : (
             undefined
           )}
+          <div
+            className={
+              this.state.load ? "notification zeroLeft" : "notification"
+            }
+          >
+            Swipe <img src={require("../images/left.svg")} alt="left" /> to add
+            a theme to your tour
+          </div>
+          <div
+            className={
+              this.state.load ? "notification zeroRight" : "notification"
+            }
+          >
+            Swipe <img src={require("../images/right.svg")} alt="right" /> to
+            add a theme to your tour
+          </div>
         </ul>
+        <div />
         <LikeFooter
           handleSelection={this.handleSelection}
           themesLength={themes.length}
