@@ -499,42 +499,15 @@ header {
     }
   }
 }
-.timer {
-  .container {
-    position: relative;
-    .uncover {
-      width: 200%;
-      height: 50vw;
-      background: white;
-      //background-color: black;
-      position: absolute;
-      z-index: 2;
-      top: 100px;
-      left: 0;
-      transform-origin: left 50%;
-      transform: rotate(-26deg) scaleX(0)
-      transition: transform 1s;
-      &.move {
-        transform: rotate(-26deg) scaleX(100)
-      }
-    }
-    p {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #000;
-      font-weight: bold;
-    }
+
+.map {
+  height: initial;
+  .top {
+    width: 80%;
+    margin: auto;
+    display: block;
   }
-  p {
-    position: relative;
-    z-index: 5;
-    text-align: center;
-    font-weight: bold;
-    span {
-      color: #000;
-      font-weight: bold;
-    }
-  }
+}
+.bottom {
+  margin-top: $margin;
 }
