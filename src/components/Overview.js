@@ -144,6 +144,7 @@ class Overview extends Component {
           <h3 className="time">Total time: {this.state.time}</h3>
         </main>
         <FooterButton name="start tour" link="/map" />
+        <div className="offset" />
       </div>
     );
   }
