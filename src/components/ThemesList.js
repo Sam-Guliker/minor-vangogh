@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import LikeFooter from "./LikeFooter";
 import themes from "../data/themes";
 import ThemeItem from "./ThemeItem";
+import { Redirect } from "react-router-dom";
 
 let themeIndexStatic = 0;
 let nextThemeIndexStatic = 1;
+
+let load = true;
+
+let timeOut;
 
 class ThemesList extends Component {
   state = {
@@ -17,7 +22,29 @@ class ThemesList extends Component {
     rotate: 0,
     transform: 0,
     transition: false,
-    opacity: 1
+    opacity: 1,
+    load: load,
+    redirect: false
+  };
+
+  componentDidMount() {
+    this.zeroState();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(timeOut);
+  }
+
+  redirect() {}
+
+  zeroState = () => {
+    timeOut = setTimeout(() => {
+      this.setState({
+        load: false
+      });
+    }, 4200);
+
+    load = false;
   };
 
   handleSelection = selected => {
@@ -122,15 +149,15 @@ class ThemesList extends Component {
       let transform = 0;
       let opacity = 1;
 
-      if (this.state.transform < 0) {
-        if (this.state.transform < -70) {
+      if (this.state.rotate < 0) {
+        if (this.state.rotate < -8) {
           rotate = -20;
           transform = -200;
           opacity = 0;
           this.handleSelection(false);
         }
       } else {
-        if (this.state.transform > 70) {
+        if (this.state.rotate > 8) {
           rotate = 20;
           transform = 200;
           opacity = 0;
@@ -151,9 +178,14 @@ class ThemesList extends Component {
 
   after() {
     let newNextIndex = this.state.nextThemeIndex + 1;
+    let redirect = false;
 
     if (this.state.themeIndex === themes.length - 1) {
       newNextIndex = this.state.nextThemeIndex;
+    }
+
+    if (this.state.themeIndex === themes.length) {
+      redirect = true;
     }
 
     nextThemeIndexStatic = newNextIndex;
@@ -163,7 +195,8 @@ class ThemesList extends Component {
       rotate: 0,
       transform: 0,
       transition: false,
-      nextThemeIndex: newNextIndex
+      nextThemeIndex: newNextIndex,
+      redirect
     });
   }
 
@@ -186,12 +219,18 @@ class ThemesList extends Component {
 
     this.props.handleSelection(result, time);
 
-    nextThemeIndexStatic = themeIndex + 1;
+    let newNextIndex = themeIndex + 1;
+
+    if (themeIndex === themes.length - 1) {
+      newNextIndex = themeIndex;
+    }
+
+    nextThemeIndexStatic = newNextIndex;
 
     this.setState({
       selected: result,
       themeIndex,
-      nextThemeIndex: themeIndex + 1
+      nextThemeIndex: newNextIndex
     });
   };
 
@@ -203,6 +242,17 @@ class ThemesList extends Component {
       direction = "left";
     } else {
       direction = "";
+    }
+
+    let stateSteps;
+    if (this.state.load) {
+      stateSteps = " zeroState";
+    } else {
+      stateSteps = "";
+    }
+
+    if (this.state.redirect) {
+      return <Redirect to="/overview" />;
     }
 
     return (
@@ -230,7 +280,9 @@ class ThemesList extends Component {
                 }px)`
               }}
               className={
-                this.state.transition ? "reject " + direction : direction
+                this.state.transition
+                  ? "reject " + direction + stateSteps
+                  : direction + stateSteps
               }
               onMouseDown={this.handleDragStart}
               onTouchStart={this.handleTouchStart}
@@ -243,12 +295,30 @@ class ThemesList extends Component {
               <ThemeItem
                 opacity={this.state.opacity}
                 theme={themes[this.state.themeIndex]}
+                load={this.state.load}
               />
             </li>
           ) : (
             undefined
           )}
+          <div
+            className={
+              this.state.load ? "notification zeroLeft" : "notification"
+            }
+          >
+            Swipe <img src={require("../images/left.svg")} alt="left" /> to add
+            a theme to your tour
+          </div>
+          <div
+            className={
+              this.state.load ? "notification zeroRight" : "notification"
+            }
+          >
+            Swipe <img src={require("../images/right.svg")} alt="right" /> to
+            add a theme to your tour
+          </div>
         </ul>
+        <div />
         <LikeFooter
           handleSelection={this.handleSelection}
           themesLength={themes.length}

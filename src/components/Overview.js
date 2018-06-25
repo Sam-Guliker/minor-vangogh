@@ -42,7 +42,7 @@ class Overview extends Component {
     time: showTime()
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     document.querySelector("body").classList.add("scroll");
   }
 
@@ -68,7 +68,13 @@ class Overview extends Component {
     return (
       <div>
         <Header>
-          <Link className="left back" to="/start">
+          <Link
+            className="back left"
+            to={{
+              pathname: "/start",
+              state: { message: "back" }
+            }}
+          >
             Back
           </Link>
         </Header>
