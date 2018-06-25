@@ -1,39 +1,56 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import themes from "../data/themes";
+import { Link } from "react-router-dom";
 
-let count = 0;
+function checkSelected(selected) {
+  const checkSelectedArr = themes.filter(obj => {
+    return obj.selected === selected;
+  });
+  return checkSelectedArr;
+}
 
 class Map extends Component {
   state = {
-    count: 0
+    selected: checkSelected(true)
   };
 
-  // componentDidMount() {
-  // this.setState({ count: 10});
-  //   let intervalTimer = setInterval(() => {
-  //     console.log(this.state.count);
-
-  //     if (this.state.count === 100 - 1) {
-  //       clearInterval(intervalTimer);
-  //     }
-  //     this.setState(prevState => ({
-  //       count: prevState.count + 1
-  //     }));
-  //   }, 100);
-  // }
-
   render() {
+    let paintings = this.state.selected.map(obj => {
+      return obj.paintings;
+    });
+    paintings = paintings.reduce(function(a, b) {
+      return a.concat(b);
+    }, []);
+
+    const floor = paintings.map((obj, i) => {
+      return (
+        <li
+          key={i}
+          style={{ backgroundImage: `url(${obj.src}` }}
+          className="painting-item"
+        >
+          <span>{obj.number}</span>
+        </li>
+      );
+    });
     return (
       <div>
-        <Header />
+        <Header>
+          <Link
+            className="back left"
+            to={{
+              pathname: "/start",
+              state: { message: "back" }
+            }}
+          >
+            Back
+          </Link>
+        </Header>
         <main className="map">
           <img className="top" src={require("../images/top.png")} alt="clock" />
         </main>
-        <img
-          className="bottom"
-          src={require("../images/bottom.png")}
-          alt="clock"
-        />
+        <ul className="painting-list">{floor}</ul>
       </div>
     );
   }

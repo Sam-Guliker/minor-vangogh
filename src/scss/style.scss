@@ -856,3 +856,64 @@ header {
 body #root .offset {
   height: 2em;
 }
+
+.painting-list {
+  display: flex;
+  overflow-x: scroll;
+  height: 80vh;
+  justify-content: flex-start;
+  .filling {
+    width: 12vw;
+    flex: 0 0 auto;
+  }
+}
+
+.painting-item {
+  position: relative;
+  width: 70vw;
+  flex: 0 0 auto;
+  height: 50%;
+  margin: 3vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: $padding;
+  border-radius: $border-radius;
+  &:first-of-type {
+    margin-left: 15vw;
+  }
+
+  h2, h3 {
+    font-size: 1.5em;
+    color: #FFF;
+    margin-right: 1rem;
+  }
+  .details {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+  }
+  span {
+    color: #FFF;
+    font-size: 1em;
+    display: block;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    top: $padding;
+    right: $padding;
+    border-radius: 50%;
+    text-align: center;
+    background: $base-color;
+  }
+  img {
+    width: 1.2rem;
+    margin-right: 0.5rem;
+  }
+}
