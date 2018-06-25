@@ -141,7 +141,7 @@ class Overview extends Component {
                   );
                 })}
           </ul>
-          <h3>Total time: {this.state.time}</h3>
+          <h3 className="time">Total time: {this.state.time}</h3>
         </main>
         <FooterButton name="start tour" link="/map" />
       </div>

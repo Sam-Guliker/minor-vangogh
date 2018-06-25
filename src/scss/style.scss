@@ -836,4 +836,18 @@ header {
   opacity: 0;
 }
 
-
+.time {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25em;
+  font-weight: 800;
+  padding-left: 1.4em;
+  padding-top: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  background: url("../images/clock-black.svg") no-repeat left;
+  background-size: 1em;
+  margin: 0.5em;
+}
