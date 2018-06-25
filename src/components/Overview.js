@@ -90,7 +90,6 @@ class Overview extends Component {
                 }
                 htmlFor="selected"
               >
-                {" "}
                 selected
               </label>
               <input
@@ -138,7 +137,7 @@ class Overview extends Component {
           </ul>
           <h3>Total time: {this.state.time}</h3>
         </main>
-        <FooterButton name="start tour" link="/start" />
+        <FooterButton name="start tour" link="/map" />
       </div>
     );
   }

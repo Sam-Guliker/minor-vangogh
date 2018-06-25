@@ -8,19 +8,19 @@ class Map extends Component {
     count: 0
   };
 
-  componentDidMount() {
-    // this.setState({ count: 10});
-    let intervalTimer = setInterval(() => {
-      console.log(this.state.count);
+  // componentDidMount() {
+  // this.setState({ count: 10});
+  //   let intervalTimer = setInterval(() => {
+  //     console.log(this.state.count);
 
-      if (this.state.count === 100 - 1) {
-        clearInterval(intervalTimer);
-      }
-      this.setState(prevState => ({
-        count: prevState.count + 1
-      }));
-    }, 100);
-  }
+  //     if (this.state.count === 100 - 1) {
+  //       clearInterval(intervalTimer);
+  //     }
+  //     this.setState(prevState => ({
+  //       count: prevState.count + 1
+  //     }));
+  //   }, 100);
+  // }
 
   render() {
     return (
