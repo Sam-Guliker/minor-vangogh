@@ -14,7 +14,6 @@ const childFactoryCreator = classNames => child =>
 
 class App extends Component {
   render() {
-    console.log(this.props.location);
     return (
       <Route
         render={({ location }) => (
