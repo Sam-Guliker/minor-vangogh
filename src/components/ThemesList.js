@@ -35,8 +35,6 @@ class ThemesList extends Component {
     clearTimeout(timeOut);
   }
 
-  redirect() {}
-
   zeroState = () => {
     timeOut = setTimeout(() => {
       this.setState({
@@ -88,25 +86,21 @@ class ThemesList extends Component {
   }
 
   handleDragStart = e => {
-    if (e.target.className === "theme-item") {
-      this.setState({
-        mouseDown: true,
-        startPosition: e.pageX,
-        device: "laptop",
-        transition: false
-      });
-    }
+    this.setState({
+      mouseDown: true,
+      startPosition: e.pageX,
+      device: "laptop",
+      transition: false
+    });
   };
 
   handleTouchStart = e => {
-    if (e.target.className === "theme-item") {
-      this.setState({
-        mouseDown: true,
-        startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
-        device: "mobile",
-        transition: false
-      });
-    }
+    this.setState({
+      mouseDown: true,
+      startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
+      device: "mobile",
+      transition: false
+    });
   };
 
   handleDragMove = e => {
