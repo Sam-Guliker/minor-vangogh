@@ -14,7 +14,7 @@ function checkSelected(selected) {
 class Map extends Component {
   state = {
     selected: checkSelected(true),
-    radio: "floor-0"
+    radio: "floor-1"
   };
 
   checkSelectedFloor = radio => {
@@ -50,6 +50,8 @@ class Map extends Component {
       });
     }
 
+    console.log(floor);
+
     return (
       <div>
         <Header>
@@ -65,6 +67,21 @@ class Map extends Component {
         </Header>
         <main className="map">
           <FloorNavigation radio={this.checkSelectedFloor} />
+          <div>
+            {this.state.radio === "floor-1"
+              ? floor.map(obj => {
+                  return (
+                    <span
+                      key={obj.number}
+                      style={{ left: obj.left, top: obj.top }}
+                    >
+                      {obj.number}
+                    </span>
+                  );
+                })
+              : undefined}
+            <img src={require("../images/map.svg")} alt="map" />
+          </div>
         </main>
         <ul className="painting-list">
           {floor.map(obj => {

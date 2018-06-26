@@ -434,6 +434,7 @@ header {
 
 .map {
   margin: 0 $margin;
+  height: initial;
   h1 {
     margin: $margin 0;
     text-align: left;
@@ -469,15 +470,25 @@ header {
       background-color: $green-color;
     }
   }
-}
-
-.map {
-  height: initial;
   .top {
     width: 80%;
     margin: auto;
     display: block;
   }
+}
+span {
+  position: absolute;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 50%;
+  background: $base-color;
+  color: $white-color;
+}
+div {
+  position: relative;
 }
 .bottom {
   margin-top: $margin;
@@ -797,7 +808,7 @@ body #root .offset {
 .painting-list {
   display: flex;
   overflow-x: scroll;
-  height: 80vh;
+  height: 70vh;
   justify-content: flex-start;
   .filling {
     width: 12vw;
@@ -807,9 +818,9 @@ body #root .offset {
 
 .painting-item {
   position: relative;
-  width: 70vw;
+  width: 60vw;
   flex: 0 0 auto;
-  height: 50%;
+  height: 60vw;
   margin: 3vw;
   background-repeat: no-repeat;
   background-size: cover;
@@ -820,7 +831,7 @@ body #root .offset {
   padding: $padding;
   border-radius: $border-radius;
   &:first-of-type {
-    margin-left: 15vw;
+    margin-left: $margin;
   }
 
   h2, h3 {
@@ -855,3 +866,4 @@ body #root .offset {
     margin-right: 0.5rem;
   }
 }
+

@@ -29,7 +29,9 @@ const themes = [
         number: 53,
         title: "Gauguin's chair",
         src: require("../images/paintings/Chair.jpg"),
-        floor: 1
+        floor: 1,
+        left: "0%",
+        top: "60%"
       },
       {
         number: 12,
@@ -58,7 +60,9 @@ const themes = [
         number: 13,
         title: "Still life with bible",
         src: require("../images/paintings/Bible.jpg"),
-        floor: 1
+        floor: 1,
+        left: "88%",
+        top: "45%"
       }
     ]
   },
@@ -75,13 +79,17 @@ const themes = [
         number: 41,
         title: "Head of a skeleton with a burning cigarette",
         src: require("../images/paintings/Skeleton.jpg"),
-        floor: 1
+        floor: 1,
+        left: "43%",
+        top: "58%"
       },
       {
         number: 16,
         title: "Peasants heads",
         src: require("../images/paintings/Peasants.jpg"),
-        floor: 1
+        floor: 1,
+        left: "78%",
+        top: "22%"
       }
     ]
   },
@@ -98,7 +106,9 @@ const themes = [
         number: 29,
         title: "An old woman of Arles",
         src: require("../images/paintings/Old.jpg"),
-        floor: 1
+        floor: 1,
+        left: "0%",
+        top: "70%"
       },
       {
         number: 65,
@@ -121,7 +131,9 @@ const themes = [
         number: 37,
         title: "Rural life",
         src: require("../images/paintings/Rural.jpg"),
-        floor: 1
+        floor: 1,
+        left: "32%",
+        top: "0%"
       }
     ]
   },
@@ -138,13 +150,17 @@ const themes = [
         number: 4,
         title: "The yellow house",
         src: require("../images/paintings/Yellow.jpg"),
-        floor: 1
+        floor: 1,
+        left: "12",
+        top: "81%"
       },
       {
         number: 18,
         title: "Garden with courting couples: square saint-pierre",
         src: require("../images/paintings/Couples.jpg"),
-        floor: 1
+        floor: 1,
+        left: "49%",
+        top: "81%"
       },
       {
         number: 34,
@@ -168,7 +184,9 @@ const themes = [
         number: 55,
         title: "Head of a prostitute",
         src: require("../images/paintings/Prostitute.jpg"),
-        floor: 1
+        floor: 1,
+        left: "35%",
+        top: "58%"
       }
     ]
   },
@@ -202,13 +220,17 @@ const themes = [
         number: 50,
         title: "The potato eaters",
         src: require("../images/paintings/Potato.jpg"),
-        floor: 1
+        floor: 1,
+        left: "70%",
+        top: "31%"
       },
       {
         number: 28,
         title: "The cottage",
         src: require("../images/paintings/Cottage.jpg"),
-        floor: 1
+        floor: 1,
+        left: "78%",
+        top: "12%"
       },
       {
         number: 49,
@@ -231,13 +253,17 @@ const themes = [
         number: 2,
         title: "The pink orchard",
         src: require("../images/paintings/Pink.jpg"),
-        floor: 1
+        floor: 1,
+        left: "12%",
+        top: "91%"
       },
       {
         number: 38,
         title: "Trees and undergrowth",
         src: require("../images/paintings/Trees.jpg"),
-        floor: 1
+        floor: 1,
+        left: "41%",
+        top: "81%"
       }
     ]
   },
@@ -254,7 +280,9 @@ const themes = [
         number: 14,
         title: "Self-portrait with grey felt hat",
         src: require("../images/paintings/Grey.jpg"),
-        floor: 1
+        floor: 1,
+        left: "60%",
+        top: "91%"
       },
       {
         number: 87,

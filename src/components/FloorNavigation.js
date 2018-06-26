@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class FloorNavigation extends Component {
   state = {
-    radio: "floor-0"
+    radio: "floor-1"
   };
   setInput = e => {
     this.setState({ radio: e.target.value });
