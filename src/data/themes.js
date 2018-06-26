@@ -5,38 +5,14 @@ const themes = [
     link: "/legacy-of-van-gogh",
     discription:
       "Many are influenced by Van Gogh’s work: whether it be by his choice of subject, brushwork or sense of color.",
-    time: "20 min",
+    time: "5 min",
     selected: true,
     paintings: [
       {
-        number: 101,
+        number: 89,
         title: "Schilderij van van Dongen",
-        src: require("../images/paintings/Schilderij.jpg")
-      },
-      {
-        number: 83,
-        title: "Drawings",
-        src: require("../images/paintings/Drawings.jpg")
-      },
-      {
-        number: 24,
-        title: "Going to arles",
-        src: require("../images/paintings/Arles.jpg")
-      },
-      {
-        number: 43,
-        title: "Saint-Rémy-de-provence",
-        src: require("../images/paintings/Saint.jpg")
-      },
-      {
-        number: 85,
-        title: "Paris",
-        src: require("../images/paintings/Paris.jpg")
-      },
-      {
-        number: 92,
-        title: "Auvers-sur-oise",
-        src: require("../images/paintings/Auvers.jpg")
+        src: require("../images/paintings/Schilderij.jpg"),
+        floor: 3
       }
     ]
   },
@@ -52,12 +28,14 @@ const themes = [
       {
         number: 53,
         title: "Gauguin's chair",
-        src: require("../images/paintings/Chair.jpg")
+        src: require("../images/paintings/Chair.jpg"),
+        floor: 1
       },
       {
         number: 12,
         title: "Gauguin: van gogh painting sunflowers",
-        src: require("../images/paintings/Painting.jpg")
+        src: require("../images/paintings/Painting.jpg"),
+        floor: 2
       }
     ]
   },
@@ -73,12 +51,14 @@ const themes = [
       {
         number: 102,
         title: "Schilderij van theo",
-        src: require("../images/paintings/Theo.jpg")
+        src: require("../images/paintings/Theo.jpg"),
+        floor: 2
       },
       {
         number: 13,
         title: "Still life with bible",
-        src: require("../images/paintings/Bible.jpg")
+        src: require("../images/paintings/Bible.jpg"),
+        floor: 1
       }
     ]
   },
@@ -94,12 +74,14 @@ const themes = [
       {
         number: 41,
         title: "Head of a skeleton with a burning cigarette",
-        src: require("../images/paintings/Skeleton.jpg")
+        src: require("../images/paintings/Skeleton.jpg"),
+        floor: 1
       },
       {
         number: 16,
         title: "Peasants heads",
-        src: require("../images/paintings/Peasants.jpg")
+        src: require("../images/paintings/Peasants.jpg"),
+        floor: 1
       }
     ]
   },
@@ -115,12 +97,14 @@ const themes = [
       {
         number: 29,
         title: "An old woman of Arles",
-        src: require("../images/paintings/Old.jpg")
+        src: require("../images/paintings/Old.jpg"),
+        floor: 1
       },
       {
         number: 65,
         title: "Tree Roots",
-        src: require("../images/paintings/Tree.jpg")
+        src: require("../images/paintings/Tree.jpg"),
+        floor: 3
       }
     ]
   },
@@ -136,7 +120,8 @@ const themes = [
       {
         number: 37,
         title: "Rural life",
-        src: require("../images/paintings/Rural.jpg")
+        src: require("../images/paintings/Rural.jpg"),
+        floor: 1
       }
     ]
   },
@@ -152,32 +137,38 @@ const themes = [
       {
         number: 4,
         title: "The yellow house",
-        src: require("../images/paintings/Yellow.jpg")
+        src: require("../images/paintings/Yellow.jpg"),
+        floor: 1
       },
       {
         number: 18,
         title: "Garden with courting couples: square saint-pierre",
-        src: require("../images/paintings/Couples.jpg")
+        src: require("../images/paintings/Couples.jpg"),
+        floor: 1
       },
       {
         number: 34,
         title: "Wheatfield with a Reaper",
-        src: require("../images/paintings/Reaper.jpg")
+        src: require("../images/paintings/Reaper.jpg"),
+        floor: 3
       },
       {
         number: 42,
         title: "Wheatfield with crows",
-        src: require("../images/paintings/Crows.jpg")
+        src: require("../images/paintings/Crows.jpg"),
+        floor: 3
       },
       {
         number: 54,
         title: "Orchards in blossom, views of Arle",
-        src: require("../images/paintings/Orchards.jpg")
+        src: require("../images/paintings/Orchards.jpg"),
+        floor: 3
       },
       {
         number: 55,
         title: "Head of a prostitute",
-        src: require("../images/paintings/Prostitute.jpg")
+        src: require("../images/paintings/Prostitute.jpg"),
+        floor: 1
       }
     ]
   },
@@ -193,7 +184,8 @@ const themes = [
       {
         number: 100,
         title: "Courtisana",
-        src: require("../images/paintings/Courtesan.jpg")
+        src: require("../images/paintings/Courtesan.jpg"),
+        floor: -1
       }
     ]
   },
@@ -209,17 +201,20 @@ const themes = [
       {
         number: 50,
         title: "The potato eaters",
-        src: require("../images/paintings/Potato.jpg")
+        src: require("../images/paintings/Potato.jpg"),
+        floor: 1
       },
       {
         number: 28,
         title: "The cottage",
-        src: require("../images/paintings/Cottage.jpg")
+        src: require("../images/paintings/Cottage.jpg"),
+        floor: 1
       },
       {
         number: 49,
         title: "Irisis",
-        src: require("../images/paintings/Irisis.jpg")
+        src: require("../images/paintings/Irisis.jpg"),
+        floor: 2
       }
     ]
   },
@@ -235,12 +230,14 @@ const themes = [
       {
         number: 2,
         title: "The pink orchard",
-        src: require("../images/paintings/Pink.jpg")
+        src: require("../images/paintings/Pink.jpg"),
+        floor: 1
       },
       {
         number: 38,
         title: "Trees and undergrowth",
-        src: require("../images/paintings/Trees.jpg")
+        src: require("../images/paintings/Trees.jpg"),
+        floor: 1
       }
     ]
   },
@@ -256,12 +253,14 @@ const themes = [
       {
         number: 14,
         title: "Self-portrait with grey felt hat",
-        src: require("../images/paintings/Grey.jpg")
+        src: require("../images/paintings/Grey.jpg"),
+        floor: 1
       },
       {
         number: 87,
         title: "Self-portrait with straw hat",
-        src: require("../images/paintings/Straw.jpg")
+        src: require("../images/paintings/Straw.jpg"),
+        floor: 0
       }
     ]
   },
@@ -277,7 +276,8 @@ const themes = [
       {
         number: 103,
         title: "The Bedroom",
-        src: require("../images/bedroom.jpg")
+        src: require("../images/bedroom.jpg"),
+        floor: -1
       }
     ]
   },
@@ -293,12 +293,14 @@ const themes = [
       {
         number: 68,
         title: "Copies after millet",
-        src: require("../images/paintings/Millet.jpg")
+        src: require("../images/paintings/Millet.jpg"),
+        floor: 3
       },
       {
         number: 80,
         title: "Roses",
-        src: require("../images/paintings/Roses.jpg")
+        src: require("../images/paintings/Roses.jpg"),
+        floor: 3
       }
     ]
   },
@@ -314,7 +316,8 @@ const themes = [
       {
         number: 9,
         title: "Landscape at Twilight",
-        src: require("../images/paintings/Twilight.jpg")
+        src: require("../images/paintings/Twilight.jpg"),
+        floor: 3
       }
     ]
   }

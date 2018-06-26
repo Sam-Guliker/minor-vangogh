@@ -339,19 +339,9 @@ header {
     background: #fff url(../images/yes.svg) no-repeat center;
     background-size: 2.5em;
   }
-  &.undo {
-    background: #fff url(../images/rewind.svg) no-repeat center;
-    transform: scale(0);
-  }
   &.popDown {
     animation: popDown 500ms ease;
   }
-  &.visible {
-    animation: popUp 500ms ease;
-    opacity: 1;
-    transform: scale(1);
-  }
-
   &.dislike {
     background: #fff url(../images/no.svg) no-repeat center;
     background-size: 2.5em;
@@ -364,6 +354,7 @@ header {
   text-align: center;
 }
 .tours {
+  display: flex;
   height: calc(100% - 4.375rem);
   border-radius: $border-radius;
   margin: 0 $margin;
@@ -401,6 +392,23 @@ header {
   }
 }
 
+.intro-text {
+  text-align: center;
+  padding: $padding;
+  margin: auto $margin;
+  background: $white-color;
+  border-radius: $border-radius;
+  width: auto;
+  p {
+    padding: 0 $padding;
+    line-height: 1.4em;
+  }
+  h1 {
+    padding-bottom: 10px;
+    font-weight: bold;
+  }
+}
+
 .introduction {
   display: flex;
   height: calc(100% - 9rem);
@@ -409,22 +417,6 @@ header {
   position: relative;
   background: url(../images/introduction-bg.jpg);
   background-size: cover;
-  article {
-    text-align: center;
-    padding: $padding;
-    margin: auto $margin;
-    background: $white-color;
-    border-radius: $border-radius;
-    width: 100%;
-    p {
-      padding: 0 $padding;
-      line-height: 1.4em;
-    }
-  }
-  h1 {
-    padding-bottom: 10px;
-    font-weight: bold;
-  }
 }
 
 .buttonStart {
@@ -440,74 +432,8 @@ header {
   font-weight: bold;
 }
 
-.overview {
+.map {
   margin: 0 $margin;
-  ul {
-    margin-top: 30px;
-  }
-  li {
-    position: relative;
-    color: $white-color;
-    background: black;
-    display: flex;
-    margin: $margin 0;
-    flex-direction: row;
-    justify-content: space-between;
-    border-radius: $border-radius;
-    padding: 1.25rem;
-    margin-right: 1.25rem;
-    &:after {
-    z-index: 0;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    top: 0;
-    left: 0;
-    right: 0;
-    border-radius: $border-radius;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.65)), to(rgba(0,0,0,0)));
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
-    background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
-}
-    div {
-      z-index: 10;
-    }
-    p {
-      z-index: 10;
-      padding-left: 0;
-      padding-top: 1.25rem;
-    }
-    img {
-      padding-top: 5px;
-      width: 20px;
-      height: 20px;
-    }
-  }
-  button {
-    z-index: 10;
-    background: white;
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 2rem;
-    height: 2rem;
-    padding: 2rem;
-    outline: none;
-    border-radius: 2rem;
-    position: absolute;
-    right: -30px;
-    top: 19px;
-    outline: none;
-    border: none;
-    box-shadow: $box-shadow;
-  }
-  .yes-img {
-    background-image: url("../images/yes.svg");
-  }
-  .no-img {
-    background-image: url("../images/no.svg");
-  }
   h1 {
     margin: $margin 0;
     text-align: left;
@@ -519,17 +445,28 @@ header {
     left: -99999px;
   }
   form {
-    margin: $margin 0;
+    margin: $margin auto;
+    display: flex;
+    justify-content: center;
   }
   label {
     font-weight: bold;
-    font-size: 18px;
+    font-size: $font-size-button;
+    line-height: 2.8rem;
+    text-align: center;
     text-transform: uppercase;
-    margin-right: $margin;
-    margin-bottom: $margin;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    color: $green-color;
+    border: 4px solid $green-color;
+    transition: all 200ms ease;
+    margin: 0 0.5rem;
     &.selected {
-      padding-bottom: 5px;
-      border-bottom: 7px solid $gold-color;
+      border: 4px solid $green-color;
+      color: $white-color;
+      background-color: $green-color;
     }
   }
 }
@@ -903,13 +840,14 @@ body #root .offset {
     font-size: 1em;
     display: block;
     position: absolute;
-    width: 2rem;
-    height: 2rem;
-    line-height: 2rem;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
     top: $padding;
     right: $padding;
     border-radius: 50%;
     text-align: center;
+    font-weight: 700;
     background: $base-color;
   }
   img {
