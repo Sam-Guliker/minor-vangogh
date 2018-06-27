@@ -25,12 +25,19 @@ class LikeFooter extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="like-footer">
         <button
           onClick={e => this.onClickButton(e, false)}
           className="round-button dislike"
         />
+
+        <div className="footerTimer">
+          <img src={require("../images/clock-black.svg")} alt="clocks" />
+          {this.props.time}
+        </div>
+
         <button
           onClick={e => this.onClickButton(e, true)}
           className="round-button like"

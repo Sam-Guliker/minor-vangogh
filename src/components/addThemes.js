@@ -4,7 +4,6 @@ import ThemesList from "./ThemesList";
 import themes from "../data/themes";
 import FooterButton from "./FooterButton";
 import { Link } from "react-router-dom";
-import Overview from "./Overview";
 
 function handleSelection() {
   let result = 0;
@@ -21,7 +20,8 @@ function handleSelection() {
 class addThemes extends Component {
   state = {
     selected: handleSelection(),
-    pop: false
+    pop: false,
+    time: "00:00"
   };
 
   handleSelection = (selected, time) => {
@@ -44,17 +44,19 @@ class addThemes extends Component {
           >
             Back
           </Link>
-          <span className="right">{this.state.selected}</span>
+          <Link className="right button-small list" to="/overview">
+            Menu
+            <span>{this.state.selected}</span>
+          </Link>
         </Header>
         <main>
           <ThemesList
             handleSelection={this.handleSelection}
             popButton={this.onClickButton}
+            time={this.state.time}
           />
         </main>
-        <FooterButton name="Start tour" link="/map">
-          <span>{this.state.selected}</span>
-        </FooterButton>
+        <FooterButton name="Start tour" link="/map" />
       </div>
     );
   }
