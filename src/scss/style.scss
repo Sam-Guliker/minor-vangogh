@@ -716,10 +716,10 @@ header {
   background: white;
   border-radius: 8px;
   font-weight: bold;
-  margin-top: -10px;
   img {
     margin-right: 5px;
     width: 13px;
+    transform: translateY(1px);
   }
 }
 @keyframes zeroNotification {

@@ -2,6 +2,7 @@
   "name": "minor-vangogh",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://sam-guliker.github.io/minor-vangogh",
   "dependencies": {
     "graceful-fs": "^4.1.11",
     "gsap": "^2.0.1",
@@ -19,7 +20,8 @@
     "linter": "eslint --init",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -42,6 +44,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "linter": "0.0.7",
-    "prettier": "^1.13.4"
+    "prettier": "^1.13.4",
+    "gh-pages": "^1.2.0"
   }
 }

@@ -8,7 +8,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import App from "./App";
 
 ReactDOM.render(
-  <Router>
+  <Router basename="minor-vangogh">
     <App />
   </Router>,
   document.getElementById("root")
