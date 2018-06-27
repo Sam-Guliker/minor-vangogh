@@ -1,6 +1,10 @@
 # Masterpiece - van Gogh
-`this` is a personal tour. The user can make his/her own decisions in the app.
-With the user in control, you've got your own tour!
+__Assignment description__:  
+Develop an interface that allows visitors of the Van Gogh museum to visit (with multimedia tour) by choosing different themes and presenting the results
+
+__Final concept__:  
+By swiping on the on the interface the user can make decisions to
+create his/her own tour. The decisions are based on the theme's within the museum. When they start the tour, the map will guide the user to his or her themes and paintings. 
 
 # Table of Content
 * [Getting started](#getting-started)
@@ -109,29 +113,10 @@ Some pictures of the test
 
 </details>
 
-
-# App decisions
-
-
-
-
-
-# Checklist
-An list with stuff that we need to do.
-
-- [x] install React
-- [x] A linter that connects with react.
-- [x] install Express
-- [x] let react communicate with express
-- [x] create a database
-- [x] create routes
-- [x] user scenario's
-- [x] create a new design
-- [x] npm scripts
-- [ ] zero-states
-- [x] test the app
-- [ ] service workers
-- [ ] animations
+# Wishlist
+- [ ] When you swiped there will be a tassel animation instead of a like or dislike icon
+- [ ] Loader more into Van Gogh's theme
+- [ ] More animations and smooth transitions
 
 
 # Lisence
