@@ -18,7 +18,10 @@ class Map extends Component {
     radio: "floor-1",
     paintingIndex: 0,
     pixelsPerProject: 60,
-    scrolling: false
+    scrolling: false,
+    startPosition: 0,
+    startIndex: 0,
+    startTransform: 0
   };
 
   UNSAFE_componentWillMount() {
@@ -33,7 +36,11 @@ class Map extends Component {
   }
 
   checkSelectedFloor = radio => {
-    this.setState({ radio });
+    this.setState({
+      paintingIndex: 0,
+      transform: 0,
+      radio
+    });
   };
 
   setFloor() {
@@ -69,11 +76,12 @@ class Map extends Component {
   }
 
   findScrollDirectionBrowsers = e => {
+    e.preventDefault();
     if (!this.state.scrolling) {
       let delta;
       let newIndex;
       let floor = this.setFloor();
-      let transform;
+
       if (e.wheelDelta) {
         delta = e.wheelDelta;
       } else {
@@ -103,6 +111,51 @@ class Map extends Component {
     }
   };
 
+  handleTouchStart = e => {
+    const startIndex = this.state.paintingIndex;
+    const startTransform = this.state.transform;
+    this.setState({
+      mouseDown: true,
+      startPosition: typeof e === "object" ? e.touches[0].pageX : undefined,
+      startIndex,
+      startTransform
+    });
+  };
+
+  handleSwipeMove = e => {
+    e.preventDefault();
+    if (e.touches) {
+      if (!this.state.scrolling) {
+        let startPosition = this.state.startPosition;
+        let newIndex;
+        let floor = this.setFloor();
+
+        if (startPosition > e.touches[0].pageX) {
+          newIndex =
+            this.state.paintingIndex < floor.length - 1
+              ? this.state.paintingIndex + 1
+              : floor.length - 1;
+        } else if (startPosition < e.touches[0].pageX) {
+          newIndex =
+            this.state.paintingIndex > 0 ? this.state.paintingIndex - 1 : 0;
+        } else {
+          newIndex = this.state.paintingIndex;
+        }
+        this.setState({
+          scrolling: true,
+          paintingIndex: newIndex,
+          transform: this.state.pixelsPerProject * newIndex
+        });
+
+        timeOut = setTimeout(() => {
+          this.setState({
+            scrolling: false
+          });
+        }, 1000);
+      }
+    }
+  };
+
   render() {
     let floor = this.setFloor();
     return (
@@ -123,10 +176,11 @@ class Map extends Component {
           <FloorNavigation radio={this.checkSelectedFloor} />
           <div>
             {this.state.radio === "floor-1"
-              ? floor.map(obj => {
+              ? floor.map((obj, i) => {
                   return (
                     <span
                       key={obj.number}
+                      className={this.state.paintingIndex === i ? "active" : ""}
                       style={{ left: obj.left, top: obj.top }}
                     >
                       {obj.number}
@@ -137,26 +191,32 @@ class Map extends Component {
             <img src={require("../images/map.svg")} alt="map" />
           </div>
         </main>
-        <ul
-          style={{
-            marginLeft: `calc(-${this.state.transform}vw - ${1.4 *
-              this.state.paintingIndex}rem)`
-          }}
-          className="painting-list"
+        <div
+          onTouchMove={e => this.state.mouseDown && this.handleSwipeMove(e)}
+          className="list-container"
         >
-          {floor.map(obj => {
-            return (
-              <li
-                key={obj.number}
-                style={{ backgroundImage: `url(${obj.src}` }}
-                className="painting-item"
-              >
-                <h2>{obj.title}</h2>
-                <span>{obj.number}</span>
-              </li>
-            );
-          })}
-        </ul>
+          <ul
+            style={{
+              marginLeft: `calc(-${this.state.transform}vw - ${1.4 *
+                this.state.paintingIndex}rem)`
+            }}
+            className="painting-list"
+            onTouchStart={this.handleTouchStart}
+          >
+            {floor.map(obj => {
+              return (
+                <li
+                  key={obj.number}
+                  style={{ backgroundImage: `url(${obj.src}` }}
+                  className="painting-item"
+                >
+                  <h2>{obj.title}</h2>
+                  <span>{obj.number}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     );
   }

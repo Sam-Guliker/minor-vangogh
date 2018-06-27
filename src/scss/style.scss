@@ -486,6 +486,10 @@ header {
   border-radius: 50%;
   background: $base-color;
   color: $white-color;
+  transition: all 200ms ease;
+  &.active {
+    transform: scale(1.5);
+  }
   }
   div {
   position: relative;
@@ -807,9 +811,13 @@ body #root .offset {
   height: 2em;
 }
 
+.list-container {
+  width: 100%;
+  overflow: hidden;
+}
 .painting-list {
   display: flex;
-  overflow-x: scroll;
+  overflow: hidden;
   height: 70vh;
   justify-content: flex-start;
   transition: margin-left 500ms ease;
