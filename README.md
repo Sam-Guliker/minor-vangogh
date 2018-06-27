@@ -2,6 +2,15 @@
 `this` is a personal tour. The user can make his/her own decisions in the app.
 With the user in control, you've got your own tour!
 
+*   [x] ReactJS
+*   [x] Service Worker
+*   [x] GZIP
+*   [x] SASS
+*   [x] ESLinter
+*   [x] Prettier
+*   [x] Minify Uglify
+
+
 # Table of Content
 * [Getting started](#getting-started)
 * [Concept](#concept)
