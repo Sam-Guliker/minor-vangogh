@@ -205,11 +205,15 @@ header {
     margin: 3.125rem $margin;
     padding: $double-padding $padding $padding;
     border-radius: $border-radius;
+    opacity: 1;
     text-align: center;
     max-height: 15em;
     overflow: hidden;
     background: $white-color url("../images/down.svg") no-repeat center 1em;
-    transition: max-height 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    &.hidden {
+      opacity: 0;
+    }
     &:after {
       content: "";
       position: absolute;
@@ -489,6 +493,7 @@ header {
   transition: all 200ms ease;
   &.active {
     transform: scale(1.5);
+    background: $purple-color
   }
   }
   div {
@@ -880,3 +885,21 @@ body #root .offset {
   }
 }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  .path{
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 3s cubic-bezier(.67,.19,.38,1.05) infinite;
+  }
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -250;
+  
+    }
+  }
+}

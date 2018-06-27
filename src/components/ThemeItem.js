@@ -15,7 +15,14 @@ class ThemeItem extends Component {
       collapsed
     });
   };
+
   render() {
+    let hidden;
+    if (this.props.load) {
+      hidden = " hidden";
+    } else {
+      hidden = "";
+    }
     return (
       <article
         style={{
@@ -29,16 +36,14 @@ class ThemeItem extends Component {
           <img src={require("../images/clock.svg")} alt="clock" />
           {this.props.theme.time}
         </span>
-        {this.props.load ? (
-          undefined
-        ) : (
-          <div
-            onClick={this.toggleInfo}
-            className={this.state.collapsed ? "info collapsed" : "info"}
-          >
-            <p>{this.props.theme.discription}</p>
-          </div>
-        )}
+        <div
+          onClick={this.toggleInfo}
+          className={
+            this.state.collapsed ? "info collapsed" + hidden : "info" + hidden
+          }
+        >
+          <p>{this.props.theme.discription}</p>
+        </div>
       </article>
     );
   }

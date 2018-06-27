@@ -50,6 +50,9 @@ class addThemes extends Component {
             handleSelection={this.handleSelection}
             popButton={this.onClickButton}
           />
+          <div className="loader">
+            You've selected all the themes! Review them if you like
+          </div>
         </main>
         <FooterButton name="Start tour" link="/map">
           <span>{this.state.selected}</span>

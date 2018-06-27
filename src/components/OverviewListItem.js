@@ -14,7 +14,7 @@ class OverviewListItem extends Component {
         <div>
           <h2 className="item-title">{obj.name}</h2>
           <p>
-            <img src={require("../images/clock.svg")} />
+            <img src={require("../images/clock.svg")} alt="clock" />
             {obj.time}
           </p>
         </div>

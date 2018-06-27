@@ -50,7 +50,8 @@ create his/her own tour. The decisions are based on the theme's within the museu
 
 # Users
 The avarage age of the visitors of the Van Gogh museum is 31.  
-50% from their users are between 18-30 years old. The museum is very populair among tourists. They have visitors from all over the world. 
+50% from their users are between 18-30 years old. The museum is very populair among tourists. 
+They have visitors from all over the world. 
 
 # User Scenario
 <b>User scenario personalisation</b><br>
@@ -114,7 +115,7 @@ Some pictures of the test
 </details>
 
 # Wishlist
-- [ ] When you swiped there will be a tassel animation instead of a like or dislike icon
+- [ ] When you swiped there will be a painting animation instead of a like or dislike icon
 - [ ] Loader more into Van Gogh's theme
 - [ ] More animations and smooth transitions
 

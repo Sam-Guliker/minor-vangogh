@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { TweenMax, Power3, TweenLite, TimelineLite } from "gsap/TweenMax";
-import { Link } from "react-router-dom";
+import { Power3, TimelineLite } from "gsap/TweenMax";
 
 class LikeFooter extends Component {
   state = {
