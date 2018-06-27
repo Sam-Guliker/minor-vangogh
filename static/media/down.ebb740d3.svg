@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="10px" viewBox="0 0 17 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>chevron-up</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Selected" transform="translate(-179.000000, -487.000000)" fill="#3C3C3C">
+            <path d="M194.716031,496.895205 C194.410444,496.895205 194.105148,496.775589 193.876685,496.537813 L187.440145,489.843707 L181.003314,496.537813 C180.557448,497.001142 179.820546,497.015694 179.357218,496.570118 C178.893889,496.124543 178.879338,495.387641 179.324913,494.924313 L186.600799,487.357392 C186.82024,487.128929 187.123499,487 187.440145,487 C187.756501,487 188.05976,487.128929 188.2792,487.357392 L195.555086,494.924313 C196.000662,495.387641 195.98611,496.124543 195.522781,496.570118 C195.296938,496.787231 195.006485,496.895205 194.716031,496.895205" id="chevron-up" transform="translate(187.440000, 491.947603) scale(-1, -1) translate(-187.440000, -491.947603) "></path>
+        </g>
+    </g>
+</svg>
