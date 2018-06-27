@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
     "graceful-fs": "^4.1.11",
     "gsap": "^2.0.1",
     "react": "^16.4.0",

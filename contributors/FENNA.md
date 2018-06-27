@@ -55,7 +55,7 @@ Ryan arrives at the gogh museum. This was an impulsive idea. He doesn't feel lik
 The user can choose from many themes. There are 14 in total. These are quite a few themes. By keeping the themes and information about the themes on one page, the user can quickly go through the themes. All they have to do is swip left or right to add or skip a theme. The information can be folded in and out to better view the theme's image. The user can see how long the themes last and how long the tour lasts in total after adding the themes. He can look back at his selection or start the tour at any time. 
 
 
-<b>Result</b><br>
+<b>User scenario tour</b><br>
 Fransisco & Dafne are from Italy. They go to the van gogh museum to admire his work. They want to participate in the multimedia tour. They pick up a device at the desk and start the personalization tour. After selecting all themes, they start the tour. On the screen they see their position on the map. The map also shows the first painting of the tour. They know where to go to find the painting.
 
 The app shows a floor plan for each floor and the paintings of the tour are shown on it. The paintings are in a list underneath the map with their name and number. The number op the painting is also shown on the map. The first painting is extra large indicated on the map.  When you scroll through to the next painting, that one will be enlarged on the map. 
