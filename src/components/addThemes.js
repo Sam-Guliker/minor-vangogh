@@ -20,7 +20,8 @@ function handleSelection() {
 class addThemes extends Component {
   state = {
     selected: handleSelection(),
-    pop: false
+    pop: false,
+    time: "00:00"
   };
 
   handleSelection = (selected, time) => {
@@ -43,20 +44,22 @@ class addThemes extends Component {
           >
             Back
           </Link>
-          <span className="right">{this.state.time}</span>
+          <Link className="right button-small list" to="/overview">
+            Menu
+            <span>{this.state.selected}</span>
+          </Link>
         </Header>
         <main>
           <ThemesList
             handleSelection={this.handleSelection}
             popButton={this.onClickButton}
+            time={this.state.time}
           />
           <div className="loader">
             You've selected all the themes! Review them if you like
           </div>
         </main>
-        <FooterButton name="Start tour" link="/map">
-          <span>{this.state.selected}</span>
-        </FooterButton>
+        <FooterButton name="Start tour" link="/map" />
       </div>
     );
   }

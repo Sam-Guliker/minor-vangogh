@@ -317,6 +317,7 @@ class ThemesList extends Component {
           handleSelection={this.handleSelection}
           themesLength={themes.length}
           onUndo={this.onUndo}
+          time={this.props.time}
           themeIndex={this.state.themeIndex}
         />
       </section>
