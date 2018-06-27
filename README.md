@@ -58,7 +58,56 @@ Fransisco & Dafne are from Italy. They go to the van gogh museum to admire his w
 # Testing
 
 ## A/B Usability test classmates
+We both made a prototype. Fenna made prototype A and Sam prototype B. Prototype B was questionnaire. After the questionaire the tour was generated for you based on your answers.  With prototype A, you could view and add your own themes to the tour.
+
+Findings
+The following came out of the test results: 
+- People who want to make a personalised tour take the time to do so
+- The start button of prototype A was too clogged up
+- People felt that the questionnaire was not personal and that it was vague
+- People did not bother to go to the info page of the theme
+
+Design Choices
+From these test results we decided to make different elements of the prototypes and to make a nice fusion of them.
+
+The user has to make a choice for each theme. He can do this to swip left or right. The info of the theme is on the same page instead of individually. The start button has been made clearer. Both prototypes also had a timer. We used the overview page of prototype A.
+
 ## Usability test museumplein
+We tested the app with (real) people at museumplein. 
+
+<b>Conclusions</b>  
+1. On the text field the swipe function was removed because it also had a click function. However, all test persons tried to swip over the text field and therefore the swipe didn't succeed. 
+
+    <b>Improvement: </b>We have made sure that you can also swipe over the text field
+
+2. The test persons want to have more information about the themes.
+
+    <b>Improvement: </b>We decided to leave the text field unfolded by default.  
+
+3. The test subjects were not interested in the overview page this is because they are confident about the choices they made. This was the last step before they could start the tour. 
+
+    <b>Improvement: </b>We now put the overview page in a menu item but left it out of the flow.  
+ 
+
+Some pictures of the test  
+<details>
+<summary>Image 1</summary>
+
+![Test 1](https://github.com/Sam-Guliker/minor-vangogh/blob/master/src/images/test1.jpeg)
+
+</details>
+<details>
+<summary>Image 2</summary>
+
+![Test 2](https://github.com/Sam-Guliker/minor-vangogh/blob/master/src/images/test2.jpeg)
+
+</details>
+<details>
+<summary>Image 3</summary>
+
+![Test 3](https://github.com/Sam-Guliker/minor-vangogh/blob/master/src/images/test3.jpeg)
+
+</details>
 
 
 # App decisions
