@@ -39,11 +39,13 @@ We have designed and tested this interface in 5 weeks. The end result is a proto
 
 
 ### Real time web 
-<b>Get real time data of a node MCU and connect this with Socket.js</b>
+<b>Learning goal: Get real time data of a node MCU and connect this with Socket.js</b>
 
 Real time data get inside by means of a NodeMCU. I worked with this for a week to get data from a HC-SR04 Ultrasone sensor so we could measure the amount of people in front of a painting. I also connected to WIFI to post this data on a server. However, at the first feedback meeting we found out that working with sensors was not a good idea, so we moved away from the idea.
 
 ### Web design
+<b>Learning goal: I want to examine the needs of the user. This is important for the interaction and flow of the design. The user must be able to achieve his goal by using the app. I am going to do this by means of user scenarios and tests.</b>
+
 We have written user scenario's for the flow of the interface and the interactions. We created or app based on the user scenario and the users needs.
 
 <b>User scenario personalisation</b><br>
@@ -60,8 +62,7 @@ The app shows a floor plan for each floor and the paintings of the tour are show
 
 In the future we would like the visitor to be able to see where he is in the building. We faked that in the app for now. We would also want to be able to give them instructions on where to go.
 
-
-<b>Test results</b><br>
+[Here you can find the test results from the usability test at the museumplein](https://github.com/Sam-Guliker/minor-vangogh/blob/master/README.md)
 
 
 ### Webapp from Scratch
