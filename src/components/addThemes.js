@@ -4,6 +4,7 @@ import ThemesList from "./ThemesList";
 import themes from "../data/themes";
 import FooterButton from "./FooterButton";
 import { Link } from "react-router-dom";
+import Overview from "./Overview";
 
 function handleSelection() {
   let result = 0;
@@ -43,7 +44,7 @@ class addThemes extends Component {
           >
             Back
           </Link>
-          <span className="right">{this.state.time}</span>
+          <span className="right">{this.state.selected}</span>
         </Header>
         <main>
           <ThemesList
