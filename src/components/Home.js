@@ -8,6 +8,9 @@ class Home extends Component {
       <div>
         <Header />
         <main className="tours">
+          <article className="intro-text">
+            <h1>Welcome to the multimedia tour of the Van Gogh Museum</h1>
+          </article>
           <ul>
             <li>
               <Link className="button" to="/introduction">

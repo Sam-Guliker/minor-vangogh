@@ -7,8 +7,6 @@ class LikeFooter extends Component {
     popDown: ""
   };
 
-  listButton = React.createRef();
-
   onClickButton = (e, selected) => {
     if (this.props.themeIndex !== this.props.themesLength) {
       this.props.handleSelection(selected);
@@ -26,39 +24,12 @@ class LikeFooter extends Component {
     });
   }
 
-  onUndo = e => {
-    let undoButton = e.target;
-    // const tl = new TimelineLite();
-    // tl.to(undoButton, 0.6, {
-    //   ease: Power3.easeInOut,
-    //   rotation: "+=360",
-    //   transformOrigin: "50% 50%"
-    // });
-
-    if (this.props.themeIndex === 1) {
-      this.setState({
-        popDown: "popDown"
-      });
-    }
-
-    this.props.onUndo();
-  };
-
   render() {
     return (
       <div className="like-footer">
         <button
           onClick={e => this.onClickButton(e, false)}
           className="round-button dislike"
-        />
-        <button
-          ref={this.listButton}
-          onClick={e => this.onUndo(e)}
-          className={
-            this.props.themeIndex > 0
-              ? "round-button small undo visible " + this.state.popDown
-              : "round-button small undo " + this.state.popDown
-          }
         />
         <button
           onClick={e => this.onClickButton(e, true)}

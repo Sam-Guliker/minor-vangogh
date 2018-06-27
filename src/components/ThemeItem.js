@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class ThemeItem extends Component {
   state = {
-    collapsed: true
+    collapsed: false
   };
   toggleInfo = () => {
     let collapsed;

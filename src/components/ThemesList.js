@@ -246,7 +246,7 @@ class ThemesList extends Component {
     }
 
     if (this.state.redirect) {
-      return <Redirect to="/overview" />;
+      return <Redirect to="/map" />;
     }
 
     return (

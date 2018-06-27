@@ -19,9 +19,12 @@ class Home extends Component {
           </Link>
         </Header>
         <main className="introduction">
-          <article>
+          <article className="intro-text">
             <h1>Introduction</h1>
-            <p>Select theme’s that you like to make your own tour!</p>
+            <p>
+              With the personal tour you can create your own tour by choosing
+              themes that you find interesting
+            </p>
           </article>
         </main>
         <FooterButton name="create tour" link="/start" />

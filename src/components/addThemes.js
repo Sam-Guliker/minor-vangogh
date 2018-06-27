@@ -51,7 +51,7 @@ class addThemes extends Component {
             popButton={this.onClickButton}
           />
         </main>
-        <FooterButton name="Preview tour" link="/overview">
+        <FooterButton name="Start tour" link="/map">
           <span>{this.state.selected}</span>
         </FooterButton>
       </div>
