@@ -6,7 +6,7 @@ const themes = [
     discription:
       "Many are influenced by Van Gogh’s work: whether it be by his choice of subject, brushwork or sense of color.",
     time: "5 min",
-    selected: true,
+    selected: false,
     paintings: [
       {
         number: 89,
@@ -23,7 +23,7 @@ const themes = [
     discription:
       "It is widely believed that Vincent van Gogh found it hard to stay friends with people, and so he had a lonely life. But is this true?",
     time: "7 min",
-    selected: true,
+    selected: false,
     paintings: [
       {
         number: 53,
