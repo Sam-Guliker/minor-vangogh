@@ -530,7 +530,7 @@ module.exports = itemRouter;
 * [Eslint](https://eslint.org/docs/user-guide/configuring)
 * [Sass](https://sass-lang.com/)
 
-#Conculsions
+# Conculsions
 After a rough start I am satisfied with how the project went, after the new design and attitude within our group I have been able to acquire a lot. I was able to learn a lot in collaboration with Fenna de Wilde, on code base but also in a group context.
 
 I am especially pleased with the progress on component-based working and that I was able to focus on this very well at first. It is a pity that I broke my wrist during the 4th week, because of this I was able to do a little less in programming the last week.
