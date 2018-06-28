@@ -4,16 +4,7 @@ together with Fenna de Wilde for the Van Gogh Museum.
 `This` was a 5 week assignment with the end result of a personal media tour.
 
 Our section consists of creating a design and an interface for the user that wants to do the personal tour.
-
-__Assignment description__:  
-Develop an interface that allows visitors of the Van Gogh museum to visit  
-(with multimedia tour) by choosing different themes and presenting the results.
-
-__Final concept__:  
-By swiping on the on the interface the user can make decisions to  
-create his/her own tour. The decisions are based on the theme's  
-within the museum. When they start the tour, the map will  
-guide the user to his or her themes and paintings. 
+ 
 
 [The App](https://sam-guliker.github.io/minor-vangogh/)  
 ![preview](images/app.gif)
@@ -21,13 +12,14 @@ guide the user to his or her themes and paintings.
 # Table of Content
 * [Getting started](#getting-started)
 * [Introduction](#introduction)
-* [Dependencies](#dependencies)
 * [Features](#features)
 * [Learning Goals](#learning-goals)
 * [Worklflow](#workflow)
 * [User Scenario](#user-scenario)
 * [Important to mention](#important-to-mention)
+* [Dependencies](#dependencies)
 * [Wishlist](#wishlist)
+* [Conclusions](Conclusions)
 * [License](#license)
 
 # Getting Started
@@ -45,17 +37,6 @@ Develop an interface that allows visitors to the museum to visit  (with multimed
 __Final concept__:  
 By swiping on the on the interface the user can make decisions to
 create his/her own tour. The decisions are based on the theme's within the museum. When they start the tour, the map will guide the user to his or her themes and paintings. 
-
-# Dependencies
-*   [x] ReactJS
-*   [x] Service Worker
-*   [x] GZIP
-*   [x] SASS
-*   [x] ESLinter
-*   [x] Prettier
-*   [x] Minify Uglify
-*   [x] GSAP
-*   [x] Gulp
 
 # Features
 - User can make his/her own decisions
@@ -521,6 +502,16 @@ module.exports = itemRouter;
 
 </details>
 
+# Dependencies
+*   [x] ReactJS
+*   [x] Service Worker
+*   [x] GZIP
+*   [x] SASS
+*   [x] ESLinter
+*   [x] Prettier
+*   [x] Minify Uglify
+*   [x] GSAP
+*   [x] Gulp
 
 # Wishlist
 - [ ] When you swiped there will be a painting animation instead of a like or dislike icon
@@ -538,6 +529,13 @@ module.exports = itemRouter;
 * [Express](https://expressjs.com/)
 * [Eslint](https://eslint.org/docs/user-guide/configuring)
 * [Sass](https://sass-lang.com/)
+
+#Conculsions
+After a rough start I am satisfied with how the project went, after the new design and attitude within our group I have been able to acquire a lot. I was able to learn a lot in collaboration with Fenna de Wilde, on code base but also in a group context.
+
+I am especially pleased with the progress on component-based working and that I was able to focus on this very well at first. It is a pity that I broke my wrist during the 4th week, because of this I was able to do a little less in programming the last week.
+
+Translated with www.DeepL.com/Translator
 
 
 # Lisence
